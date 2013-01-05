@@ -3,36 +3,30 @@
 <pre>
 <h1>Build Log</h1>
 <h3>
---------------------Configuration: Exam005 - Win32 Debug--------------------
+--------------------Configuration: exam005 - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\DOCUME~1\cqiyi\LOCALS~1\Temp\RSPA8.tmp" with contents
+Creating temporary file "C:\DOCUME~1\cqiyi\LOCALS~1\Temp\RSP5C.tmp" with contents
 [
-/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR"Debug/" /Fp"Debug/Exam005.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ  /c 
-"C:\kaoshi\01_数据结构\MyWorkspace\Exam005\test.cpp"
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/exam005.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ  /c 
+"C:\kaoshi\01_数据结构\MyWorkspace\exam005\exam005.cpp"
 ]
-Creating command line "cl.exe @C:\DOCUME~1\cqiyi\LOCALS~1\Temp\RSPA8.tmp" 
-Creating temporary file "C:\DOCUME~1\cqiyi\LOCALS~1\Temp\RSPA9.tmp" with contents
+Creating command line "cl.exe @C:\DOCUME~1\cqiyi\LOCALS~1\Temp\RSP5C.tmp" 
+Creating temporary file "C:\DOCUME~1\cqiyi\LOCALS~1\Temp\RSP5D.tmp" with contents
 [
-kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/Exam005.pdb" /debug /machine:I386 /out:"Debug/Exam005.exe" /pdbtype:sept 
-".\Debug\test.obj"
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/exam005.pdb" /debug /machine:I386 /out:"Debug/exam005.exe" /pdbtype:sept 
+".\Debug\exam005.obj"
 ]
-Creating command line "link.exe @C:\DOCUME~1\cqiyi\LOCALS~1\Temp\RSPA9.tmp"
+Creating command line "link.exe @C:\DOCUME~1\cqiyi\LOCALS~1\Temp\RSP5D.tmp"
 <h3>Output Window</h3>
 Compiling...
-test.cpp
-C:\kaoshi\01_数据结构\MyWorkspace\Exam005\test.cpp(148) : warning C4018: '<' : signed/unsigned mismatch
-C:\kaoshi\01_数据结构\MyWorkspace\Exam005\test.cpp(171) : warning C4101: 'i' : unreferenced local variable
-C:\kaoshi\01_数据结构\MyWorkspace\Exam005\test.cpp(171) : warning C4101: 'j' : unreferenced local variable
+exam005.cpp
 Linking...
-Creating command line "bscmake.exe /nologo /o"Debug/Exam005.bsc"  ".\Debug\test.sbr""
-Creating browse info file...
-<h3>Output Window</h3>
 
 
 
 <h3>Results</h3>
-Exam005.exe - 0 error(s), 3 warning(s)
+exam005.exe - 0 error(s), 0 warning(s)
 </pre>
 </body>
 </html>
