@@ -3,7 +3,6 @@
 */
 
 #include "iostream.h"
-#include "stdlib.h"
 
 void exit(int);
 
