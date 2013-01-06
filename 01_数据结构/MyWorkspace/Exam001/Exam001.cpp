@@ -4,7 +4,9 @@
 
 #include "iostream.h"
 #include "stdlib.h"
+
 void exit(int);
+
 #define Maxnode 40
 int arc[Maxnode][Maxnode]= {0};
 
@@ -12,7 +14,7 @@ void topsort(int n)
 {
 	int Inde[Maxnode]= {0},count=0,flag,sort[Maxnode];
 	flag=0;
-	while (1)
+	while (true)
 	{
 		if(count>=n)break;
 		for(int j = 0; j<n;)
@@ -30,7 +32,7 @@ void topsort(int n)
 					{
 						if(i==j)
 						{
-							cout<<"这个有向图含有环."<<endl;
+							cout<<"这个有向图含有环, 自环."<<endl;
 							return;
 						}
 						flag++;
@@ -55,8 +57,9 @@ L1:
 	cout<<"拓扑序列如下："<<endl;
 	for(int i=0; i<n; i++)
 	{
-		cout<<"V"<<sort[i];
+		cout<<"V"<<sort[i]<<" ";
 	}
+	cout<<endl;
 
 }
 void showMG(int n)
