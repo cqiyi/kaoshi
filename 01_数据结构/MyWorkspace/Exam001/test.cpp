@@ -14,10 +14,8 @@ int n,index = 0;
 
 void showMGraph()
 {
-	for(int i=0; i<n; i++)
-	{
-		for(int j=0; j<n; j++)
-		{
+	for(int i=0; i<n; i++) {
+		for(int j=0; j<n; j++) {
 			cout<<arc[i][j]<<" ";
 		}
 		cout<<endl;
@@ -28,8 +26,7 @@ void showMGraph()
 //检查是否存在指向NodeID节点的边(入度)
 bool hasInRoad(int nodeID)
 {
-	for(int i=0; i<n; i++)
-	{
+	for(int i=0; i<n; i++) {
 		if(arc[i][nodeID] == 1) return true;
 	}
 	return false;
@@ -38,8 +35,7 @@ bool hasInRoad(int nodeID)
 //从图中移除该节点，移除了的节点，值为-1
 void removeNode(int nodeID)
 {
-	for(int j=0; j<n; j++)
-	{
+	for(int j=0; j<n; j++) {
 		arc[nodeID][j] = -1;
 	}
 }
@@ -48,23 +44,20 @@ void showList()
 {
 	//输出拓扑排序结果
 	cout<<"拓扑排序如下:"<<endl;
-	for(int i=0; i<n; i++)
-	{
+	for(int i=0; i<n; i++) {
 		cout<<"V"<<list[i]<<" ";
 	}
 	cout<<endl;
 }
 
 void main()
-{	
+{
 	cout<<"请输入有向图的节点，以-1,-1结束:"<<endl;
 	int i,j;
-	while(true)
-	{
+	while(true) {
 		cin>>i>>j;
 		if(i==-1 && j==-1) break;
-		if(i<0  || j<0)
-		{
+		if(i<0  || j<0) {
 			cout<<"输入错误"<<endl;
 			exit(1);
 		}
@@ -73,8 +66,7 @@ void main()
 	}
 	cout<<"节点数(1~"<<MAX_NODE<<"):"<<endl;
 	cin>>n;
-	if(n<1 || n>MAX_NODE)
-	{
+	if(n<1 || n>MAX_NODE) {
 		cout<<"错误,节点数必须是在1到"<<MAX_NODE<<"之间的数"<<endl;
 		exit(1);
 	}
@@ -83,13 +75,11 @@ void main()
 	showMGraph();
 
 	//进行拓扑排序
-	while(true)
-	{
+	while(true) {
 		//假设所有剩余的节点都没有入度
 		bool flag = true;
 
-		for(int i=0; i<n; i++)
-		{
+		for(int i=0; i<n; i++) {
 			//如果是已被移除或者存在入度的节点
 			if((arc[nodeID][nodeID] == -1) || hasInRoad(i)) continue;
 
@@ -101,14 +91,12 @@ void main()
 			removeNode(i);
 
 			//所有节点都已经排序
-			if(index>=n)
-			{
+			if(index>=n) {
 				showList();
 				return;
 			}
 		}
-		if(flag)
-		{
+		if(flag) {
 			cout<<"该有向图含有环."<<endl;
 			exit(2);
 		}

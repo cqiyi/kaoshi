@@ -10,18 +10,14 @@ int InsertSort(int n)
 	int count= 1;
 	int temp;
 	int j;
-	for(int i = 1; i< n ; i++)
-	{
-		if(a[i] < a[i-1] && count ++)
-		{
+	for(int i = 1; i< n ; i++) {
+		if(a[i] < a[i-1] && count ++) {
 			temp = a[i];
 			j = i-1;
-			do
-			{
+			do {
 				a[j+1] = a[j];
 				j--;
-			}
-			while (temp < a[j] && count ++);
+			} while (temp < a[j] && count ++);
 			a[j+1] = temp;
 		}
 	}
@@ -36,16 +32,14 @@ void main()
 	cin>>temp;
 
 	int n = 0;
-	while(temp != -9999)
-	{
+	while(temp != -9999) {
 		a[n++]= temp;
 		cin>>temp;
 	}
 
 	int count = InsertSort(n);
 
-	for(int i = 0; i < n; i++)
-	{
+	for(int i = 0; i < n; i++) {
 		cout<<a[i]<<" ";
 	}
 	cout<<"\nthe num is "<<count<<endl;

@@ -8,8 +8,7 @@ void main()
 {
 	int a[2000],i,j,k=0,CountA;
 	printf("input data\n");
-	for(i=1; i<=2001; i++)
-	{
+	for(i=1; i<=2001; i++) {
 		scanf("%d",&a[i]);
 		if(a[i]==-9999)
 			break;
@@ -18,18 +17,15 @@ void main()
 
 
 	for(i=2; i<=CountA; i++)
-		if(a[i]<a[i-1])
-		{
+		if(a[i]<a[i-1]) {
 			a[0]=a[i];
 			j=i-1;
 
-			do
-			{
+			do {
 				a[j+1]=a[j];
 				j--;
 				k++;
-			}
-			while(a[0]<a[j]);
+			} while(a[0]<a[j]);
 			a[j+1]=a[0];
 		}
 

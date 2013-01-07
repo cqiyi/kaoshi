@@ -13,5 +13,5 @@ int arc[MAX_NODE][MAX_NODE]= {0};
 void main(void)
 {
 	return 0;
-	
+
 }

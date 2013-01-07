@@ -3,8 +3,7 @@
 *********************************************/
 
 #include <iostream.h>
-struct MyList
-{
+struct MyList {
 	int m_num;
 	MyList *m_pNext;
 };
@@ -21,31 +20,23 @@ void Input(MyList &head)
 
 	MyList *tp = NULL;
 	bool bFlag = true;
-	while(-9999 != temp)
-	{
+	while(-9999 != temp) {
 		p = head.m_pNext;
-		if(0 != head.m_num)
-		{
+		if(0 != head.m_num) {
 			bFlag = true;
-			while(p->m_num < temp)
-			{
-				if(NULL == p->m_pNext)
-				{
+			while(p->m_num < temp) {
+				if(NULL == p->m_pNext) {
 					bFlag = false;
 					break;
 				}
 				p = p->m_pNext;
 			}
-			if(p->m_num != temp)
-			{
+			if(p->m_num != temp) {
 				tp = new MyList;
-				if(bFlag)
-				{
+				if(bFlag) {
 					tp->m_num = p->m_num;
 					p->m_num = temp;
-				}
-				else
-				{
+				} else {
 					tp->m_num = temp;
 				}
 				tp->m_pNext = p->m_pNext;
@@ -53,9 +44,7 @@ void Input(MyList &head)
 
 				head.m_num ++;
 			}
-		}
-		else
-		{
+		} else {
 			tp = new MyList;
 			tp->m_num = temp;
 			tp->m_pNext = NULL;
@@ -75,18 +64,15 @@ void GetSort(MyList &A,MyList &B,MyList &C)
 	pB = B.m_pNext;
 	pC = &C;
 	C.m_num = 0;
-	for(int i = 0; i<A.m_num; i++)
-	{
+	for(int i = 0; i<A.m_num; i++) {
 		if(pA == NULL || pB == NULL )
 			return;
-		while(pA->m_num < pB->m_num)
-		{
+		while(pA->m_num < pB->m_num) {
 			if(NULL== pA->m_pNext)
 				return;
 			pA = pA->m_pNext;
 		}
-		if(pA->m_num == pB->m_num)
-		{
+		if(pA->m_num == pB->m_num) {
 			C.m_num ++;
 			tp = new MyList;
 			tp->m_num = pA->m_num;
@@ -95,11 +81,8 @@ void GetSort(MyList &A,MyList &B,MyList &C)
 			pC = pC->m_pNext;
 			pA = pA->m_pNext;
 			pB = pB->m_pNext;
-		}
-		else
-		{
-			while(pA->m_num > pB->m_num)
-			{
+		} else {
+			while(pA->m_num > pB->m_num) {
 				if(NULL== pB->m_pNext)
 					return;
 				pB = pB->m_pNext;
@@ -110,8 +93,7 @@ void GetSort(MyList &A,MyList &B,MyList &C)
 void ShowList(MyList &T)
 {
 	MyList *p = T.m_pNext;
-	for(int i = 0; i<T.m_num; i++)
-	{
+	for(int i = 0; i<T.m_num; i++) {
 		cout<<p->m_num<<" ";
 		p = p->m_pNext;
 	}
@@ -121,8 +103,7 @@ void Destroy(MyList &T)
 {
 	MyList *p = T.m_pNext;
 	MyList *tp;
-	for(int i = 0; i<T.m_num; i++)
-	{
+	for(int i = 0; i<T.m_num; i++) {
 		tp = p->m_pNext;
 		delete p;
 		p = tp;

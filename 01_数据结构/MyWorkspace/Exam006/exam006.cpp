@@ -4,10 +4,8 @@
 #define  MAX 100
 char FList[MAX]= {0}; //前序队列	a b d f g c e
 char MList[MAX]= {0}; //中序队列	d b g f a c e
-struct node
-{
-	node()
-	{
+struct node {
+	node() {
 		d = 0;
 		lChild = NULL;
 		rChild = NULL;
@@ -20,34 +18,28 @@ void MakeTree(int FStart,int FEnd,int MStart,int MEnd,node &T)
 {
 	T.d = FList[FStart];
 	bool Found = false;
-	for(int i = MStart; i<= MEnd && !Found; i++)
-	{
-		if( FList[FStart] == MList[i])
-		{
+	for(int i = MStart; i<= MEnd && !Found; i++) {
+		if( FList[FStart] == MList[i]) {
 			Found = true;
-			if( i != MStart)
-			{
+			if( i != MStart) {
 				node *p = new node();
 				T.rChild = p;
 				MakeTree(FStart+1,FStart+i-MStart,MStart,i-1,*(T.rChild));
 			}
-			if( i != MEnd)
-			{
+			if( i != MEnd) {
 				node *p = new node();
 				T.lChild = p;
 				MakeTree(FStart+i-MStart+1,FEnd,i+1,MEnd,*(T.lChild));
 			}
 		}
 	}
-	if(!Found)
-	{
+	if(!Found) {
 		cout<<"\n error"<<endl;
 	}
 }
 void BackOrder(node *r)
 {
-	if(r)
-	{
+	if(r) {
 		BackOrder(r->rChild);
 		BackOrder(r->lChild);
 		cout<<r->d<<" ";
@@ -57,8 +49,7 @@ int leaf(node *r)
 {
 	if(!r)
 		return 0;
-	else
-	{
+	else {
 		if( NULL == r->lChild &&
 		        NULL == r->rChild )
 			return 1;
@@ -70,13 +61,11 @@ int Height(node *r,int i)
 {
 	if(!r)
 		return 0;
-	else
-	{
+	else {
 		if( NULL == r->lChild &&
 		        NULL == r->rChild )
 			return 0;
-		else
-		{
+		else {
 			i++;
 			int il = 0;
 			il = Height(r->lChild,i);

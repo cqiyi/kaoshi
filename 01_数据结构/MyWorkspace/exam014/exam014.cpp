@@ -8,45 +8,37 @@ template <class T>
 class BSTree : public BTree<T>
 {
 public:
-	BTNode<T>* &find(const T &data)
-	{
+	BTNode<T>* &find(const T &data) {
 		BTNode<T>** p = &root;
 		current = NULL;
-		while(*p)
-		{
+		while(*p) {
 			if ((*p)->data == data) break;
 			{
-				f ((*p)->data < data)
-				{
+				f ((*p)->data < data) {
 					current = *p;
 					p = &((*p)->right);
 				}
-				else
-				{
+				else {
 					current = *p;
 					p = &((*p)->left);
 				}
 			}
 			return *p;
 		}
-		bool insert(const T &data)
-		{
+		bool insert(const T &data) {
 			BTNode<T>* &p = find(data);
 			if (p) return false;
 			p = new BTNode<T>(data, NULL, NULL, current);
 			return true;
 		}
-		bool remove(const T &data)
-		{
+		bool remove(const T &data) {
 			return remove(find(data));
 		}
 private:
-		bool remove(BTNode<T>* &p)
-		{
+		bool remove(BTNode<T>* &p) {
 			if (!p) return false;
 			BTNode<T>* t = p;
-			if (!p->left || !p->right)
-			{
+			if (!p->left || !p->right) {
 				if (!p->left) p = p->right;
 				else p = p->left;
 				if (p) p->parent = current;

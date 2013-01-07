@@ -9,16 +9,14 @@ void main()
 	printf("Input the number:\n");
 	scanf("%d",&temp);
 	printf("Input a:\n");
-	for(i = 0; i < 2000; i++)
-	{
+	for(i = 0; i < 2000; i++) {
 		scanf("%d",&a[i]);
 		if(a[i] == -9999)
 			break;
 	}
 	count = i;
 	for(i = 0; i < count; i++)
-		if(a[i] == temp)
-		{
+		if(a[i] == temp) {
 			printf("Yes,the number is: %d\n",i);
 			return;
 		}

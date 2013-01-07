@@ -15,13 +15,11 @@ void read(int a[])
 {
 	int x,i=1;
 	printf("Input the date :\n");
-	do
-	{
+	do {
 		scanf("%d",&x);
 		if(x==-9999)return;
 		a[i++]=x;
-	}
-	while(9);
+	} while(9);
 
 }
 void main()

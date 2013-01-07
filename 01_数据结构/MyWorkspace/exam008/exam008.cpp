@@ -7,10 +7,8 @@
 char CNodeList[MAX]= {0} ;
 int length = 0;		//节点个数
 int count = 0;		//叶子数目的2倍
-struct STreeNode
-{
-	STreeNode()
-	{
+struct STreeNode {
+	STreeNode() {
 		node = 0;
 		lChild = NULL;
 		rChild = NULL;
@@ -21,19 +19,16 @@ struct STreeNode
 };
 void MakeTree(STreeNode &p,int i)
 {
-	if( i< length)
-	{
+	if( i< length) {
 		p.node =  CNodeList[i];
 		p.lChild = NULL;
 		p.rChild = NULL;
-		if(i*2+1<length)
-		{
+		if(i*2+1<length) {
 			STreeNode *r = new STreeNode();
 			p.rChild = r;
 			MakeTree(*(p.rChild),i*2+1);
 		}
-		if(i*2+2 < length)
-		{
+		if(i*2+2 < length) {
 			STreeNode *l = new STreeNode();
 			p.lChild = l;
 			MakeTree(*(p.lChild),i*2+2);
@@ -42,14 +37,11 @@ void MakeTree(STreeNode &p,int i)
 }
 void ShowTree(STreeNode *p)
 {
-	if(p)
-	{
+	if(p) {
 		ShowTree(p->rChild);
 		ShowTree(p->lChild);
 		cout<<p->node;
-	}
-	else
-	{
+	} else {
 		count++;
 	}
 }

@@ -6,8 +6,7 @@
 
 #include <stdio.h>
 
-typedef struct
-{
+typedef struct {
 	int data[2000];
 	int length;
 } SeqList;
@@ -17,8 +16,7 @@ void main()
 	int i,k=0,num;
 	SeqList a;
 	printf("input data\n");
-	for(i=0; i<2000; i++)
-	{
+	for(i=0; i<2000; i++) {
 		scanf("%d",&a.data[i]);
 		if(a.data[i]==-9999)
 			break;
@@ -27,11 +25,9 @@ void main()
 
 	printf("input the number\n");
 	scanf("%d",&num);
-	for(i=0; i<=a.length; i++)
-	{
+	for(i=0; i<=a.length; i++) {
 		k++;
-		if(a.data[i]==num)
-		{
+		if(a.data[i]==num) {
 			printf("yes\n");
 			printf(" is at %d",k);
 			printf("\n");

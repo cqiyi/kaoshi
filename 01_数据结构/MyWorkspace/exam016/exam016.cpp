@@ -3,8 +3,7 @@
 #include<stdio.h>
 #define MaxSize 100
 int visited[MaxSize] = {0};
-typedef struct
-{
+typedef struct {
 	int edges[MaxSize][MaxSize];
 	int vexs[MaxSize];
 	int n;
@@ -35,14 +34,12 @@ void MakeAdjM(MGraph * L)
 	L -> n = n;
 	for(i = 0; i < n; i++)
 		L -> vexs[i] = i;
-	do
-	{
+	do {
 		scanf("%d%d",&i,&j);
 		if(i == -1 && j == -1)
 			break;
 		L -> edges[i][j] = 1;
-	}
-	while(1);
+	} while(1);
 }
 void main()
 {

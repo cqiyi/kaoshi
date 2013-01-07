@@ -9,8 +9,7 @@ void main()
 	int temp;
 	cin>>i;
 	temp = i;
-	while ( i != -9999)
-	{
+	while ( i != -9999) {
 		cin>>i;
 		if(temp == i)
 			n++;

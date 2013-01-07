@@ -12,12 +12,10 @@ void BubbleSort(int r[],int n)
 	//冒泡排序(有小到大)
 	int i,j,k;
 	int exchange;
-	for(i=0; i<=n; i++)
-	{
+	for(i=0; i<=n; i++) {
 		exchange=0;
 		for(j=n-1; j>=i; j--)
-			if(r[j+1]<r[j])
-			{
+			if(r[j+1]<r[j]) {
 				k=r[j+1];
 				r[j+1]=r[j];
 				r[j]=k;
@@ -33,15 +31,11 @@ int DisaSameYs(int r[],int n)
 {
 	//消除数组r[]中的重复元素,并返回消除后数组剩余的元素个数
 	int w,x,y;
-	for(w=0; w<=n; w++)
-	{
-		for(x=w+1; x<=n; x++)
-		{
-			if(r[w]==r[x])
-			{
+	for(w=0; w<=n; w++) {
+		for(x=w+1; x<=n; x++) {
+			if(r[w]==r[x]) {
 				n--;
-				for(y=x; y<=n; y++)
-				{
+				for(y=x; y<=n; y++) {
 					r[y]=r[y+1];
 				}//endfor
 				x--;
@@ -58,22 +52,18 @@ int cha(int m[],int n[],int l[],int Countaa,int Countbb)
 	//求差集
 	int i=0,j=0,k=0;
 	int exch;
-	while(i<=Countaa)
-	{
+	while(i<=Countaa) {
 		exch=0;//交换变量为0
-		for(j=0; j<=Countbb; j++)
-		{
+		for(j=0; j<=Countbb; j++) {
 			//用集合的第一个元素分别和另一个集合的各元素相比较
 			//然后再用第二个元素(直到最后一个元素)和另一个集合的各元素相比较
-			if(m[i]==n[j])
-			{
+			if(m[i]==n[j]) {
 				//如果相同，交换变量变为1
 				exch=1;
 				break;
 			}//endif
 		}//endfor
-		if(!exch)
-		{
+		if(!exch) {
 			//如果没有相同的就保存m[i]到l[]中
 			l[k]=m[i];
 			k++;
@@ -103,8 +93,7 @@ void main()
 	int i,j,k,CountA,CountB,CountC;
 
 	printf("input a\n");
-	for(i=0; i<=1000; i++)
-	{
+	for(i=0; i<=1000; i++) {
 		scanf("%d",&a[i]);
 		if(a[i]==-9999)
 			break;
@@ -116,8 +105,7 @@ void main()
 // testds(a,CountA);
 
 	printf("\ninput b\n");
-	for(i=0; i<=1000; i++)
-	{
+	for(i=0; i<=1000; i++) {
 		scanf("%d",&b[i]);
 		if(b[i]==-9999)
 			break;
@@ -131,8 +119,7 @@ void main()
 	CountC=cha(a,b,c,CountA,CountB);
 
 	printf("\n\n");
-	for(i=0; i<=CountC-1; i++)
-	{
+	for(i=0; i<=CountC-1; i++) {
 		printf("%d ",c[i]);
 	}
 	printf("\n");

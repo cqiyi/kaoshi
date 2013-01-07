@@ -9,8 +9,7 @@
 #define MAXVALUE 200           /*权值的最大值*/
 #define MAXBIT  30             /*最大的编码位数*/
 #define MAXNODE 30             /*初始的最大的结点数*/
-struct haffnode
-{
+struct haffnode {
 	char data;
 	int weight;
 	int flag;
@@ -18,8 +17,7 @@ struct haffnode
 	int leftchild;    /*左孩子下标*/
 	int rightchild;   /*右孩子下标*/
 };
-struct haffcode
-{
+struct haffcode {
 	int bit[MAXNODE];
 	int start;        /*编码的起始下标*/
 	char data;
@@ -51,15 +49,11 @@ void haffmantree(int weight[],int n,struct haffnode hafftree[],char data[])
 {
 	int i,j,m1,m2,x1,x2;
 	/*哈夫曼树hafftree[]初始化，n个叶结点共有2n-1个结点*/
-	for(i=0; i<2*n-1; i++)
-	{
-		if(i<n)
-		{
+	for(i=0; i<2*n-1; i++) {
+		if(i<n) {
 			hafftree[i].data=data[i];
 			hafftree[i].weight=weight[i];   /*叶结点*/
-		}
-		else
-		{
+		} else {
 			hafftree[i].weight=0;           /*非叶结点*/
 			hafftree[i].data='\0';
 		}
@@ -68,21 +62,16 @@ void haffmantree(int weight[],int n,struct haffnode hafftree[],char data[])
 		hafftree[i].leftchild=-1;
 		hafftree[i].rightchild=-1;
 	}
-	for(i=0; i<n-1; i++)                            /*构造哈夫曼树n-1个非叶结点*/
-	{
+	for(i=0; i<n-1; i++) {                          /*构造哈夫曼树n-1个非叶结点*/
 		m1=m2=MAXVALUE;
 		x1=x2=0;
-		for(j=0; j<n+i; j++)
-		{
-			if(hafftree[j].weight<m1&&hafftree[j].flag==0)
-			{
+		for(j=0; j<n+i; j++) {
+			if(hafftree[j].weight<m1&&hafftree[j].flag==0) {
 				m2=m1;
 				x2=x1;
 				m1=hafftree[j].weight;
 				x1=j;
-			}
-			else if(hafftree[j].weight<m2&&hafftree[j].flag==0)
-			{
+			} else if(hafftree[j].weight<m2&&hafftree[j].flag==0) {
 				m2=hafftree[j].weight;
 				x2=j;
 			}
@@ -104,15 +93,13 @@ void haffmancode(struct haffnode hafftree[],int n,struct haffcode haffcode[])
 	struct haffcode newcode;
 	struct haffcode *cd;
 	cd=&newcode;
-	for(i=0; i<n; i++)                                    /*求n个结点的哈夫曼编码*/
-	{
+	for(i=0; i<n; i++) {                                  /*求n个结点的哈夫曼编码*/
 		cd->start=MAXBIT-1;                                  /*不等长编码的最后一位是n-1*/
 		cd->weight=hafftree[i].weight;
 		cd->data=hafftree[i].data;    /*取得编码对应值的字符*/
 		child=i;
 		parent=hafftree[child].parent;
-		while(parent!=0)
-		{
+		while(parent!=0) {
 			if(hafftree[parent].leftchild==child)
 				cd->bit[cd->start]=0;               /*左孩子编码为0*/
 			else
@@ -131,8 +118,7 @@ void haffmancode(struct haffnode hafftree[],int n,struct haffcode haffcode[])
 void pprintf(struct haffcode myhaffcode[],int n)
 {
 	int i,j,count=0;
-	for(i=0; i<n; i++)
-	{
+	for(i=0; i<n; i++) {
 		cprintf("字符=%c",myhaffcode[i].data);
 		printf("              ");
 		cprintf("weight=%3d",myhaffcode[i].weight);
@@ -157,21 +143,17 @@ void test(struct haffcode haffcode[],int n)
 	printf("\n");
 	cprintf("注意小写,空格由大写字母T代替，并且字符数小于27.\n");
 	scanf("%s",sstring);
-	if(strlen(sstring)>=MAXNODE)
-	{
+	if(strlen(sstring)>=MAXNODE) {
 		printf("you input the data number >=MAXNODE.");
 		exit(1);
 	}
-	for(i=0; i<strlen(sstring); i++)
-	{
+	for(i=0; i<strlen(sstring); i++) {
 		for(j=0; j<MAXBIT; j++)
-			if(sstring[i]==haffcode[j].data)
-			{
+			if(sstring[i]==haffcode[j].data) {
 				k=j;
 				break;
 			}
-		if(k<0||k>MAXNODE-1)
-		{
+		if(k<0||k>MAXNODE-1) {
 			printf("在系统中找不到与第个%d字符相匹配的编码\n",i+1);
 			continue;
 		}
@@ -200,8 +182,7 @@ void main()
 	struct haffcode newcode[MAXNODE];
 	struct haffnode *myhafftree=newhaffnode;
 	struct haffcode *myhaffcode=newcode;
-	if(n>MAXNODE)
-	{
+	if(n>MAXNODE) {
 		printf("you input the haffnode > MAXNODE,so you input the data is wrong");
 		printf("\n");
 		exit(1);

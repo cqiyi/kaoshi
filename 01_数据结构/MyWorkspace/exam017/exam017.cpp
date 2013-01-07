@@ -4,8 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef struct
-{
+typedef struct {
 // int ch[2000];
 	char ch[2000];
 	int length;
@@ -16,12 +15,10 @@ int NaiveStrMatch(SeqString T,SeqString P)
 	int i,j,k;
 	int m=P.length;
 	int n=T.length;
-	for(i=0; i<=n-m; i++)
-	{
+	for(i=0; i<=n-m; i++) {
 		j=0;
 		k=i;
-		while(j<m&&T.ch[k]==P.ch[j])
-		{
+		while(j<m&&T.ch[k]==P.ch[j]) {
 			k++;
 			j++;
 		}
@@ -36,8 +33,7 @@ SeqString CreatStr(SeqString R)
 {
 	int i;
 	printf("input data\n");
-	for(i=0; i<2000; i++)
-	{
+	for(i=0; i<2000; i++) {
 //  scanf("%d",&R.ch[i]);
 //  if(R.ch[i]==-9999)
 		scanf("%s",&R.ch[i]);

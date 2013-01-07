@@ -5,8 +5,7 @@
 #define max 100
 extern void exit(int);
 
-typedef struct node
-{
+typedef struct node {
 	char d;
 	struct node * lchild, * rchild;
 } tnode;
@@ -17,20 +16,17 @@ void mktree(char pre[],int pres,int pree,char in[],int is,int ie,tnode * * r)
 	int i;
 	if(is>ie||pres>pree)
 		* r=NULL;
-	else
-	{
+	else {
 		* r=(tnode *) malloc (sizeof(tnode));
 		(* r)->d=pre[pres];
 		for(i=is; i<=ie; i++)
-			if(pre[pres]==in[i])
-			{
+			if(pre[pres]==in[i]) {
 				mktree(pre,pres+1,pres+i-is,in,is,i-1,&(* r)->lchild);
 				mktree(pre,pres+i-is+1,pree,in,i+1,ie,&(* r)->rchild);
 
 				break;
 			}
-		if (i>ie)
-		{
+		if (i>ie) {
 			printf("error:input contains an error! \n");
 			return;
 		}
@@ -41,8 +37,7 @@ void mktree(char pre[],int pres,int pree,char in[],int is,int ie,tnode * * r)
 
 void postorder(tnode * r)
 {
-	if (r)
-	{
+	if (r) {
 
 		postorder (r->lchild);
 		postorder (r->rchild);
@@ -62,11 +57,9 @@ int leaf(tnode *r)
 
 void oneleaf(tnode *r,int *n)
 {
-	if(r)
-	{
+	if(r) {
 
-		if((r->lchild==NULL&&r->rchild!=NULL)||(r->lchild!=NULL&&r->rchild==NULL))
-		{
+		if((r->lchild==NULL&&r->rchild!=NULL)||(r->lchild!=NULL&&r->rchild==NULL)) {
 			printf("%5C",r->d);
 			++(*n);
 		}
