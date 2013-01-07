@@ -6,30 +6,19 @@
 --------------------Configuration: exam002 - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\DOCUME~1\cqiyi\LOCALS~1\Temp\RSP39.tmp" with contents
+Creating temporary file "C:\DOCUME~1\cqiyi\LOCALS~1\Temp\RSP1E6.tmp" with contents
 [
-/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/exam002.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ  /c 
-"C:\kaoshi\01_数据结构\MyWorkspace\exam001\exam002.cpp"
-]
-Creating command line "cl.exe @C:\DOCUME~1\cqiyi\LOCALS~1\Temp\RSP39.tmp" 
-Creating temporary file "C:\DOCUME~1\cqiyi\LOCALS~1\Temp\RSP3A.tmp" with contents
-[
-kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/exam002.pdb" /debug /machine:I386 /out:"Debug/exam002.exe" /pdbtype:sept 
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/exam002.pdb" /debug /machine:I386 /out:"Debug/exam002.exe" /pdbtype:sept 
 ".\Debug\exam002.obj"
 ]
-Creating command line "link.exe @C:\DOCUME~1\cqiyi\LOCALS~1\Temp\RSP3A.tmp"
+Creating command line "link.exe @C:\DOCUME~1\cqiyi\LOCALS~1\Temp\RSP1E6.tmp"
 <h3>Output Window</h3>
-Compiling...
-exam002.cpp
 Linking...
-LIBCD.lib(crt0.obj) : error LNK2001: unresolved external symbol _main
-Debug/exam002.exe : fatal error LNK1120: 1 unresolved externals
-Error executing link.exe.
 
 
 
 <h3>Results</h3>
-exam002.exe - 2 error(s), 0 warning(s)
+exam002.exe - 0 error(s), 0 warning(s)
 </pre>
 </body>
 </html>
