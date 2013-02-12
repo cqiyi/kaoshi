@@ -1,0 +1,39 @@
+input data
+7 2 9 6 3 1 8 -9999
+input the number
+3
+
+yes
+ is at 5
+Press any key to continue
+-----------------------------------------------------------
+input data
+5
+4
+2
+9
+10
+6
+-9999
+input the number
+61
+
+no
+Press any key to continue
+-----------------------------------------------------------
+input data
+7 6 5 2 3 9 1 -9999
+input the number
+9
+7 6 5 2 3 9
+ YES.
+ is at 5
+Press any key to continue
+-----------------------------------------------------------
+input data
+5 7 6 9 2 1 -9999
+input the number
+56
+5 7 6 9 2 1
+NO.
+Press any key to continue

@@ -1,35 +1,85 @@
 /*
-6. ç¼–ä¸€Cç¨‹åºï¼Œå®ƒèƒ½è¯»å…¥ä¸€ä¸²æ•´æ•°ï¼ˆä¸å¤šäºŽ2000ï¼Œå¹¶ä»¥-9999ä¸ºç»“æŸæ ‡è®°ï¼‰åŠå¦ä¸€æ•´æ•°nï¼Œåˆ¤æ–­næ˜¯å¦åœ¨é‚£ä¸€ä¸²æ•°ä¸­ï¼Œè‹¥æ˜¯ï¼Œåˆ™è¾“å‡ºyesåŠè¯¥æ•°åœ¨é‚£ä¸²æ•´æ•°ä¸­çš„åºå·ï¼ˆåºå·ä»Ž0å¼€å§‹ï¼‰ï¼Œå¦åˆ™è¾“å‡ºnoã€‚(è¾“å…¥æ•´æ•°æ—¶ï¼Œç›¸é‚»çš„ä¸¤ä¸ªç”¨ç©ºæ ¼éš”å¼€)ã€‚ 
-ï¼ˆæ³¨ï¼šç¨‹åºçš„å¯æ‰§è¡Œæ–‡ä»¶åå¿…é¡»æ˜¯ e6.exeï¼‰
+6. ±àÒ»C³ÌÐò£¬ËüÄÜ¶ÁÈëÒ»´®ÕûÊý£¨²»¶àÓÚ2000£¬²¢ÒÔ-9999Îª½áÊø±ê¼Ç£©¼°ÁíÒ»ÕûÊýn£¬ÅÐ¶ÏnÊÇ·ñÔÚÄÇÒ»´®ÊýÖÐ£¬ÈôÊÇ£¬ÔòÊä³öyes¼°¸ÃÊýÔÚÄÇ´®ÕûÊýÖÐµÄÐòºÅ£¨ÐòºÅ´Ó0¿ªÊ¼£©£¬·ñÔòÊä³öno¡£(ÊäÈëÕûÊýÊ±£¬ÏàÁÚµÄÁ½¸öÓÃ¿Õ¸ñ¸ô¿ª)¡£
+£¨×¢£º³ÌÐòµÄ¿ÉÖ´ÐÐÎÄ¼þÃû±ØÐëÊÇ e6.exe£©
 */
+/*
 #include <stdio.h>
 
-typedef struct {
+typedef struct
+{
 	int data[2000];
 	int length;
 } SeqList;
 
-void main() {
-	int i,k=0,num;
+void main()
+{
+	int i,num;
 	SeqList a;
 	printf("input data\n");
-	for(i=0; i<2000; i++) {
+	for(i=0; i<2000; i++)
+	{
 		scanf("%d",&a.data[i]);
 		if(a.data[i]==-9999)
 			break;
 	}
 	a.length=i-1;
-
+	
 	printf("input the number\n");
 	scanf("%d",&num);
-	for(i=0; i<=a.length; i++) {
-		k++;
-		if(a.data[i]==num) {
-			printf("yes\n");
-			printf(" is at %d",k);
-			printf("\n");
-
+	for(i=0; i<=a.length; i++)
+	{
+		if(a.data[i]==num)
+		{
+			printf("\nyes\n");
+			printf(" is at %d\n",i);
+			return;
+			
 		}
 	}
 	printf("\nno\n");
+}
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node{
+	int data;
+	struct node *next;
+}ListNode;
+
+
+void main(){
+	ListNode *head, *p, *t;
+	int i, n;
+
+	head = (ListNode*)malloc(sizeof(ListNode));
+	head->data = 0;
+	p = head;
+	printf("input data\n");
+	for(i=0; true; i++){
+		t = (ListNode*)malloc(sizeof(ListNode));
+		scanf("%d", &t->data);
+		if(t->data == -9999) {
+			free(t);
+			break;
+		}
+		t->next = NULL;
+		p->next = t;
+		head->data++;
+		p = t;
+	}
+
+	printf("input the number\n");
+	scanf("%d", &n);
+	p = head->next;
+	for(i=0; i<head->data; i++){
+		printf("%d ", p->data);
+		if(p->data== n){
+			printf("\n YES.\n is at %d\n", i);
+			return;
+		}
+		p = p->next;
+	}
+	printf("\nNO.\n");
 }
