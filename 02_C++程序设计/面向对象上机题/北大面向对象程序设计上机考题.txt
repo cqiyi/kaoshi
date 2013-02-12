@@ -1,0 +1,833 @@
+北大面向对象程序设计上机考试题
+ 
+2002-12-1 23:26:13  北京自考热线  wang_zqq  阅读385次 
+   
+请实现一个简单的超市商品管理系统，超市有三个货架，分别放着日常用品、食品和家电。本题要求完成： 
+(1) 实现描述超市的类Supermarket，其中定义了增加商品的函数Add（可以增加新的商品，也可以增加已有商品的数量），按照商品名称卖出商品的函数Sale（如果商品现有数量少于卖出数量，则不能继续卖出商品，并给出提示信息），按照商品类别查询商品情况的函数Search，并显示查询结果（每类商品中有哪些商品，每种商品的名称和现有数量）。 
+(2) 定义商品类Goods，包含属性名称、和商品现有数量，以及纯虚函数ShowMe。 
+(3) 从基类Goods中派生日常用品类DailyGoods、食品类Food和家电类ElectricalAppliance，其中食品类商品拥有保质期属性，家电类商品拥有颜色属性，具体实现上述纯虚函数ShowMe，显示商品的名称、现有数量和食品类商品的保质期，以及家电类商品的颜色。 
+(4) 重载输入“>>”*作符，使得可以通过cin直接读入上述日常用品类、食品类和家电类的对象值。 
+(5) 编写main函数，测试上述所要求的各种功能，即可以根据菜单命令增加、卖出和查询各类商品，其中的商品可以是日常用品、食品和家用电器。 
+提示： 
+虚拟基类Goods的定义至少包括以下纯虚函数ShowMe， 
+class Goods 
+{ 
+// …… 
+public: 
+virtual void ShowMe () = 0; 
+// …… 
+};  
+ 
+
+
+
+
+
+
+
+北大面向对象程序设计上机考试题（9月19日）
+ 
+2002-9-19 22:08:22  北京自考热线  sunny_girl  阅读916次 
+   
+　　建立一个简单的学校人员管理系统，包括对学生、员工和在职学生（既是员工又是学生）的管理。需要完成如下功能： 
+
+　　1、建立一个SCHOOL类,在其中定义按照姓名增加人员的APPEND函数，删除人员的DELETE的函数和SEARCH的查询函数（以姓名为准）。 
+
+　　2、建立一个基类PERSON类，要具有姓名和性别的属性，并把输出函数SHOWME()定义为纯虚函数； 
+
+　　3、建立一个员工STAFF类和一个学生类，均由PERSON继承而来。要求可以输出员工类（学生类）对象的属性（姓名、性别和工作证号码（或学生学号），分别写出对SHOWME()函数的具体实现。 
+
+　　4、建立一个在职学生类STAFF_STUDENT类，由员工类和学生类继承而来。写出对SHOWME()函数的具体实现，可以输出对象属性，。 
+
+　　5、重载，实现用CIN为员工类、学生类和在职学生类对象赋值。 
+
+　　6、编写MAIN（）主函数，测试上述功能，并以菜单方式实现对各种人员的增加、删除和查询（以姓名为线索）。 
+ 
+ 
+
+
+
+
+
+
+北大面向对象程序设计上机考试题(9月20日)
+ 
+2002-9-26 22:29:40  北京自考热线  fanie  阅读735次 
+   
+　　实现一个图形栈，栈的元素为图形（可以是圆形，也可以是矩形）。根据对菜单的选择实现具体图形信息的显示及栈的相关操作。 
+
+　　1、定义一个栈类Stack，它具有栈的大小属性Size（即栈最多可容纳的元素个数），具有对图形元素（可以是圆形，也可以是矩形）的push,pop,top(显示栈顶元素信息)操作。 
+
+　　2、定义一个Element基类，其至少包含一个纯虚函数ShowMe()以显示图形信息（可以是圆形，也可以是矩形的信息），圆形信息为圆心，半径；矩形信息为左上角点，右下角点。 
+
+　　3、定义Element的派生类MyCircle（圆形类）和MyRectangle（矩形类），以实现图形信息的显示。
+ 
+　　4、重载输入运算符，使用户能一次性输入图形信息（可以是圆形，也可以是矩形信息）。 
+
+　　5、编一测试程序进行测试。 
+
+　　提示： 
+
+　　class Element 
+　　{ 
+　　public: 
+　　virtual void ShowMe() = 0; 
+　　}; 
+ 
+ 
+
+
+
+
+
+面向对象上机考试题（1）——关于宠物进笼
+ 
+2002-9-27 21:31:34  北京自考热线  alice  阅读938次 
+   
+Anne的宠物小屋有12个笼子,每个笼子可以放不同的动物,但只能放1只或0只,包括 
+猫Cat,狗Dog,蛇Snake. 
+1,实现一个简单的管理系统,可增加、删除笼子中的宠物,查询每个笼子中存放的 
+宠物类型,(包括笼子为空的情况),统计笼中宠物的种类和数量. 
+2,定义描述宠物小屋的类shelves,其中有12笼子用于存放各种宠物. 
+3,定义虚拟基类Animal,包括纯虚函数ShowMe,显示每个宠物的情况,包括类型、颜色、 
+体重和喜爱的食物。 
+4，定义派生类Cat,Dog,Snake,具体实现上述纯虚函数。 
+5，重载输入‘>>’*作符，使得可能通过cin直接读入宠物颜色、体重和喜爱的 
+食物。 
+6，编写main函数，测试上述要求和各种功能。 
+*/ 
+
+#include "Stdafx.h" 
+#include "iostream.h" 
+#include "string.h" 
+enum {NONE=0, CAT=1, DOG=2, SNAKE=3}; 
+
+class Animal 
+{ 
+protected: 
+ char color[20]; 
+ char food[20]; 
+ double weight; 
+public: 
+ virtual void ShowMe()=0; 
+}; 
+
+class Cat:public Animal 
+{ 
+public: 
+ friend istream& operator>>(istream &is, Cat &cat); 
+ void ShowMe() 
+ { 
+  cout<<"猫的颜色、喜欢的食物、体重分别为:"; 
+  cout<<color<<","<<food<<","<<weight<<endl;   
+ } 
+}; 
+
+istream & operator>>(istream &is, Cat &cat) 
+{ 
+ cout<<" 请输入猫的颜色: ";  
+ is>>cat.color;  
+ cout<<" 喜爱的食物:"; 
+ is>>cat.food;  
+ cout<<" 体重:"; 
+ is>>cat.weight;  
+ return is; 
+} 
+
+
+class Dog:public Animal 
+{ 
+public: 
+ friend istream& operator>>(istream &is, Dog &Dog); 
+ void ShowMe() 
+ { 
+  cout<<"狗的颜色、喜欢的食物、体重分别为:"; 
+  cout<<color<<","<<food<<","<<weight<<endl;   
+ } 
+}; 
+
+istream& operator>>(istream &is, Dog &dog) 
+{ 
+ cout<<" 请输入狗的颜色: ";  
+ is>>dog.color; 
+ cout<<" 喜爱的食物:"; 
+ is>>dog.food; 
+ cout<<" 体重:"; 
+ is>>dog.weight;  
+ return is; 
+} 
+
+class Snake:public Animal 
+{ 
+public: 
+ friend istream& operator>>(istream &is, Snake &snake); 
+ void ShowMe() 
+ { 
+  cout<<"蛇的颜色、喜爱的食物、体重分别为："; 
+  cout<<color<<","<<food<<","<<weight<<endl;   
+ } 
+}; 
+
+istream& operator>>(istream &is, Snake &snake) 
+{ 
+ cout<<" 请输入蛇的颜色: ";  
+ is>>snake.color; 
+ cout<<" 喜爱的食物: "; 
+ is>>snake.food; 
+ cout<<" 体重: "; 
+ is>>snake.weight; 
+ return is; 
+} 
+
+class Shelves 
+{ 
+ int cage[12]; 
+ int sum[3]; 
+ Cat cats[12]; 
+ Dog dogs[12]; 
+ Snake snakes[12]; 
+// int flag[12]; 
+// int sum_c, sum_d, sum_s; 
+public: 
+ Shelves () 
+ { 
+  for (int i=0; i<12; i++) 
+   cage[i]=NONE; 
+  for (i=0; i<4; i++) 
+   sum[i]=0; 
+ } 
+
+ int push_cat(Cat &cat, int n) 
+ { 
+  cats[n] = cat;   
+  if (cage[n]!=NONE) return 0; 
+  else { 
+   sum[0]++; 
+   return cage[n]=CAT; 
+  } 
+ } 
+
+ int push_dog(Dog &dog, int n) 
+ { 
+  dogs[n]=dog;   
+  if (cage[n]!=NONE) return 0; 
+  else{ 
+   sum[1]++; 
+   return cage[n]=DOG; 
+  } 
+ } 
+ int push_snake(Snake &snake, int n) 
+ {   
+  snakes[n]=snake;   
+  if (cage[n]!=NONE) return 0; 
+  else { 
+   sum[2]++; 
+   return cage[n]=SNAKE; 
+  } 
+ } 
+
+ void del(int n) 
+ { 
+  if (cage[n]==CAT) sum[0]--; 
+  if (cage[n]==DOG) sum[1]--; 
+  if (cage[n]==SNAKE) sum[2]--; 
+  if (cage[n]==NONE) 
+   cout<<"笼子里没有动物"<<endl; 
+  else 
+  {  
+   cage[n]=NONE; 
+   cout<<"已删除笼子里的动物"<<endl; 
+  }   
+  cout<<endl; 
+ } 
+
+ void seek(int n) 
+ { 
+  if (cage[n]==NONE) cout<<"第"<<n<<"个笼子里没有动物"<<endl; 
+  if (cage[n]==CAT) 
+  { 
+   cout<<"第"<<n<<"个笼子里的动物为猫,"; 
+   cats[n].ShowMe(); 
+  } 
+  if (cage[n]==DOG) 
+  { 
+   cout<<"第"<<n<<"个笼子里的动物为狗,"; 
+   dogs[n].ShowMe(); 
+  } 
+  if (cage[n]==SNAKE) 
+  { 
+   cout<<"第"<<n<<"个笼子里的动物为蛇,";    
+   snakes[n].ShowMe(); 
+  } 
+  cout<<endl;   
+ } 
+
+ void count() 
+ {   
+  cout<<"笼子里的猫总共有："<<sum[0]<<"只"<<endl; 
+  cout<<"笼子里的狗总共有："<<sum[1]<<"只"<<endl; 
+  cout<<"笼子里的蛇总共有："<<sum[2]<<"只"<<endl; 
+  cout<<endl; 
+ } 
+}; 
+
+void main() 
+{ 
+ char c; 
+ Cat cat; 
+ Dog dog; 
+ Snake snake; 
+ Shelves shelves; 
+ int i=1,j; 
+
+ cout<<"这是关于往笼子里放动物的问题: "<<endl; 
+ cout<<endl; 
+  cout<<" 1: 往笼子里放猫；"<<endl; 
+  cout<<" 2: 往笼子里放狗；"<<endl; 
+  cout<<" 3: 往笼子里放蛇；"<<endl; 
+  cout<<" 4: 查询笼子里的动物；"<<endl; 
+  cout<<" 5: 删除笼子里的动物；"<<endl; 
+  cout<<" 6：统计笼子里的动物种类及数量；"<<endl; 
+  cout<<" 7: 退出程序;"<<endl; 
+  cout<<"------------------------------------------"<<endl; 
+ while(i) 
+ { 
+  cout<<"请选择您的*作："; 
+  cin>>i; 
+  switch(i) 
+  { 
+  case 1: 
+   cout<<" 往哪只笼子里面放: "; 
+   cin>>j; 
+   cin>>cat;     
+   while (shelves.push_cat(cat, j)==0) 
+   { 
+    cout<<" 笼子里已有动物，请换一个笼子: "; 
+    cin>>j; 
+   } 
+   break; 
+  case 2: 
+   cout<<" 往哪只笼子里面放: "; 
+   cin>>j; 
+   cin>>dog;     
+   while (shelves.push_dog(dog, j)==0) 
+   { 
+    cout<<" 笼子里已有动物，请换一个笼子: "; 
+    cin>>j; 
+   } 
+   break; 
+  case 3: 
+   cout<<" 往哪只笼子里面放: "; 
+   cin>>j; 
+   cin>>snake;     
+   while (shelves.push_snake(snake, j)==0) 
+   { 
+    cout<<" 笼子里已有动物，请换一个笼子: "; 
+    cin>>j; 
+   } 
+   break; 
+  case 4:  
+   cout<<" 查询哪只笼子: "; 
+   cin>>j; 
+   shelves.seek(j); 
+   break; 
+  case 5:  
+   cout<<" 删除哪只笼子里的动物: "; 
+   cin>>j; 
+   shelves.del(j); break; 
+  case 6: 
+   shelves.count(); break; 
+  default: i=0; break; 
+  } 
+  cout<<endl; 
+ } 
+}  
+ 
+
+
+
+
+
+
+
+
+
+面向对象上机考试题（2）——关于堆栈
+ 
+2002-9-27 21:33:45  北京自考热线  alice  阅读912次 
+   
+1．请实现一个栈，既可以存放整数，又可以存放字符串。简单的说，栈是一种数据结构，按照后进先出的顺序管理进、出栈的元素。本题要求完成： 
+(1) 实现描述栈的类Stack，其中定义了栈的大小Size（即栈中可以存放的元素个数），并包括进栈函数Push，出栈函数Pop和显示栈顶元素的函数Top。 
+(2) 定义基类Element，至少包含纯虚函数ShowMe。 
+(3) 从基类Element中派生整数类MyInteger和字符串类MyString, 具体实现上述纯虚函数ShowMe，显示该元素的类型和相应的值。 
+(4) 重载输入“>>”*作符，使得可以通过cin直接读入上述整数类和字符串类的对象值。 
+(5) 编写main函数，测试上述所要求的各种功能，即可以根据菜单命令增加栈元素、删除栈元素、显示栈顶元素，其中的元素可以 
+是整数和/或字符串。 
+提示：虚拟基类Element的定义至少包括以下纯虚函数ShowMe， 
+class Element 
+{ 
+ // ……  
+public: 
+  virtual void ShowMe () = 0; 
+ // ……  
+}; 
+
+*/ 
+
+
+#include "stdafx.h" 
+#include "iostream.h" 
+#include "string.h" 
+const max=1000; 
+#define NULL 0 
+
+class Element 
+{ 
+public: 
+  virtual void ShowMe () = 0; }; 
+
+class MyInteger:public Element 
+{ int a; 
+public: 
+ MyInteger(){a=0;} 
+ friend istream &operator>>(istream &is, MyInteger &MyI); 
+ int Get() {return a;}; 
+ void ShowMe() 
+ { 
+  cout<<" 整数："<<a<<endl; 
+ } 
+}; 
+
+istream &operator>>(istream &is, MyInteger &MyI) 
+{ is>>MyI.a; 
+ return is;} 
+
+class MyString:public Element 
+{ char s[100]; 
+public: 
+  
+ friend istream &operator>>(istream &is, MyString &MyS); 
+ void ShowMe() 
+ { cout<<" 字符串："<<s<<endl; } 
+}; 
+
+istream &operator>>(istream &is, MyString &MyS) 
+{ is>>MyS.s; 
+ return is; } 
+
+class stack 
+{ MyString MyS[max]; 
+ MyInteger MyI[max]; 
+ int top; 
+public: 
+ stack() {top=-1;} 
+ void push(MyInteger &My) 
+ { MyI[++top]=My; } 
+
+ void push(MyString &My) 
+ { MyS[++top]=My; } 
+
+ void Top() 
+ {   
+  if (empty()) cout<<"栈为空"<<endl; 
+  else MyI[top].ShowMe(); 
+ } 
+ void Tops() 
+ {   
+  if (empty()) cout<<"栈为空"<<endl; 
+  else MyS[top].ShowMe(); 
+ } 
+
+ void pop() 
+ {  MyI[top--].ShowMe(); } 
+
+ void pops() 
+ { MyS[top--].ShowMe(); } 
+
+ bool empty() 
+ { return (bool)(top==-1); } 
+
+ bool full() 
+ { return (bool)(top==max-1); } 
+}; 
+
+int main(int argc, char* argv[]) 
+{ MyInteger My1; 
+ MyString My2; 
+ stack st1, st2; 
+ int i, j; 
+  
+ cout<<"请输入要进栈整数个数："; 
+ cin>>j; 
+ cout<<"请输入"<<j<<"个整数"<<endl; 
+ for (i=0; i<j; i++) 
+ { cin>>My1; 
+  st1.push(My1);  
+ } 
+ cout<<"栈顶元素为："; 
+ st1.Top(); 
+ cout<<"请输入要出栈的元素个数："; 
+ cin>>j; 
+ cout<<"依次出栈元素为："<<endl; 
+ for (i=0; i<j; i++) 
+  st1.pop();  
+ cout<<"出栈后栈顶元素为："; 
+ st1.Top(); 
+ cout<<"请输入要进栈的字符串个数："; 
+ cin>>j; 
+ cout<<"请输入"<<j<<"个字符串"<<endl; 
+ for (i=0; i<j; i++) 
+ {   
+  cin>>My2; 
+  st2.push(My2);  
+ } 
+ cout<<"栈顶元素为："; 
+ st2.Tops(); 
+ cout<<"请输入要出栈的元素个数："; 
+ cin>>j; 
+ cout<<"依次出栈元素为："<<endl; 
+ for (i=0; i<j; i++) 
+  st2.pops();  
+ cout<<"出栈后栈顶元素为："; 
+ st2.Tops(); 
+
+ return 0; 
+}  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+面向对象上机考试题（3）——关于堆栈（续）
+ 
+2002-9-27 21:34:55  北京自考热线  alice  阅读839次 
+   
+//建立一个栈类，能够存放图形元素（矩形或圆形），有入栈，出栈， 
+//取栈顶的功能。建立元素类，里面至少一个纯虚函数，矩形和圆形类 
+//来实现里面的函数SHOWME，实现他的显示图形信息的功能。重载>>， 
+//能够输入图形信息。测试以上类的功能。 
+
+
+#include "stdafx.h" 
+#include "iostream.h" 
+#include "string.h" 
+const n=50; 
+
+class shape 
+{ 
+protected: 
+ double width, length; 
+public: 
+ shape() {} 
+ virtual void ShowMe()=0; 
+}; 
+
+class rectangle:public shape 
+{ 
+public: 
+ rectangle():shape(){} 
+ friend istream &operator>>(istream &is, rectangle &rec) 
+ { 
+  cout<<"请输入长方形的长："; 
+  is>>rec.length; 
+  cout<<"请输入长方形的宽："; 
+  is>>rec.width; 
+  return is; 
+ } 
+ void ShowMe() 
+ { 
+  cout<<"长方形的长宽分别为：("<<length 
+   <<","<<width<<")"<<endl;   
+ } 
+}; 
+
+class circle:public shape 
+{ 
+private: 
+ //double x, y; 
+ double r; 
+public: 
+ circle():shape(){r=0;} 
+ friend istream &operator>>(istream &is, circle &cir) 
+ { 
+  cout<<"请输入圆的圆心坐标(x,y)："; 
+  is>>cir.width; 
+  is>>cir.length; 
+  cout<<"请输入圆的半径："; 
+  is>>cir.r; 
+  return is; 
+ } 
+ void ShowMe() 
+ { 
+  cout<<"圆的圆心坐标为：("<<width<<","<<length<<")" 
+   <<" 半径为："<<r<<endl; 
+ } 
+}; 
+
+class stack 
+{ 
+ shape *sp[n]; 
+ rectangle rec[n]; 
+ circle cir[n]; 
+ int size; 
+public: 
+ stack() 
+ { 
+  for (int i=0; i<n; i++) 
+   sp[i]=NULL; 
+  size=-1; 
+ } 
+ bool empty(){return size==-1;} 
+ bool full(){return size==n-1;} 
+
+ void push(rectangle &rect) 
+ { 
+  rec[++size]=rect; 
+  sp[size]=new rectangle; 
+  sp[size]=&rec[size]; 
+ } 
+ void push(circle &circ) 
+ { 
+  cir[++size]=circ; 
+  sp[size]=new circle; 
+  sp[size]=&cir[size]; 
+ } 
+ void top() 
+ { 
+  if (empty()) cout<<"栈为空"<<endl; 
+  else { 
+   cout<<"栈顶元素为:"<<endl; 
+   sp[size]->ShowMe();    
+  } 
+   
+ } 
+
+ void pop() 
+ { 
+  if (empty()) cout<<"栈为空"<<endl; 
+  else { 
+   cout<<"出栈元素为:"<<endl; 
+   sp[size--]->ShowMe();      
+  } 
+ } 
+}; 
+
+void main() 
+{ 
+ stack Stack; 
+ rectangle rec; 
+ circle cir; 
+ int s=1; 
+ while (s) 
+ { 
+  cout<<endl; 
+  cout<<"请选择1-5号键*作"<<endl; 
+  cout<<" 1: 矩形进栈;"<<endl; 
+  cout<<" 2: 圆进栈;"<<endl; 
+  cout<<" 3: 显示栈顶元素;"<<endl; 
+  cout<<" 4: 出栈;"<<endl; 
+  cout<<" 5: 退出程序;"<<endl; 
+  cin>>s; 
+  switch(s) 
+  { 
+  case 1: cin>>rec; Stack.push(rec); break; 
+  case 2: cin>>cir; Stack.push(cir); break; 
+  case 3: Stack.top(); break; 
+  case 4: Stack.pop(); break; 
+  case 5: s=0; break; 
+  //default: cout<<"请重新输入"<<endl; break; 
+  } 
+ } 
+}  
+ 
+
+
+
+
+
+
+
+面向对象上机考试题（4）——关于队列
+ 
+2002-9-27 21:37:26  北京自考热线  alice  阅读1150次 
+   
+请实现一个队列，既可以存放整数，又可以存放字符串。简单的说，队列是一种数据结构，按照先进先出的顺序管理进、出队列的元素。本题要求完成： 
+(1) 实现描述队列的类Queue，其中定义了队列的大小Size（即队列中可以存放的元素个数) 
+，并包括进队列函数Add，出队列函数Delete、显示队列头部元素的函数Head和显示队列尾部元素的函数Tail。 
+(2) 定义基类Element，至少包含纯虚函数ShowMe。 
+(3) 从基类Element中派生整数类MyInteger和字符串类MyString, 具体实现上述纯虚函数ShowMe，显示该元素的类型和相应的值。 
+(4) 重载输入“>>”*作符，使得可以通过cin直接读入上述整数类和字符串类的对象值。 
+(5) 编写main函数，测试上述所要求的各种功能，即可以根据菜单命令增加队列元素、删除 
+队列元素、显示队列头部元素和队列尾部元素，其中的元素可以是整数和/或字符串。 
+提示： 
+虚拟基类Element的定义至少包括以下纯虚函数ShowMe， 
+这是我24号的考题！ 
+class Element 
+{ 
+ // ……  
+public: 
+  virtual void ShowMe () = 0; 
+ // ……  
+}; 
+
+*/ 
+
+
+
+#include "stdafx.h" 
+#include "iostream.h" 
+#include "string.h" 
+const max=1000; 
+#define NULL 0 
+
+class Element 
+{ public: 
+  virtual void ShowMe () = 0; 
+}; 
+
+class MyInteger:public Element 
+{ int a; 
+public: 
+ MyInteger(){a=0;} 
+ friend istream &operator>>(istream &is, MyInteger &MyI); 
+ int Get() {return a;}; 
+ void ShowMe() 
+ { cout<<"整数："<<a<<endl; } 
+}; 
+istream &operator>>(istream &is, MyInteger &MyI) 
+{ 
+ cout<<" 请输入整数："; 
+ is>>MyI.a; 
+ return is; } 
+
+class MyString:public Element 
+{ char s[100]; 
+public: 
+ friend istream &operator>>(istream &is, MyString &MyS); 
+ void ShowMe() 
+ { cout<<"字符串："<<s<<endl; } 
+}; 
+istream &operator>>(istream &is, MyString &MyS) 
+{ 
+ cout<<" 请输入字符串："; 
+ is>>MyS.s; 
+ return is; 
+} 
+
+class Queue 
+{ int size; 
+ Element *Elm[max]; 
+ MyInteger MyI[max]; 
+ MyString MyS[max]; 
+public: 
+ Queue(){ 
+  for (int i=0; i<max; i++) 
+   Elm[i]=NULL; 
+  size=-1; 
+ } 
+ void add(MyInteger &My) 
+ { 
+  if (full()) cout<<"队列已满"<<endl; 
+  else { 
+   MyI[++size]=My; 
+   Elm[size]=new MyInteger; 
+   Elm[size]=&MyI[size]; 
+  } 
+ } 
+
+ void add(MyString &My) 
+ { 
+  if (full()) cout<<"队列已满"<<endl; 
+  else { 
+   MyS[++size]=My; 
+   Elm[size]=new MyString; 
+   Elm[size]=&MyS[size]; 
+  } 
+ } 
+   
+ void tail() 
+ { if(empty()) cout<<"队列为空"<<endl;  
+  else{ 
+   cout<<" 队列的尾元素为"; 
+   Elm[size]->ShowMe(); 
+  } 
+ } 
+ void head() 
+ {  
+  if(empty()) cout<<"队列为空"<<endl; 
+  else{ 
+   cout<<" 队列的头元素为"; 
+   Elm[0]->ShowMe(); 
+  } 
+ } 
+
+ void del() 
+ { 
+  if(empty()) cout<<"队列为空"<<endl;  
+  else{ 
+   cout<<" 出队列的元素为"; 
+   Elm[size--]->ShowMe();  
+  } 
+ } 
+ bool empty() 
+  
+ { 
+  return (bool)(size==-1);  
+ } 
+ bool full() 
+ { 
+  return (bool)(size==max-1); 
+ } 
+}; 
+
+void main() 
+{ MyInteger my1; 
+ MyString my2; 
+ Queue queue; 
+ int s=1; 
+ while(s) 
+ { 
+  cout<<"Please select 1-6 "<<endl; 
+  cout<<" 1: 整数进队列;"<<endl; 
+  cout<<" 2: 字符串进队列;"<<endl; 
+  cout<<" 3: 显示队列头元素;"<<endl; 
+  cout<<" 4: 显示队列尾元素"<<endl; 
+  cout<<" 5: 出队列;"<<endl; 
+  cout<<" 6: 退出程序"<<endl; 
+  cout<<"--------------------------------------"<<endl; 
+  cout<<"请选择您的*作："; 
+  cin>>s; 
+  switch(s) 
+  { 
+   case 1: cin>>my1; queue.add(my1); break; 
+   case 2: cin>>my2; queue.add(my2); break; 
+   case 3: queue.head(); break; 
+   case 4: queue.tail(); break; 
+   case 5: queue.del(); break; 
+   default: s=0; break; 
+  } 
+ } 
+}  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
