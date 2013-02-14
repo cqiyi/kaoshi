@@ -23,7 +23,7 @@ void main()
 			break;
 	}
 	a.length=i-1;
-	
+
 	printf("input the number\n");
 	scanf("%d",&num);
 	for(i=0; i<=a.length; i++)
@@ -33,7 +33,7 @@ void main()
 			printf("\nyes\n");
 			printf(" is at %d\n",i);
 			return;
-			
+
 		}
 	}
 	printf("\nno\n");
@@ -43,13 +43,15 @@ void main()
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct node{
+typedef struct node
+{
 	int data;
 	struct node *next;
-}ListNode;
+} ListNode;
 
 
-void main(){
+void main()
+{
 	ListNode *head, *p, *t;
 	int i, n;
 
@@ -57,10 +59,12 @@ void main(){
 	head->data = 0;
 	p = head;
 	printf("input data\n");
-	for(i=0; true; i++){
+	for(i=0; true; i++)
+	{
 		t = (ListNode*)malloc(sizeof(ListNode));
 		scanf("%d", &t->data);
-		if(t->data == -9999) {
+		if(t->data == -9999)
+		{
 			free(t);
 			break;
 		}
@@ -73,13 +77,29 @@ void main(){
 	printf("input the number\n");
 	scanf("%d", &n);
 	p = head->next;
-	for(i=0; i<head->data; i++){
+	for(i=0; i<head->data; i++)
+	{
 		printf("%d ", p->data);
-		if(p->data== n){
+		if(p->data== n)
+		{
 			printf("\n YES.\n is at %d\n", i);
-			return;
+			break;
 		}
 		p = p->next;
 	}
-	printf("\nNO.\n");
+	//如果遍历完了整个链表，则说明没找到。
+	if(i==head->data)
+	{
+		printf("\nNO.\n");
+	}
+
+	//释放链表
+	p = head;
+	for(i=0; p!=NULL; i++)
+	{
+		t = p->next;
+		free(p);
+		printf("free %d\n", i);
+		p = t;
+	}
 }
