@@ -1,0 +1,48 @@
+1, input string:
+one
+2, input string:
+two
+3, input string:
+three
+4, input string:
+four
+5, input string:
+five
+6, input string:
+t woone thr four fives.
+
+YES
+
+NO
+
+NO
+
+YES
+
+YES
+Press any key to continue
+
+-----------------------------------------------------------
+1, input string:
+this is a book
+2, input string:
+one
+3, input string:
+t wo
+4, input string:
+three
+5, input string:
+four
+6, input string:
+this one t wo.threefour and fives.
+
+NO
+
+YES
+
+YES
+
+YES
+
+YES
+Press any key to continue
