@@ -89,10 +89,6 @@ SOURCE=.\graphy.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\e01\main.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\main.cpp
 # End Source File
 # End Group
