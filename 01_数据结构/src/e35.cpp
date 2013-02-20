@@ -20,7 +20,7 @@ typedef struct Node
 
 //往二叉查找树中插入结点
 //插入的话，可能要改变根结点的地址，所以传的是二级指针
-void inseart(PNode * root,KeyType key)
+void inseart(PNode* root,KeyType key)
 {
 	//初始化插入结点
 	PNode p=(PNode)malloc(sizeof(Node));
