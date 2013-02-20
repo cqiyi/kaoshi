@@ -1,10 +1,11 @@
-/*ç¬¬äºŒé¢˜ï¼šå¯¹å†’æ³¡è¿›è¡Œä¼˜åŒ–ï¼Œä½¿å…¶ç”¨å°½å¯èƒ½å°‘çš„è¶Ÿæ•°ï¼Œæ‰“å°æ’åºåçš„ç»“æœå¹¶æ‰“å°æ¯”è¾ƒè¶Ÿæ•°ï¼
+/*µÚ¶şÌâ£º¶ÔÃ°Åİ½øĞĞÓÅ»¯£¬Ê¹ÆäÓÃ¾¡¿ÉÄÜÉÙµÄÌËÊı£¬´òÓ¡ÅÅĞòºóµÄ½á¹û²¢´òÓ¡±È½ÏÌËÊı£®
 */
-//æ³¡æ²«æ’åº
+//ÅİÄ­ÅÅĞò
 
+#include<iostream>
 #include<stdio.h>
 #include<stdlib.h>
-#include<iostream.h>
+
 #define MAX 1000
 void InputData( int *a,int *len );
 void BubbleSort( int *a,int len );
@@ -13,10 +14,11 @@ void main( ) {
 	int a[MAX],len=0;
 	InputData(a,&len);
 	BubbleSort( a,len );
+	system("pause");
 }
 void InputData( int *a,int *len ) {
 	int d;
-	printf("è¯·è¾“å…¥æ•°æ®(è¾“å…¥-1è¡¨ç¤ºç»“æŸ\n");
+	printf("ÇëÊäÈëÊı¾İ(ÊäÈë-1±íÊ¾½áÊø\n");
 	do {
 		scanf("%d",&d);
 		if( d==-1 )
@@ -41,8 +43,8 @@ void BubbleSort( int *a,int len ) {
 		}
 		i=lastexchange;
 	}
-	printf("æ’åºè¶Ÿæ•°æ˜¯:%d\n",step);
-	printf("æ³¡æ²«æ’åºçš„ç»“æœæ˜¯:\n");
+	printf("ÅÅĞòÌËÊıÊÇ:%d\n",step);
+	printf("ÅİÄ­ÅÅĞòµÄ½á¹ûÊÇ:\n");
 	j=0;
 	for(i=0; i<len; i++) {
 		printf("%4d",a[i]);
@@ -53,8 +55,8 @@ void BubbleSort( int *a,int len ) {
 }
 
 
-//å¯¹å†’æ³¡çš„ä¼˜åŒ–
-int counter=0;//è¶Ÿæ•°
+//¶ÔÃ°ÅİµÄÓÅ»¯
+int counter=0;//ÌËÊı
 void bubblesort(int a[],int n) {
 	int lastexchange,j,i=n-1;
 
@@ -63,7 +65,7 @@ void bubblesort(int a[],int n) {
 		counter++;
 		for(j=0; j<i; j++) {
 			if(a[j+1]<a[j]) {
-				äº¤æ¢a[j]å’Œa[j+1];
+				//½»»»a[j]ºÍa[j+1];
 				lastexchange=j;
 			}
 		}

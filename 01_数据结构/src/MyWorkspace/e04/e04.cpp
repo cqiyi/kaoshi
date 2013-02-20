@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <stdlib.h>
+
 using namespace std;
 void main()
 {
@@ -29,5 +31,7 @@ void main()
 		i++;
 		k++;
 	}
-	cout<<c3<<endl;
+	cout<<c3<<endl<<endl;
+
+	system("pause");
 }

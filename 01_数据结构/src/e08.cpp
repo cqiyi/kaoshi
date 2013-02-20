@@ -1,11 +1,11 @@
-/*1. ç¼–ä¸€Cç¨‹åºï¼Œå®ƒèƒ½è¯»å…¥é›†åˆAçš„ä¸€ä¸²æ•´æ•°ï¼ˆä»¥-9999ä¸ºç»“æŸæ ‡è®°ï¼Œæ•´æ•°ä¸ªæ•°å°äºŽ1000ï¼‰å’Œé›†åˆB çš„ä¸€ä¸²æ•´æ•°ï¼ˆä»¥-9999ä¸ºç»“æŸæ ‡è®°ï¼Œæ•´æ•°ä¸ªæ•°å°äºŽ1000ï¼‰ï¼Œè®¡ç®—å¹¶ä»¥ä»Žå°åˆ°å¤§çš„æ¬¡åºè¾“å‡ºA-B çš„æ‰€æœ‰å…ƒç´ (ä¸ºAæˆ–Bè¾“å…¥æ—¶ï¼ŒåŒä¸€ä¸ªæ•°å¯èƒ½å‡ºçŽ°å¤šæ¬¡ï¼Œè€ŒAä¸ŽBçš„å·®é›†ä¸­åŒä¸€ä¸ªæ•°ä¸èƒ½å‡ºçŽ°å¤šæ¬¡)ã€‚ ï¼ˆæ³¨ï¼šç¨‹åºçš„å¯æ‰§è¡Œæ–‡ä»¶åå¿…é¡»æ˜¯ e1.exeï¼‰
+/*1. ±àÒ»C³ÌÐò£¬ËüÄÜ¶ÁÈë¼¯ºÏAµÄÒ»´®ÕûÊý£¨ÒÔ-9999Îª½áÊø±ê¼Ç£¬ÕûÊý¸öÊýÐ¡ÓÚ1000£©ºÍ¼¯ºÏB µÄÒ»´®ÕûÊý£¨ÒÔ-9999Îª½áÊø±ê¼Ç£¬ÕûÊý¸öÊýÐ¡ÓÚ1000£©£¬¼ÆËã²¢ÒÔ´ÓÐ¡µ½´óµÄ´ÎÐòÊä³öA-B µÄËùÓÐÔªËØ(ÎªA»òBÊäÈëÊ±£¬Í¬Ò»¸öÊý¿ÉÄÜ³öÏÖ¶à´Î£¬¶øAÓëBµÄ²î¼¯ÖÐÍ¬Ò»¸öÊý²»ÄÜ³öÏÖ¶à´Î)¡£ £¨×¢£º³ÌÐòµÄ¿ÉÖ´ÐÐÎÄ¼þÃû±ØÐëÊÇ e1.exe£©
 
-ï¼ˆæ³¨ï¼šç¨‹åºçš„å¯æ‰§è¡Œæ–‡ä»¶åå¿…é¡»æ˜¯ e4.exeï¼‰
+£¨×¢£º³ÌÐòµÄ¿ÉÖ´ÐÐÎÄ¼þÃû±ØÐëÊÇ e4.exe£©
 */
 #include <stdio.h>
 
 void BubbleSort(int r[],int n) {
-	//å†’æ³¡æŽ’åº(æœ‰å°åˆ°å¤§)
+	//Ã°ÅÝÅÅÐò(ÓÐÐ¡µ½´ó)
 	int i,j,k;
 	int exchange;
 	for(i=0; i<=n; i++) {
@@ -24,7 +24,7 @@ void BubbleSort(int r[],int n) {
 
 
 int DisaSameYs(int r[],int n) {
-	//æ¶ˆé™¤æ•°ç»„r[]ä¸­çš„é‡å¤å…ƒç´ ,å¹¶è¿”å›žæ¶ˆé™¤åŽæ•°ç»„å‰©ä½™çš„å…ƒç´ ä¸ªæ•°
+	//Ïû³ýÊý×ér[]ÖÐµÄÖØ¸´ÔªËØ,²¢·µ»ØÏû³ýºóÊý×éÊ£ÓàµÄÔªËØ¸öÊý
 	int w,x,y;
 	for(w=0; w<=n; w++) {
 		for(x=w+1; x<=n; x++) {
@@ -43,22 +43,22 @@ int DisaSameYs(int r[],int n) {
 
 
 int cha(int m[],int n[],int l[],int Countaa,int Countbb) {
-	//æ±‚å·®é›†
+	//Çó²î¼¯
 	int i=0,j=0,k=0;
 	int exch;
 	while(i<=Countaa) {
-		exch=0;//äº¤æ¢å˜é‡ä¸º0
+		exch=0;//½»»»±äÁ¿Îª0
 		for(j=0; j<=Countbb; j++) {
-			//ç”¨é›†åˆçš„ç¬¬ä¸€ä¸ªå…ƒç´ åˆ†åˆ«å’Œå¦ä¸€ä¸ªé›†åˆçš„å„å…ƒç´ ç›¸æ¯”è¾ƒ
-			//ç„¶åŽå†ç”¨ç¬¬äºŒä¸ªå…ƒç´ (ç›´åˆ°æœ€åŽä¸€ä¸ªå…ƒç´ )å’Œå¦ä¸€ä¸ªé›†åˆçš„å„å…ƒç´ ç›¸æ¯”è¾ƒ
+			//ÓÃ¼¯ºÏµÄµÚÒ»¸öÔªËØ·Ö±ðºÍÁíÒ»¸ö¼¯ºÏµÄ¸÷ÔªËØÏà±È½Ï
+			//È»ºóÔÙÓÃµÚ¶þ¸öÔªËØ(Ö±µ½×îºóÒ»¸öÔªËØ)ºÍÁíÒ»¸ö¼¯ºÏµÄ¸÷ÔªËØÏà±È½Ï
 			if(m[i]==n[j]) {
-				//å¦‚æžœç›¸åŒï¼Œäº¤æ¢å˜é‡å˜ä¸º1
+				//Èç¹ûÏàÍ¬£¬½»»»±äÁ¿±äÎª1
 				exch=1;
 				break;
 			}//endif
 		}//endfor
 		if(!exch) {
-			//å¦‚æžœæ²¡æœ‰ç›¸åŒçš„å°±ä¿å­˜m[i]åˆ°l[]ä¸­
+			//Èç¹ûÃ»ÓÐÏàÍ¬µÄ¾Í±£´æm[i]µ½l[]ÖÐ
 			l[k]=m[i];
 			k++;
 		}
@@ -70,7 +70,7 @@ int cha(int m[],int n[],int l[],int Countaa,int Countbb) {
 
 /*
 void testds(int r[],int n)
-{//æµ‹è¯•æ¶ˆé™¤æ•°ç»„ä¸­çš„é‡å¤å…ƒç´ çš„æ•ˆæžœç”¨ä¸‹åˆ—å¾ªçŽ¯è¾“å‡º
+{//²âÊÔÏû³ýÊý×éÖÐµÄÖØ¸´ÔªËØµÄÐ§¹ûÓÃÏÂÁÐÑ­»·Êä³ö
  int z;
  for(z=0;z<=n;z++)
  {

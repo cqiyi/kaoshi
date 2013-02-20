@@ -1,6 +1,6 @@
 /*
-	å®éªŒ5ï¼šå»ºç«‹ä¸€æ£µäºŒå‰æ ‘ï¼Œä»¥å‰åºåºåˆ—è¾“å…¥ï¼Œä»¥éç©ºæ ¼å­—ç¬¦è¡¨ç¤ºç»“ç‚¹çš„å€¼ï¼Œ
-	ä»¥ç©ºæ ¼å­—ç¬¦è¡¨ç¤ºç©ºæŒ‡é’ˆï¼›å®ç°è¯¥äºŒå‰æ ‘çš„å‰åºéå†ã€ä¸­åºéå†å’Œååºéå†ã€‚
+	ÊµÑé5£º½¨Á¢Ò»¿Ã¶ş²æÊ÷£¬ÒÔÇ°ĞòĞòÁĞÊäÈë£¬ÒÔ·Ç¿Õ¸ñ×Ö·û±íÊ¾½áµãµÄÖµ£¬
+	ÒÔ¿Õ¸ñ×Ö·û±íÊ¾¿ÕÖ¸Õë£»ÊµÏÖ¸Ã¶ş²æÊ÷µÄÇ°Ğò±éÀú¡¢ÖĞĞò±éÀúºÍºóĞò±éÀú¡£
 */
 #include<stdio.h>
 #include<stdlib.h>
@@ -9,14 +9,14 @@
 
 typedef char TElemType;
 typedef int Status;
-//äºŒå‰æ ‘çš„å­˜å‚¨è¡¨ç¤ºæ–¹å¼
+//¶ş²æÊ÷µÄ´æ´¢±íÊ¾·½Ê½
 typedef struct BiTNode
 {
 	TElemType data;
-	struct BiTNode *lchild,*rchild;//å·¦å³å­©å­æŒ‡é’ˆ
+	struct BiTNode *lchild,*rchild;//×óÓÒº¢×ÓÖ¸Õë
 } BiTNode,*BiTree;
 
-//åˆ›å»ºäºŒå‰æ ‘ï¼Œä½¿ç”¨å‰åºåºåˆ—è¾“å…¥æ•°æ®,ç©ºæ ¼è¡¨ç¤ºç©ºæ ‘
+//´´½¨¶ş²æÊ÷£¬Ê¹ÓÃÇ°ĞòĞòÁĞÊäÈëÊı¾İ,¿Õ¸ñ±íÊ¾¿ÕÊ÷
 
 
 Status CreateBiTree(BiTree &T)
@@ -30,14 +30,14 @@ Status CreateBiTree(BiTree &T)
 	{
 		if(!(T = (BiTNode *)malloc(sizeof(BiTNode))))
 			exit(0);
-		T->data = ch;					//ç”Ÿæˆæ ¹èŠ‚ç‚¹
-		CreateBiTree(T->lchild);			//æ„é€ å·¦å­æ ‘
-		CreateBiTree(T->rchild);		//æ„é€ å³å­æ ‘
+		T->data = ch;					//Éú³É¸ù½Úµã
+		CreateBiTree(T->lchild);			//¹¹Ôì×ó×ÓÊ÷
+		CreateBiTree(T->rchild);		//¹¹ÔìÓÒ×ÓÊ÷
 	}
 	return OK;
 }
 
-//å‰åºéå†
+//Ç°Ğò±éÀú
 Status PreOrderTraverse(BiTree T)
 {
 	if(T)
@@ -48,7 +48,7 @@ Status PreOrderTraverse(BiTree T)
 	}
 	return OK;
 }
-//ä¸­åºéå†
+//ÖĞĞò±éÀú
 Status InOrderTraverse(BiTree T)
 {
 	if(T)
@@ -59,7 +59,7 @@ Status InOrderTraverse(BiTree T)
 	}
 	return OK;
 }
-//ååºéå†
+//ºóĞò±éÀú
 Status PostOrderTraverse(BiTree T)
 {
 	if(T)
@@ -72,19 +72,19 @@ Status PostOrderTraverse(BiTree T)
 }
 
 
-//ä¸»å‡½æ•°
+//Ö÷º¯Êı
 void main()
 {
 	BiTree T;
-	printf("è¯·æŒ‰ç…§å…ˆåºåºåˆ—è¾“å…¥ä½ çš„äºŒå‰æ ‘ï¼Œç©ºæ ¼è¡¨ç¤ºç©ºæ ‘\n");
+	printf("Çë°´ÕÕÏÈĞòĞòÁĞÊäÈëÄãµÄ¶ş²æÊ÷£¬¿Õ¸ñ±íÊ¾¿ÕÊ÷\n");
 	CreateBiTree(T);
-	printf("å‰åºéå†å¦‚ä¸‹ï¼š\n");
+	printf("Ç°Ğò±éÀúÈçÏÂ£º\n");
 	PreOrderTraverse(T);
 	printf("\n");
-	printf("ä¸­åºéå†å¦‚ä¸‹ï¼š\n");
+	printf("ÖĞĞò±éÀúÈçÏÂ£º\n");
 	InOrderTraverse(T);
 	printf("\n");
-	printf("ååºéå†å¦‚ä¸‹ï¼š\n");
+	printf("ºóĞò±éÀúÈçÏÂ£º\n");
 	PostOrderTraverse(T);
 	printf("\n");
 }

@@ -1,61 +1,63 @@
-#define StackSize 10 /*å‡å®šé¢„åˆ†é…çš„æ ˆç©ºé—´æœ€å¤šä¸º10*/
+#include <stdio.h>
+
+#define StackSize 10 /*¼Ù¶¨Ô¤·ÖÅäµÄÕ»¿Õ¼ä×î¶àÎª10*/
 #define Error printf
-typedef int DataType; /*æ ˆçš„å…ƒç´ ç±»å‹è®¾ä¸ºæ•´å‹*/
+typedef int DataType; /*Õ»µÄÔªËØÀàĞÍÉèÎªÕûĞÍ*/
 typedef struct {
 	DataType data[StackSize];
 	int top;
 } SeqStack;
-void InitStack(SeqStack *S) { /*åˆå§‹æ ˆ*/
+void InitStack(SeqStack *S) { /*³õÊ¼Õ»*/
 	S->top=0;
 }
-int StackEmpty(SeqStack *S) { /*åˆ¤æ ˆç©º*/
+int StackEmpty(SeqStack *S) { /*ÅĞÕ»¿Õ*/
 	if (S->top==0) return 1;
 	else return 0;
 }
-int StackFull(SeqStack *S) { /*åˆ¤æ ˆæ»¡*/
+int StackFull(SeqStack *S) { /*ÅĞÕ»Âú*/
 	return S->top==StackSize;
 }
-void Push(SeqStack *S, DataType x) { /*è¿›æ ˆ*/
+void Push(SeqStack *S, DataType x) { /*½øÕ»*/
 	if(StackFull(S))
-		Error("Stack overflow"); /*ä¸Šæº¢é€€å‡º*/
-	else S->data[(S->top)++]=x; /*æ ˆé¡¶æŒ‡é’ˆåŠ 1åå°†xè¿›æ ˆ*/
+		Error("Stack overflow"); /*ÉÏÒçÍË³ö*/
+	else S->data[(S->top)++]=x; /*Õ»¶¥Ö¸Õë¼Ó1ºó½«x½øÕ»*/
 }
-DataType Pop(SeqStack *S) { /*å‡ºæ ˆ*/
+DataType Pop(SeqStack *S) { /*³öÕ»*/
 	if (StackEmpty(S))
-		Error("Stack underflow"); /*ä¸‹æº¢é€€å‡º*/
-	else return S->data[--(S->top)]; /*æ ˆé¡¶æŒ‡é’ˆè¿”å›åå°†æ ˆé¡¶æŒ‡é’ˆå‡1*/
+		Error("Stack underflow"); /*ÏÂÒçÍË³ö*/
+	else return S->data[--(S->top)]; /*Õ»¶¥Ö¸Õë·µ»Øºó½«Õ»¶¥Ö¸Õë¼õ1*/
 }
-/* DataType StackTop(SeqStack *S) //å–æ ˆé¡¶å…ƒç´ 
+/* DataType StackTop(SeqStack *S) //È¡Õ»¶¥ÔªËØ
 {if (StackEmpty(S))
 Error("Stack is empty");
 Return S->data[S->top];
 } */
 void conversion(int N,int B);
-main() {
+void main() {
 	int N,B;
 	char ch;
-	printf("è¿›è¡Œè½¬æ¢è¯·è¾“å…¥Y,é€€å‡ºè¯·è¾“å…¥N:");
+	printf("½øĞĞ×ª»»ÇëÊäÈëY,ÍË³öÇëÊäÈëN:");
 	scanf("\n%c",&ch);
 	while (ch=='Y'|| ch=='y') {
-		printf("è¯·è¾“å…¥éœ€è¦è½¬æ¢çš„åè¿›åˆ¶æ•°ï¼š");
+		printf("ÇëÊäÈëĞèÒª×ª»»µÄÊ®½øÖÆÊı£º");
 		scanf("%d",&N);
-		printf("\nè¯·è¾“å…¥æƒ³è¦è½¬æ¢çš„è¿›åˆ¶æ•°ï¼š");
+		printf("\nÇëÊäÈëÏëÒª×ª»»µÄ½øÖÆÊı£º");
 		scanf("%d",&B);
 		conversion(N,B);
-		printf("ç»§ç»­è½¬æ¢è¯·è¾“å…¥Y,é€€å‡ºè¯·è¾“å…¥N");
+		printf("¼ÌĞø×ª»»ÇëÊäÈëY,ÍË³öÇëÊäÈëN");
 		scanf("\n%c",&ch);
 	}
 }
-void conversion(int N,int B) { /*å°†åè¿›åˆ¶çš„Nè½¬æ¢æˆBè¿›åˆ¶æ•°*/
+void conversion(int N,int B) { /*½«Ê®½øÖÆµÄN×ª»»³ÉB½øÖÆÊı*/
 	DataType i;
 	SeqStack *S;
 	InitStack(S);
-	while (N) { /*ä»ä½ä½å‘é«˜ä½ç”ŸæˆBè¿›åˆ¶æ•°çš„å„ä½æ•°å­—ï¼Œå¹¶å°†å…¶è¿›æ ˆ*/
+	while (N) { /*´ÓµÍÎ»Ïò¸ßÎ»Éú³ÉB½øÖÆÊıµÄ¸÷Î»Êı×Ö£¬²¢½«Æä½øÕ»*/
 		Push(S,N%B);
 		N=N/B;
 	}
-	printf("è½¬æ¢çš„ç»“æœä¸º:");
-	while (!StackEmpty(S)) { /*æ ˆéç©ºæ—¶é€€æ ˆè¾“å‡º*/
+	printf("×ª»»µÄ½á¹ûÎª:");
+	while (!StackEmpty(S)) { /*Õ»·Ç¿ÕÊ±ÍËÕ»Êä³ö*/
 		i=Pop(S);
 		switch(i) {
 		case 10:

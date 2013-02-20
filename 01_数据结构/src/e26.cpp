@@ -1,7 +1,7 @@
 /*
-9ï¼Ž  ç¼–ä¸€Cç¨‹åºï¼Œå®ƒèƒ½æ ¹æ®è¾“å…¥çš„å®Œå…¨äºŒ*æ ‘å±‚æ¬¡åºåˆ—æ¥æž„é€ è¯¥å®Œå…¨äºŒ*æ ‘ï¼Œå¹¶èƒ½è¾“å‡ºè¯¥å®Œå…¨äºŒ*æ ‘çš„åŽåºåºåˆ—å’Œå¶ç»“ç‚¹çš„ä¸ªæ•°ã€‚ï¼ˆå®Œå…¨äºŒ*æ ‘å±‚æ¬¡åºåˆ—æ˜¯ä»Ž1å±‚åˆ°æœ€é«˜å±‚ã€åŒå±‚å†…ä»Žå·¦åˆ°å³çš„æ¬¡åºæŽ’åˆ—çš„ç»“ç‚¹åºåˆ—ï¼‰ã€‚
+9£®  ±àÒ»C³ÌÐò£¬ËüÄÜ¸ù¾ÝÊäÈëµÄÍêÈ«¶þ*Ê÷²ã´ÎÐòÁÐÀ´¹¹Ôì¸ÃÍêÈ«¶þ*Ê÷£¬²¢ÄÜÊä³ö¸ÃÍêÈ«¶þ*Ê÷µÄºóÐòÐòÁÐºÍÒ¶½áµãµÄ¸öÊý¡££¨ÍêÈ«¶þ*Ê÷²ã´ÎÐòÁÐÊÇ´Ó1²ãµ½×î¸ß²ã¡¢Í¬²ãÄÚ´Ó×óµ½ÓÒµÄ´ÎÐòÅÅÁÐµÄ½áµãÐòÁÐ£©¡£
 
-ï¼ˆæ³¨ï¼šç¨‹åºçš„å¯æ‰§è¡Œæ–‡ä»¶åå¿…é¡»æ˜¯ e1.exeï¼Œå­˜äºŽä½ çš„è´¦å·æˆ–å…¶debugç›®å½•ä¸‹ã€‚ï¼‰
+£¨×¢£º³ÌÐòµÄ¿ÉÖ´ÐÐÎÄ¼þÃû±ØÐëÊÇ e1.exe£¬´æÓÚÄãµÄÕËºÅ»òÆädebugÄ¿Â¼ÏÂ¡££©
 */
 #include<stdio.h>
 #include<malloc.h>
@@ -14,26 +14,26 @@ typedef struct node
 	struct node *lchild,*rchild;
 } Tnode;
 
-void MK(char in[],char is,char ie,char pre[],char pres,char pree,Tnode **r)
+void MK(char in[],char is,char ie,char pre[],char pres,char pree,Tnode *r)
 {
 	int i;
 	if(is>ie||pres>pree)
 		*r=NULL;
 	else
 	{
-		*r=malloc(sizeof(Tnode));
-		(*r)->d=pre[pres];
+		r=(Tnode*)malloc(sizeof(Tnode));
+		r->d=pre[pres];
 		for(i=is; i<=ie; i++)
 		{
 			if(in[i]==pre[pres])
 			{
-				MK(in,is,i-1,pre,pres+1,pres+i-is,&(*r)->lchild);
-				MK(in,i+1,ie,pre,pres+i-is+1,pree,&(*r)->rchild);
+				MK(in,is,i-1,pre,pres+1,pres+i-is,r->lchild);
+				MK(in,i+1,ie,pre,pres+i-is+1,pree,r->rchild);
 				break;
 			}
 			if(i>ie)
 			{
-				printf("è¾“å…¥é”™è¯¯!\n");
+				printf("ÊäÈë´íÎó!\n");
 				exit(1);
 			}
 		}
@@ -73,15 +73,15 @@ void main()
 {
 	Tnode *r=NULL;
 	char in[MAX],pre[MAX];
-	printf("è¯·è¾“å…¥å‰åºåºåˆ—:\n");
+	printf("ÇëÊäÈëÇ°ÐòÐòÁÐ:\n");
 	gets(pre);
-	printf("è¯·è¾“å…¥ä¸­åºåºåˆ—:\n");
+	printf("ÇëÊäÈëÖÐÐòÐòÁÐ:\n");
 	gets(in);
-	MK(in,0,strlen(in)-1,pre,0,strlen(pre)-1,&r);
-	printf("\nåŽåºéåŽ†åºåˆ—ä¸º:\n");
+	MK(in,0,strlen(in)-1,pre,0,strlen(pre)-1,r);
+	printf("\nºóÐò±éÀúÐòÁÐÎª:\n");
 	postorder(r);
-	printf("\nå¶ç»“ç‚¹çš„ä¸ªæ•°ä¸º:%d\n",leaf(r));
-	printf("\né«˜åº¦ä¸º:%d\n",height(r));
+	printf("\nÒ¶½áµãµÄ¸öÊýÎª:%d\n",leaf(r));
+	printf("\n¸ß¶ÈÎª:%d\n",height(r));
 }
 
 

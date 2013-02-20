@@ -1,15 +1,16 @@
 /*
-４、数据结构 上机  图 邻接表 DFS BFS
+�������ݽṹ �ϻ�  ͼ �ڽӱ� DFS BFS
 */
 #include <stdio.h>
 #include <stdlib.h>
-#define MaxVertexNum 10 /*设最大顶点数为10*/
-typedef struct node { /*边表结点*/
+
+#define MaxVertexNum 10 /*����󶥵���Ϊ10*/
+typedef struct node { /*�߱����*/
 	int adjvex;
 	struct node *next;
 } EdgeNode;
 typedef char Vertextype;
-typedef struct vnode { /*顶点表结点*/
+typedef struct vnode { /*��������*/
 	char vertex;
 	EdgeNode *firstedge;
 } VertexNode;
@@ -28,63 +29,66 @@ void DFSTraverseAL(ALGraph *G);
 void BFSTraverseAL(ALGraph *G);
 void DFSAL(ALGraph *G,int i);
 void BFSAL(ALGraph *G,int i);
-#define QueueSize 30 /*假定预分配的队列空间最多为30*/
-typedef int DataType; /*队列中的元素类型为字符型*/
+#define QueueSize 30 /*�ٶ�Ԥ����Ķ��пռ����Ϊ30*/
+typedef int DataType; /*�����е�Ԫ������Ϊ�ַ���*/
 typedef struct {
-	int front; /*队头指针，队非空时指向队头元素*/
-	int rear; /*队尾指针，队非空时指向队尾元素的下一位置*/
-	int count; /*计数器，记录队中元素总数*/
+	int front; /*��ͷָ�룬�ӷǿ�ʱָ���ͷԪ��*/
+	int rear; /*��βָ�룬�ӷǿ�ʱָ���βԪ�ص���һλ��*/
+	int count; /*����������¼����Ԫ������*/
 	DataType data[QueueSize];
 } CirQueue;
-void InitQueue(CirQueue *Q) { /*初始队列*/
+void InitQueue(CirQueue *Q) { /*��ʼ����*/
 	Q->front=Q->rear=0;
 	Q->count=0;
 }
-int QueueEmpty(CirQueue *Q) { /*判队空*/
+int QueueEmpty(CirQueue *Q) { /*�жӿ�*/
 	return Q->count==0;
 }
-int QueueFull(CirQueue *Q) { /*判队满*/
+int QueueFull(CirQueue *Q) { /*�ж���*/
 	return Q->count==QueueSize;
 }
-void EnQueue(CirQueue *Q,DataType x) { /*入队*/
+void EnQueue(CirQueue *Q,DataType x) { /*���*/
 	if (QueueFull(Q))
-		Error("Queue overflow"); /*队满上溢*/
+		Error("Queue overflow"); /*��������*/
 	else {
-		Q->count++; /*队列元素个数加1*/
-		Q->data[Q->rear]=x; /*新元素插入队列*/
-		Q->rear=(Q->rear+1)%QueueSize; /*循环队列的尾指针加1*/
+		Q->count++; /*����Ԫ�ظ�����1*/
+		Q->data[Q->rear]=x; /*��Ԫ�ز������*/
+		Q->rear=(Q->rear+1)%QueueSize; /*ѭ�����е�βָ���1*/
 	}
 }
-DataType DeQueue(CirQueue *Q) { /*出队*/
+DataType DeQueue(CirQueue *Q) { /*����*/
 	DataType temp;
 	if (QueueEmpty(Q))
-		Error("Queue underflow"); /*队空下溢*/
+		Error("Queue underflow"); /*�ӿ�����*/
 	else {
 		temp=Q->data[Q->front];
-		Q->count--; /*队列元素个数减1*/
-		Q->front=(Q->front+1)%QueueSize; /*循环队列的头指针加1*/
+		Q->count--; /*����Ԫ�ظ�����1*/
+		Q->front=(Q->front+1)%QueueSize; /*ѭ�����е�ͷָ���1*/
 		return temp;
 	}
 }
-main() {
+void main() {
 	ALGraph *G;
 	char ch1,ch2;
-	printf("建立一个有向图的邻接表表示\n");
+	printf("����һ������ͼ���ڽӱ���ʾ\n");
+
+	G = (ALGraph*)malloc(sizeof(ALGraph));
+
 	CreateALGraph(G);
-	printf("已创建了一个邻接表存储的图\n");
+	printf("�Ѵ�����һ���ڽӱ��洢��ͼ\n");
 	ch1='y';
 	while(ch1=='y' || ch1=='Y') {
-		printf("\n请选择下列*作：");
-		printf("\nA------------------更新邻接表存储的图");
-		printf("\nB------------------深度优先遍历");
-		printf("\nC------------------广度优先遍历");
-		printf("\nD------------------退出\n");
+		printf("\n��ѡ������*����");
+		printf("\nA------------------�����ڽӱ��洢��ͼ");
+		printf("\nB------------------������ȱ���");
+		printf("\nC------------------������ȱ���");
+		printf("\nD------------------�˳�\n");
 		scanf("\n%c",&ch2);
 		switch (ch2) {
 		case 'A':
 		case 'a':
 			CreateALGraph(G);
-			printf("创建一个图的邻接表的*作完成。\n");
+			printf("����һ��ͼ���ڽӱ���*����ɡ�\n");
 			break;
 		case 'B':
 		case 'b':
@@ -105,77 +109,77 @@ main() {
 }
 
 void CreateALGraph(ALGraph *G) {
-	/*建立有向图的邻接表存储*/
+	/*��������ͼ���ڽӱ��洢*/
 	int i,j,k;
 	EdgeNode * s;
-	printf("请输入顶点数和边数(输入格式为:顶点数,边数)：\n");
-	scanf("%d,%d",&(G->n),&(G->e)); /*读入顶点数和边数*/
-	printf("请输入顶点信息(输入格式为:顶点号<CR>)：\n");
-	for (i=0; i<G->n; i++) { /*建立有n个顶点的顶点表*/
-		scanf("\n%c",&(G->adjlist[i].vertex)); /*读入顶点信息*/
-		G->adjlist[i].firstedge=NULL; /*顶点的边表头指针设为空*/
+	printf("�����붥�����ͱ���(�����ʽΪ:������,����)��\n");
+	scanf("%d,%d",&(G->n),&(G->e)); /*���붥�����ͱ���*/
+	printf("�����붥����Ϣ(�����ʽΪ:�����<CR>)��\n");
+	for (i=0; i<G->n; i++) { /*������n������Ķ����*/
+		scanf("\n%c",&(G->adjlist[i].vertex)); /*���붥����Ϣ*/
+		G->adjlist[i].firstedge=NULL; /*����ı߱�ͷָ����Ϊ��*/
 	}
-	printf("请输入边的信息(输入格式为:i,j)：\n");
-	for (k=0; k<G->e; k++) { /*建立边表*/
-		scanf("\n%d,%d",&i,&j); /*读入边<Vi,Vj>的顶点对应序号*/
-		s=(EdgeNode*)malloc(sizeof(EdgeNode)); /*生成新边表结点s*/
-		s->adjvex=j; /*邻接点序号为j*/
+	printf("������ߵ���Ϣ(�����ʽΪ:i,j)��\n");
+	for (k=0; k<G->e; k++) { /*�����߱�*/
+		scanf("\n%d,%d",&i,&j); /*�����<Vi,Vj>�Ķ����Ӧ���*/
+		s=(EdgeNode*)malloc(sizeof(EdgeNode)); /*�����±߱����s*/
+		s->adjvex=j; /*�ڽӵ����Ϊj*/
 		s->next=G->adjlist[i].firstedge;
-		/*将新边表结点s插入到顶点Vi的边表头部*/
+		/*���±߱����s���뵽����Vi�ı߱�ͷ��*/
 		G->adjlist[i].firstedge=s;
 	}
 }/*CreateALGraph*/
 
 void DFSTraverseAL(ALGraph *G) {
-	/*深度优先遍历以邻接表存储的图G*/
+	/*������ȱ������ڽӱ��洢��ͼG*/
 	int i;
 	for (i=0; i<G->n; i++)
-		visited[i]=FALSE; /*标志向量初始化*/
+		visited[i]=FALSE; /*��־������ʼ��*/
 	for (i=0; i<G->n; i++)
-		if (!visited[i]) DFSAL(G,i); /*Vi未访问过，从Vi开始DFS搜索*/
+		if (!visited[i]) DFSAL(G,i); /*Viδ���ʹ�����Vi��ʼDFS����*/
 }/*DFSTraveseAL*/
 void BFSTraverseAL(ALGraph *G) {
-	/*广度优先遍历以邻接表存储的图G*/
+	/*������ȱ������ڽӱ��洢��ͼG*/
 	int i;
 	for (i=0; i<G->n; i++)
-		visited[i]=FALSE; /*标志向量初始化*/
+		visited[i]=FALSE; /*��־������ʼ��*/
 	for (i=0; i<G->n; i++)
-		if (!visited[i]) BFSAL(G,i); /* Vi未访问过，从Vi开始BFS搜索*/
+		if (!visited[i]) BFSAL(G,i); /* Viδ���ʹ�����Vi��ʼBFS����*/
 }/*BFSTraverseAL*/
 
 void DFSAL(ALGraph *G,int i) {
-	/*以Vi为出发点对邻接表存储的图G进行DFS搜索*/
+	/*��ViΪ��������ڽӱ��洢��ͼG����DFS����*/
 	EdgeNode *p;
-	printf("visit vertex:V%c\n",G->adjlist[i].vertex); /*访问顶点Vi*/
-	visited[i]=TRUE; /*标记Vi已访问*/
-	p=G->adjlist[i].firstedge; /*取Vi边表的头指针*/
-	while(p) { /*依次搜索Vi的邻接点Vj，j=p->adjva*/
+	printf("visit vertex:V%c\n",G->adjlist[i].vertex); /*���ʶ���Vi*/
+	visited[i]=TRUE; /*���Vi�ѷ���*/
+	p=G->adjlist[i].firstedge; /*ȡVi�߱���ͷָ��*/
+	while(p) { /*��������Vi���ڽӵ�Vj��j=p->adjva*/
 		if (!visited[p->adjvex])
-			/*若Vj尚未访问，则以Vj为出发点向纵深搜索*/
+			/*��Vj��δ���ʣ�����VjΪ����������������*/
 			DFSAL(G,p->adjvex);
-		p=p->next; /*找Vi的下一个邻接点*/
+		p=p->next; /*��Vi����һ���ڽӵ�*/
 	}
 }/*DFSAL*/
 
 void BFSAL(ALGraph *G,int k) {
-	/*以Vk为出发点对邻接表存储的图G进行BFS搜索*/
+	/*��VkΪ��������ڽӱ��洢��ͼG����BFS����*/
 	int i;
 	CirQueue Q;
 	EdgeNode *p;
-	InitQueue(&Q); /*初始化队列*/
-	printf("visit vertex:V%c\n",G->adjlist[k].vertex); /*访问原点Vk*/
+	InitQueue(&Q); /*��ʼ������*/
+	printf("visit vertex:V%c\n",G->adjlist[k].vertex); /*����ԭ��Vk*/
 	visited[k]=TRUE;
-	EnQueue(&Q,k); /*访问Vk后将其序号入队列*/
-	while(!QueueEmpty(&Q)) { /*队非空则执行*/
-		i=DeQueue(&Q); /*相当于Vi出队*/
-		p=G->adjlist[i].firstedge; /*取Vi的边表指针*/
-		while(p) { /*依次搜索Vi的邻接点Vj*/
-			if (!visited[p->adjvex]) { /*若Vj未访问过访问Vj*/
+	EnQueue(&Q,k); /*����Vk������������*/
+	while(!QueueEmpty(&Q)) { /*�ӷǿ���ִ��*/
+		i=DeQueue(&Q); /*�൱��Vi����*/
+		p=G->adjlist[i].firstedge; /*ȡVi�ı߱�ָ��*/
+		while(p) { /*��������Vi���ڽӵ�Vj*/
+			if (!visited[p->adjvex]) { /*��Vjδ���ʹ�����Vj*/
 				printf("visit vertex:V%c\n",G->adjlist[p->adjvex].vertex);
-				visited[p->adjvex]=TRUE; /*置访问过标志*/
-				EnQueue(&Q,p->adjvex); /*将访问过的Vj入队列*/
+				visited[p->adjvex]=TRUE; /*�÷��ʹ���־*/
+				EnQueue(&Q,p->adjvex); /*�����ʹ���Vj�����*/
 			}
-			p=p->next; /*找Vi的下一个邻接点*/
+			p=p->next; /*��Vi����һ���ڽӵ�*/
 		}
 	}
 }/*BFSAL*/
