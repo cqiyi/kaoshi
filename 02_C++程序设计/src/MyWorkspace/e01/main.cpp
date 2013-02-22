@@ -1,7 +1,9 @@
-#include "iostream.h"
-#include "string.h"
-const int MAX=1000;
+#include "iostream"
+#include "string.h"	
 #define NULL 0
+#define MAX 1000
+
+using namespace std;
 
 class Element
 {
@@ -15,39 +17,32 @@ class MyInteger:public Element
 public:
 	MyInteger() {
 		a=0;
-	}
+	};
 	friend istream& operator>>(istream& is, MyInteger& myi) {
 		is>>myi.a;
 		myi.a = myi.a * 10;
 		return is;
-	}
+	};
 
 	int Get() {
 		return a;
-	}
+	};
 	void ShowMe() {
 		cout<<" 整数："<<a<<endl;
-	}
+	};
 };
 
 class MyString:public Element
 {
-	int a;
+	char s[100];
 public:
-	MyInteger() {
-		a=0;
-	}
-	friend istream& operator>>(istream& is, MyInteger& myi) {
-		is>>myi.a;
-		myi.a = myi.a * 10;
+	friend istream &operator>>(istream &is, MyString &MyS)
+	{
+		is>>MyS.s;
 		return is;
 	}
-
-	int Get() {
-		return a;
-	}
 	void ShowMe() {
-		cout<<" 整数："<<a<<endl;
+		cout<<" 字符串："<<s<<endl;
 	}
 };
 
@@ -107,6 +102,7 @@ int main(int argc, char* argv[])
 	cout<<"出栈后栈顶元素为：";
 	st1.top();
 
+	system("pause");  
 	return 0;
 }
 
