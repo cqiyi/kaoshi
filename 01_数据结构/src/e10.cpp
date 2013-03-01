@@ -1,5 +1,13 @@
+/*
+3．编一C程序，它能读入两组整数（每组整数都是66个整数），它们分别是下三角矩阵A和下三角矩阵B的按行优先排列的元素（A和B的其它元素均为零）。计算并输出矩阵A与B的乘积。
+
+（注：程序的可执行文件名必须是 e1.exe，存于你的账号或其debug目录下。）
+*/
+
+
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 void main()
 {
@@ -32,4 +40,5 @@ void main()
 	for(i=0; i<66; i++) {
 		printf("%d",c[i]);
 	}
+	system("pause");
 }
