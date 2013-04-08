@@ -1,4 +1,4 @@
-#include "iostream.h"
+#include "iostream"
 #include "string.h"
 const max=1000;
 #define NULL 0

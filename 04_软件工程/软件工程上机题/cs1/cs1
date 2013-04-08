@@ -1,0 +1,15 @@
+void insersote(int *array,int n)
+{for(int i=1;i<n;i++){
+j=i;
+do{if(arrya[j]>array[j-1]){
+½»»»ÌØtemp=¡­¡­
+}
+}while(j>0);
+}//end for
+}
+void main()
+{
+int array[5]={5,4,3,2,1};
+insersort(array£¬5)£»
+printf(¡­¡­);
+}

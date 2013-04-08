@@ -1,0 +1,139 @@
+12月12日下午上机题答案（有插入数据）
+
+begin transaction
+go
+use practice
+go
+create table problem
+(  pno char(4) primary key,
+pname char(10) not null,
+source char(10) not null
+)
+
+go
+create table person
+(
+uno char(4) primary key,
+uname char(10) not null,
+quality int
+) 
+go
+create table complish
+(
+pno char(4) foreign key references problem(pno),
+uno char(4) foreign key references person(uno),
+grade float(5) check( grade between 0 and 100 ),
+primary key(pno,uno)
+)
+commit
+
+
+use practice
+go
+insert into problem
+values('01','pro1','语文')
+insert into problem
+values('02','pro2','数学')
+insert into problem
+values('03','pro3','政治')
+insert into problem
+values('04','pro4','历史')
+
+
+insert into person
+values('001','jim',10)
+insert into person
+values('002','lili',6)
+insert into person
+values('003','lucy',7)
+insert into person
+values('004','jack',8)
+
+
+insert into  complish
+values('01','001',40)
+insert into  complish
+values('01','002',60)
+insert into  complish
+values('01','003',80)
+insert into  complish
+values('01','004',90)
+insert into  complish
+values('02','001',40)
+insert into  complish
+values('02','002',50)
+insert into  complish
+values('02','003',80)
+insert into  complish
+values('02','004',100)
+insert into  complish
+values('03','002',30)
+insert into  complish
+values('03','004',60)
+insert into  complish
+values('04','001',60)
+insert into  complish
+values('04','002',50)
+insert into  complish
+values('04','003',45)
+
+go
+--使用游标完成：找出平均成绩低于60分的题目
+--将其所有提交的成绩开平方再乘以10（注：SQRT（X）可以对X开平方）
+declare pno_cursor cursor for
+select pno
+from  complish
+group by pno
+having  avg(grade)<60
+
+open pno_cursor
+declare  @pno  char(4),
+   @fetch_status  int
+fetch next from pno_cursor
+into @pno 
+set @fetch_status=@@FETCH_STATUS
+while @fetch_status=0
+begin
+
+declare  up_cursor scroll cursor for
+select grade
+from complish
+where pno=@pno
+for update of grade
+open up_cursor
+fetch up_cursor
+while @@fetch_status=0
+begin
+  update complish
+  set grade=10*sqrt(grade)
+  where current of up_cursor
+  fetch up_cursor
+end
+close up_cursor
+deallocate up_cursor
+fetch next from pno_cursor
+into @pno 
+set @fetch_status=@@FETCH_STATUS
+end
+close pno_cursor
+deallocate pno_cursor
+go
+
+--出成绩高于该题平均成绩的提交,输出题目名称,用户名称,分数
+use practice
+go
+select pname AS 题目名称,uname AS 用户名称, grade 分数
+from problem,person,complish
+where problem.pno=complish.pno and complish.uno=person.uno
+   and grade>(   select avg(grade)
+     from complish
+     where problem.pno=complish.pno
+     group by pno )
+
+--查出所有成绩大于等于85分的提交,输出题目标题,用户名,成绩
+select pname as  题目标题, uname AS 用户名, grade AS 成绩 
+from problem,person,complish
+where problem.pno=complish.pno and complish.uno=person.uno
+   and grade>=85
+
+

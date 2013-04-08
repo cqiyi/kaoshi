@@ -1,0 +1,36 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: aczxt - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPF.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/aczxt.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ  /c 
+"F:\experiment\操作系统上机题\aczxt\a.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPF.tmp" 
+<h3>Output Window</h3>
+Compiling...
+a.cpp
+F:\experiment\操作系统上机题\aczxt\a.cpp(193) : error C2440: 'return' : cannot convert from 'int' to 'operations'
+        Conversion to enumeration type requires an explicit cast (static_cast, C-style cast or function-style cast)
+F:\experiment\操作系统上机题\aczxt\a.cpp(209) : error C2440: 'return' : cannot convert from 'int' to 'operations'
+        Conversion to enumeration type requires an explicit cast (static_cast, C-style cast or function-style cast)
+F:\experiment\操作系统上机题\aczxt\a.cpp(237) : error C2440: 'return' : cannot convert from 'int' to 'operations'
+        Conversion to enumeration type requires an explicit cast (static_cast, C-style cast or function-style cast)
+F:\experiment\操作系统上机题\aczxt\a.cpp(566) : error C2440: '=' : cannot convert from 'void *' to 'char *'
+        Conversion from 'void*' to pointer to non-'void' requires an explicit cast
+F:\experiment\操作系统上机题\aczxt\a.cpp(567) : error C2440: '=' : cannot convert from 'void *' to 'char *'
+        Conversion from 'void*' to pointer to non-'void' requires an explicit cast
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+a.obj - 5 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

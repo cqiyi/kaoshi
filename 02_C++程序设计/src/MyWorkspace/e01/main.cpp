@@ -80,7 +80,18 @@ public:
 };
 
 int main(int argc, char* argv[])
-{
+{	
+	char *c1, *c2;
+	c1 = new char[255];
+	c2 = new char[255];
+	cin>>c1;
+	cout<<"c1="<<c1<<endl;
+	cin>>c2;
+	cout<<"c2="<<c2<<endl;
+	cout<<strcmp(c1, c2)<<endl;
+	system("pause");
+	return 0;
+
 	Stack st1;
 	int i, j;
 

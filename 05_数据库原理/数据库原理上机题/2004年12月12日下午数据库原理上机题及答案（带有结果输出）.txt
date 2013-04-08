@@ -1,0 +1,218 @@
+ 2004年12月12日下午数据库原理上机题及答案（带有结果输出）
+
+--创建表
+begin transaction
+use context
+go
+create table horse
+( h_id char(4) primary key,
+colar char(4) not null,
+haddress varchar(10) 
+)
+go
+create table member
+(
+m_id char(4) primary key,
+mname varchar(10) not null,
+maddress varchar(10) not null,
+remain_money int
+)
+go
+create table com_record
+( term char(2) primary key,
+win_h_id char(4) foreign key references horse(h_id)
+)
+go
+create table throw_record
+(
+term char(2) foreign key references com_record(term),
+m_id char(4) foreign key references member(m_id),
+h_id char(4) foreign key references horse(h_id),
+primary key( term,m_id)
+)
+go
+commit
+
+--插入数据
+begin transaction
+go
+use context
+go
+insert into member
+values( 'U001','李三','北京',20)
+insert into member
+values('U002','李斯','北京',1)
+insert into member
+values('U003','韩家','西安',15)
+insert into member
+values('U004','王五','上海',8)
+
+insert into horse
+values('H001','红','法国')
+insert into horse
+values('H002','白','中国')
+insert into horse
+values('H003','黑','印度')
+insert into horse
+values('H004','灰','法国')
+insert into com_record
+values('1','H001')
+insert into com_record
+values('2','H001')
+insert into com_record
+values('3','H002')
+insert into com_record 
+values ('4','H004')
+
+insert into throw_record
+values('1','U001','H002')
+insert into throw_record
+values('1','U002','H004')
+insert into throw_record
+values('1','U003','H001')
+insert into throw_record
+values('2','U002','H001')
+insert into throw_record
+values('2','U003','H001')
+insert into throw_record
+values('3','U001','H004')
+insert into throw_record
+values('3','U002','H001')
+insert into throw_record
+values('3','U004','H002')
+insert into throw_record
+values('4','U001','H001')
+
+commit
+go
+--找出所在地在北京的，会员余额大于10的会员
+use context
+go
+select *
+from  member
+where maddress='北京' and remain_money>10
+go
+结果是：
+m_id mname      maddress   remain_money 
+---- ---------- ---------- ------------ 
+U001 李三         北京         20
+
+（所影响的行数为 1 行）
+
+--找出赛马中获胜次数最多的产地
+use context
+go
+select haddress AS 赛马场地,count(*) AS 获胜次数
+from horse,com_record
+where  horse.h_id=com_record.win_h_id
+group by haddress
+having count(*)>=all ( select count(*)
+       from horse,com_record
+       where  horse.h_id=com_record.win_h_id
+       group by haddress
+        )
+结果是：
+赛马场地       获胜次数        
+---------- ----------- 
+法国         3
+
+（所影响的行数为 1 行）
+
+
+--找出投注次数最多的会员
+use context
+go
+select member.m_id  AS 会员号, mname AS 会员名,count(*) 投注次数
+from member,throw_record
+where  member.m_id=throw_record.m_id
+group by member.m_id,mname 
+  having count(*)>=all(  select count(*)
+        from member,throw_record
+        where  member.m_id=throw_record.m_id
+        group by member.m_id
+       )
+
+结果是：
+会员号  会员名        投注次数        
+---- ---------- ----------- 
+U001 李三         3
+U002 李斯         3
+
+（所影响的行数为 2 行）
+
+use context
+go
+--员韩家，编号为u003在第四场中给h004的马投注了，请更新数据库
+insert into throw_record
+values('4','u003','h004')
+update member
+set remain_money=remain_money-2
+where m_id='u003'
+
+
+--使用游标确定赚钱最多的用户(只考虑获得的奖励）
+use context
+go
+declare cur_mem scroll cursor for
+select  member.m_id,mname,10*count(*)
+from member,com_record,throw_record
+where member.m_id=throw_record.m_id and throw_record.h_id=com_record.win_h_id
+     and throw_record.term=com_record.term
+group by member.m_id,mname
+order by 3 desc
+
+open  cur_mem 
+declare @id char(2),
+  @name varchar(10),
+  @wage int,
+  @max_id char(2),
+  @max_name varchar(10), 
+  @max_wage int,
+  @out_put varchar(40)
+  set @out_put='顾客号'+' '+'顾客名'+'  '+'赢得金额'
+  print @out_put
+fetch first from cur_mem
+into @max_id,@max_name,@max_wage
+select @out_put=@max_id+'     '+@max_name+str(@max_wage)
+print @out_put
+while @@fetch_status=0
+begin
+fetch next from cur_mem
+into  @id,@name,@wage
+if @wage=@max_wage
+begin
+  select @out_put=@id+'     '+@name+str(@wage) 
+  print @out_put 
+end
+else
+  break
+end
+close cur_mem
+deallocate cur_mem
+
+结果是：
+
+顾客号 顾客名  赢得金额
+U0     韩家        30
+
+--算出马场主在所有的比赛中赚了多少钱
+use context
+go
+declare @merit int
+set @merit=( select 2*count(*)
+     from throw_record
+    )
+set @merit=@merit-(  select 10*count(*)
+       from com_record,throw_record
+       where com_record.win_h_id=throw_record.h_id
+         and com_record.term=throw_record.term
+      )
+print '马场主的利润'
+print @merit
+
+马场主的利润
+-30
+
+
+
+

@@ -1,0 +1,170 @@
+数据库原理练习1
+/*学校图书馆有如下的数据库，其中存放了如下表：
+学生（学号, 姓名, 所属系号）
+图书（书号，书名，类别，作者姓名，总册数）注：同一种书具有同一书号
+借阅（学号，书号，借书日期，还书日期）
+使用SQL语句完成如下功能：
+1. 建表，要求在定义中做如下声明：
+a) 必要的主码外码
+b) 学生的姓名和图书名称不能为空
+c) 借书日期不能为空, 还书日期必须迟于借书日期或者为空，数据类型均为datetime。
+2. 往表中插入数据（注意给定数据中的日期插入时必须转换为合适的格式）
+学生（S0001,张三,D001；
+  S0002,李平,D001；
+     S0003,王玲,D002；
+     S0004,李四,D002；
+     S0005,王宁,D003）     
+     
+   图书（B0001,平凡的世界,现代小说,路遥,2；
+  B0002,王朔文集,现代小说,王朔,2；
+  B0003,小李飞刀,武侠小说,古龙,2；
+  B0004,数据库系统概念,计算机,杨冬青,2；
+B0005,数据结构,计算机,张铭,2）
+  借阅（S0001,B0001,2001年1月1日,2001年4月30日；
+  S0001,B0002,2002年2月2日,2002年6月2日；
+  S0001,B0004,2003年12月7日,null）
+        S0002,B0001,2003年3月1日,2003年4月1日；
+        S0002,B0002,2003年3月1日,2003年5月4日；
+  S0003,B0003,2004年1月1日,2004年4月1日；
+       S0003,B0005,2004年10月26日,null；
+  S0004,B0004,2004年10月26日,null；
+  S0005,B0005,2004年10月25日,null）
+3. 用SQL语句完成如下查询：
+a) 找出借书日期超过30天的所有学生的姓名。
+b) 找出至少借阅过张三同学所借阅过的图书的学生姓名和所属系（不包括张三自己）。
+c) 找出借书最多的学生及其所借书的本数。
+4. 今天是2004年11月14日，王玲归还了所借的全部图书，请在数据库中做相应的记录。
+5. 使用游标，定位王玲同学的第二次借阅记录，列出借阅的图书。
+6. 给出被借阅次数排名前2的书名。（提示：可以使用游标实现）*/
+
+create table e032study(
+s_id char(20),
+s_name char(20) not null,
+x_id char(20),
+primary key (s_id)
+)
+
+create table e032book(
+b_id char(20) UNIQUE,
+b_name char(20) not null,
+b_type char(20),
+b_writer char(20),
+b_sl char(20),
+primary key (b_id)
+)
+
+create table e032brrow(
+s_id char(20),
+b_id char(20),
+j_date datetime not null,
+h_date datetime,
+primary key (s_id,b_id),
+foreign key (s_id) references e032study(s_id),
+foreign key (b_id) references e032book(b_id),
+check (h_date is null or h_date>j_date)
+)
+
+insert into e032study values('S0001','张三','D001')
+insert into e032study values('S0002','李平','D001')
+insert into e032study values('S0003','王玲','D002')
+insert into e032study values('S0004','李四','D002')
+insert into e032study values('S0005','王宁','D003')
+
+select * from e032study
+
+
+insert into e032book values('B0001','平凡的世界','现代小说','路遥',2)
+insert into e032book values('B0002','王朔文集','现代小说','王朔',2)
+insert into e032book values('B0003','小李飞刀','武侠小说','古龙',2)
+insert into e032book values('B0004','数据库系统概念','计算机','杨冬青',2)
+insert into e032book values('B0005','数据结构','计算机','张铭',2)    
+
+select * from e032book
+
+insert into e032brrow values('S0001','B0001','2001-1-1','2001-4-30')
+insert into e032brrow values('S0001','B0002','2002/2/2','2002/6/2')
+insert into e032brrow values('S0001','B0004','2003/12/7',null)
+insert into e032brrow values('S0002','B0001','2003/3/1','2003/4/1')
+insert into e032brrow values('S0002','B0002','2003/3/1','2003/5/4')
+insert into e032brrow values('S0003','B0003','2004/1/1','2004/4/1')
+insert into e032brrow values('S0003','B0005','2004/10/26',null)
+insert into e032brrow values('S0004','B0004','2004/10/26',null)
+insert into e032brrow values('S0005','B0005','2004/10/25',null)
+
+select * from e032brrow
+
+--找出借书期超过30天的所有学生的姓名。
+select s_name 借书期超过30天的所有学生的姓名
+from e032study
+where s_id in(
+select s_id
+from e032brrow
+where h_date-j_date>30
+)
+
+--找出至少借阅过张三同学所借阅过的图书的学生姓名和所属系（不包括张三自己）
+select z.s_name,z.x_id
+from e032study z
+where z.s_name<>'张三'and z.s_id in(
+select x.s_id
+from e032brrow x, e032brrow y
+where x.b_id=y.b_id and y.s_id='S0001' and x.s_id<>'S0001'
+)
+
+--找出借书最多的学生及其所借书的本数。
+select s_id,count(s_id)
+from e032brrow 
+group by s_id
+having count(s_id)>=all(
+select count(s_id)
+from e032brrow
+group by s_id
+)
+--今天是2004/11/14，王玲归还了所借的全部图书，请在数据库中做相应的记录。
+update e032brrow
+set h_date='2004/11/14'
+where s_id=all(select s_id from e032study where s_name='王玲') and h_date is null
+select * from e032brrow
+
+
+--使用游标，定位王玲同学的第二次借阅记录，列出借阅的图书。
+print "王玲同学的第二次借阅记录"
+declare @i char(20),@b_id char(20),@s_id char(20),@j_date datetime,@h_date datetime
+set @i=1
+declare tt cursor
+for select * from e032brrow where s_id=all(select s_id from e032study where s_name='王玲')
+open tt
+fetch from tt
+into @s_id,@b_id,@j_date,@h_date
+if (@@fetch_status<>0)
+print"王玲同学无借阅记录"
+fetch from tt
+into @s_id,@b_id,@j_date,@h_date
+if (@@fetch_status<>0)
+print"王玲同学无第二次借阅记录"
+IF(@@fetch_status=0)
+print @s_id
+print @b_id
+print @j_date
+print @h_date
+close tt
+deallocate tt
+
+--给出被借阅次数排名前2的书名。（提示：可以使用游标实现）
+print "被借阅次数排名前2的书名"
+declare @bid char(20),@j int,@b_name char(20),@s int
+set @j=1
+declare ttt cursor
+for select b_id,count(b_id) from e032brrow group by b_id
+open ttt
+while @j<=2
+begin
+fetch next from ttt
+into @bid,@s
+select @b_name=b_name from e032book where b_id=@bid
+print @b_name
+set @j=@j+1
+end
+close ttt
+deallocate ttt
+

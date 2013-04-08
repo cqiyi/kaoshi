@@ -1,0 +1,150 @@
+[讨论]关于12月12号考题的答案和问题！
+
+insert into person values('u001','李三','北京',20)
+insert into person values('u002','李斯','北京',1)
+insert into person values('u003','韩家','西安',15)
+insert into person values('u004','王五','上海',8)
+
+go
+insert into horse values('h001','红色','东北')
+insert into horse values('h002','黄色','内蒙古')
+insert into horse values('h003','绿色','新疆')
+insert into horse values('h004','白色','华南')
+go
+insert into match values ('1','H001')
+insert into match values ('2','H001')
+insert into match values ('3','H002')
+insert into match values ('4','H004')
+go
+
+insert into put values ('1','U001','H002')
+insert into put values ('1','U002','H004')
+insert into put values ('1','U003','H001')
+insert into put values ('2','U002','H001')
+insert into put values ('2','U003','H001')
+insert into put values ('3','U001','H004')
+insert into put values ('3','U002','H001')
+insert into put values ('3','U004','H002')
+insert into put values ('4','U001','H001')
+go
+
+
+--找出所在地在北京的，会员余额大于10的会员
+
+select 会员编号，会员姓名
+
+from   会场
+
+where   所在地=‘北京’   and   余额>10
+
+1.b
+
+select   赛马场地
+
+from  赛马
+
+where   赛马编号 in  （select   赛马编号       
+
+from   比赛记录
+
+group  by  获胜赛马编号
+
+having   count(*)>=all          (select   count(*)           from   比赛记录
+
+group  by  获胜赛马编号           ）            ）
+
+1.c
+
+select   会员编号，姓名
+
+from    会场       where  会员编号   in  （
+
+select     会员编号
+
+from   投注记录
+
+group by    会员编号
+
+having count(*)>=all
+
+(   select    count(*)             from  投注记录        group by  会员编号         ）    ）
+
+2.
+
+insert  into 投注记录      vaules          ( 4, 'u003' , 'h004' )
+
+update  会场      set   余额=余额-2     where     会员编号='u003'
+
+3.
+
+declare  @h_id char(4), @r_id char(4),@max tinyint,@i tinyint
+
+set  @max= -1
+
+declare  a_cur cursor
+
+for     select  会员编号, count(*)
+
+from 投注记录,比赛记录
+
+where   投注记录.场次=比赛记录.场次  and    投注记录.赛马编号=比赛记录.获胜赛马记录
+
+group by  会员编号
+
+open a_cur
+
+fetch next from a_cur
+
+into @h_id,@i
+
+while  @@FETCH_STATUS=0
+
+begin        
+
+if       @i>@max 
+
+begin               
+
+set   @max=@i
+
+set  @r_id=@h_id
+
+end
+
+fetch next  from  a_cur
+
+into @h_id,@i
+
+end
+
+close a_cur
+
+deallocate a_cur
+
+print   @r_id
+
+4.
+
+  declare  @j   tinyint 
+
+set  @j=(  select  10*count(*)
+
+from  比赛记录,投注记录      where   比赛记录.获胜赛马记录=投注记录.所选赛马记录 
+
+and              比赛记录.场次=投注记录.场次      )
+
+select   count(*)*2 - @j
+
+from   投注记录
+
+有错请指正！  在此还有几个问题想请高手告之，
+
+check后能用select吗？    select后能用单属性+聚集函数吗？   
+
+上题游标中的 if 可以用其他的表示方法代替begin   end  吗？
+
+有没有什么符号和关键字  是必须用大写的呢？？
+
+我14号考，请大家帮忙！！！！！
+
+

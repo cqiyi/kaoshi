@@ -11,6 +11,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "e18", "e18\e18.vcproj", "{5
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "e19", "e19\e19.vcproj", "{F4336569-B774-4389-9833-4A97D02240C7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Supermarket", "Supermarket\Supermarket.vcproj", "{2FC17110-19E6-41EC-B3EE-38F9643ECF3E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sss", "sss\sss.vcproj", "{6EB39746-4089-4FAE-835D-ABB4A62DE8C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -37,6 +41,14 @@ Global
 		{F4336569-B774-4389-9833-4A97D02240C7}.Debug|Win32.Build.0 = Debug|Win32
 		{F4336569-B774-4389-9833-4A97D02240C7}.Release|Win32.ActiveCfg = Release|Win32
 		{F4336569-B774-4389-9833-4A97D02240C7}.Release|Win32.Build.0 = Release|Win32
+		{2FC17110-19E6-41EC-B3EE-38F9643ECF3E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2FC17110-19E6-41EC-B3EE-38F9643ECF3E}.Debug|Win32.Build.0 = Debug|Win32
+		{2FC17110-19E6-41EC-B3EE-38F9643ECF3E}.Release|Win32.ActiveCfg = Release|Win32
+		{2FC17110-19E6-41EC-B3EE-38F9643ECF3E}.Release|Win32.Build.0 = Release|Win32
+		{6EB39746-4089-4FAE-835D-ABB4A62DE8C9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6EB39746-4089-4FAE-835D-ABB4A62DE8C9}.Debug|Win32.Build.0 = Debug|Win32
+		{6EB39746-4089-4FAE-835D-ABB4A62DE8C9}.Release|Win32.ActiveCfg = Release|Win32
+		{6EB39746-4089-4FAE-835D-ABB4A62DE8C9}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

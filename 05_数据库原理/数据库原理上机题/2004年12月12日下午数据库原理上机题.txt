@@ -1,0 +1,62 @@
+2004年12月12日下午数据库原理上机题
+
+2004年12月12日下午数据库原理上机题
+
+（自己做得，仅供大家参考：）
+
+某个在线习题评测系统功能如下：
+有大量练习题，用户可以从中选择题目来解答，并将解答提交，由系统自动评测并返回成绩。
+注：一个用户不能重复提交某个题目的解答。
+
+有以下表：
+题目（题号，题目名称，来源） 
+
+用户（用户号，用户名，解题数目） 
+
+提交（题号，用户号，成绩）  
+
+用SQL语句完成以下操作：
+1、建表，要求用自己的帐号做为各个表名的前缀如WxxxProblem……，并用英文作为表名，属性名
+2、插入如下记录
+P表5条，S表5条，SUMbit表10条
+3、完成如下操作：
+（1）查出所有成绩大于等于85分的提交，输出题目标题、用户名、成绩
+4、更新多于一个用户的题目来源为“多人”
+   update 题目
+   set 来源="多人"
+   where 题号 in(select 题号 
+                 from 提交
+                 group by 题号 
+                 having count(题号)>1)
+5、使用游标完成：找出平均成绩低于60分的题目，将其所有提交的成绩开平方再乘以10（注：SQRT（X）可以对X开平方）
+   declare @pname char(20)
+   declare ss cursor for
+   select 题目名称 
+   from 题目
+   where 题号 in(select 题号
+                 from 提交
+                 group by 题号
+                 having avg(成绩)<60
+    open ss
+    
+    fetch next from ss
+    into @pname             
+      update 提交
+      set 成绩=sqrt(成绩)*10
+      group by 题号
+      having avg(成绩)<60
+
+    close ss
+    
+    deallocate ss 
+
+6、找出成绩高于该题平均成绩的提交，输出题目名称、用户名称、分数
+  select 题目名称,用户名,成绩
+  from  题目,用户,提交
+  where 用户.用户号=提交.用户号 and 题目.题号 in(
+              select x.题号
+              from  提交 as x
+              where x.成绩>=(select avg(成绩)
+                          from 提交 as y
+                          group by 题号
+                          having y.题号=x.题号))    

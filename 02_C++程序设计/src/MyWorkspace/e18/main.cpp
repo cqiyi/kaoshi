@@ -1,4 +1,4 @@
-#include "iostream.h"
+#include "iostream"
 #include "string.h"
 #define NULL 0
 
@@ -107,6 +107,7 @@ public:
 
 int main(int argc, char* argv[])
 {
+
 	MyInteger My1;
 	MyString My2;
 	stack st1, st2;

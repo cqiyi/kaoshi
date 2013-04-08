@@ -1,0 +1,597 @@
+
+<html>
+<head>
+<META http-equiv=Content-Type content=text/html; charset=gb2312>
+<meta name=keywords content="动网先锋,动网论坛,dvbbs">
+<title>北京自考论坛（WWW.ZKBBS.COM）--北大《数据库原理》2003－11－07&nbsp;考题&nbsp;系列之三</title>
+<style type="text/css">
+A:link,A:active,A:visited{TEXT-DECORATION:none ;Color:#000000}
+A:hover{TEXT-DECORATION: underline;Color:#4455aa}
+
+BODY{
+FONT-SIZE: 12px;
+COLOR: #000000;
+FONT-FAMILY:  宋体;
+background-color: #FFFFFF; 
+scrollbar-face-color: #dbeedd;
+scrollbar-highlight-color: #FFFFFF;
+scrollbar-shadow-color: darkseagreen;
+scrollbar-3dlight-color: #dbeedd;
+scrollbar-arrow-color: darkseagreen;
+scrollbar-track-color: #f3faf4;
+scrollbar-darkshadow-color: #f3faf4;
+background-image: url(skin/more/lvbgcolor.gif);
+}
+TD{
+font-family: 宋体;
+font-size: 12px;
+line-height: 15px;
+}
+th
+{
+background-color: #a9d46d;
+background-image: url(skin/blue/h3.gif);
+COLOR: #FFFFFF;
+font-size: 12px;
+font-weight:bold;
+}
+td.TableTitle2
+{
+background-color: #e3f1d1;
+}
+td.TableBody1
+{
+background-color: #f4faed;
+}
+td.TableBody2
+{
+background-color: #e3f1d1;
+}
+td.TopDarkNav
+{
+background-image: url(skin/blue/h12.gif);
+}
+td.TopLighNav
+{
+background-image: url(skin/blue/h1.gif);
+}
+td.TopLighNav1
+{
+background-image: url(skin/blue/h2.gif);
+}
+td.TopLighNav2
+{
+background-color:#FFFFFF
+}
+.tableBorder1
+{
+width:97%;
+border: 1px; 
+background-color: #a9d46d;
+}
+.tableBorder2
+{
+width:97%;
+border: 1px #83BB37 solid; 
+background-color: #e3f1d1;
+}
+
+#TableTitleLink A:link, #TableTitleLink A:visited, #TableTitleLink A:active {
+	COLOR: #FFFFFF;
+	TEXT-DECORATION: none;
+}
+#TableTitleLink A:hover {
+	COLOR: #FFFFFF;
+	TEXT-DECORATION: underline;}
+
+input,select,Textarea{
+font-family:Tahoma,Verdana,宋体; font-size: 12px; line-height: 15px;}
+}
+.normalTextSmall 
+{ 
+    font-size : 11px;
+    color : #000000; 
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+</style><script language="javascript">
+function submitonce(theform){
+//if IE 4+ or NS 6+
+if (document.all||document.getElementById){
+//screen thru every element in the form, and hunt down "submit" and "reset"
+for (i=0;i<theform.length;i++){
+var tempobj=theform.elements[i]
+if(tempobj.type.toLowerCase()=="submit"||tempobj.type.toLowerCase()=="reset")
+//disable em
+tempobj.disabled=true
+}
+}
+}
+function openScript(url, width, height){
+	var Win = window.open(url,"openScript",'width=' + width + ',height=' + height + ',resizable=1,scrollbars=yes,menubar=no,status=yes' );
+}
+</script>
+<script Language="JavaScript">
+//***********默认设置定义.*********************
+tPopWait=50;//停留tWait豪秒后显示提示。
+tPopShow=5000;//显示tShow豪秒后关闭提示
+showPopStep=20;
+popOpacity=99;
+
+//***************内部变量定义*****************
+sPop=null;
+curShow=null;
+tFadeOut=null;
+tFadeIn=null;
+tFadeWaiting=null;
+
+document.write("<style type='text/css'id='defaultPopStyle'>");
+document.write(".cPopText {  background-color: #F8F8F5;color:#000000; border: 1px #000000 solid;font-color: font-size: 12px; padding-right: 4px; padding-left: 4px; height: 20px; padding-top: 2px; padding-bottom: 2px; filter: Alpha(Opacity=0)}");
+document.write("</style>");
+document.write("<div id='dypopLayer' style='position:absolute;z-index:1000;' class='cPopText'></div>");
+
+
+function showPopupText(){
+var o=event.srcElement;
+	MouseX=event.x;
+	MouseY=event.y;
+	if(o.alt!=null && o.alt!=""){o.dypop=o.alt;o.alt=""};
+        if(o.title!=null && o.title!=""){o.dypop=o.title;o.title=""};
+	if(o.dypop!=sPop) {
+			sPop=o.dypop;
+			clearTimeout(curShow);
+			clearTimeout(tFadeOut);
+			clearTimeout(tFadeIn);
+			clearTimeout(tFadeWaiting);	
+			if(sPop==null || sPop=="") {
+				dypopLayer.innerHTML="";
+				dypopLayer.style.filter="Alpha()";
+				dypopLayer.filters.Alpha.opacity=0;	
+				}
+			else {
+				if(o.dyclass!=null) popStyle=o.dyclass 
+					else popStyle="cPopText";
+				curShow=setTimeout("showIt()",tPopWait);
+			}
+			
+	}
+}
+
+function showIt(){
+		dypopLayer.className=popStyle;
+		dypopLayer.innerHTML=sPop;
+		popWidth=dypopLayer.clientWidth;
+		popHeight=dypopLayer.clientHeight;
+		if(MouseX+12+popWidth>document.body.clientWidth) popLeftAdjust=-popWidth-24
+			else popLeftAdjust=0;
+		if(MouseY+12+popHeight>document.body.clientHeight) popTopAdjust=-popHeight-24
+			else popTopAdjust=0;
+		dypopLayer.style.left=MouseX+12+document.body.scrollLeft+popLeftAdjust;
+		dypopLayer.style.top=MouseY+12+document.body.scrollTop+popTopAdjust;
+		dypopLayer.style.filter="Alpha(Opacity=0)";
+		fadeOut();
+}
+
+function fadeOut(){
+	if(dypopLayer.filters.Alpha.opacity<popOpacity) {
+		dypopLayer.filters.Alpha.opacity+=showPopStep;
+		tFadeOut=setTimeout("fadeOut()",1);
+		}
+		else {
+			dypopLayer.filters.Alpha.opacity=popOpacity;
+			tFadeWaiting=setTimeout("fadeIn()",tPopShow);
+			}
+}
+
+function fadeIn(){
+	if(dypopLayer.filters.Alpha.opacity>0) {
+		dypopLayer.filters.Alpha.opacity-=1;
+		tFadeIn=setTimeout("fadeIn()",1);
+		}
+}
+document.onmouseover=showPopupText;
+
+function CheckAll(form)  {
+  for (var i=0;i<form.elements.length;i++)    {
+    var e = form.elements[i];
+    if (e.name != 'chkall')       e.checked = form.chkall.checked; 
+   }
+  }
+
+//下拉菜单相关代码
+ var h;
+ var w;
+ var l;
+ var t;
+ var topMar = 1;
+ var leftMar = -2;
+ var space = 1;
+ var isvisible;
+ var MENU_SHADOW_COLOR='#999999';//定义下拉菜单阴影色
+ var global = window.document
+ global.fo_currentMenu = null
+ global.fo_shadows = new Array
+
+function HideMenu() 
+{
+ var mX;
+ var mY;
+ var vDiv;
+ var mDiv;
+	if (isvisible == true)
+{
+		vDiv = document.all("menuDiv");
+		mX = window.event.clientX + document.body.scrollLeft;
+		mY = window.event.clientY + document.body.scrollTop;
+		if ((mX < parseInt(vDiv.style.left)) || (mX > parseInt(vDiv.style.left)+vDiv.offsetWidth) || (mY < parseInt(vDiv.style.top)-h) || (mY > parseInt(vDiv.style.top)+vDiv.offsetHeight)){
+			vDiv.style.visibility = "hidden";
+			isvisible = false;
+		}
+}
+}
+
+function ShowMenu(vMnuCode,tWidth) {
+	vSrc = window.event.srcElement;
+	vMnuCode = "<table id='submenu' cellspacing=1 cellpadding=3 style='width:"+tWidth+"' class=tableborder1 onmouseout='HideMenu()'><tr height=23><td nowrap align=left class=tablebody1>" + vMnuCode + "</td></tr></table>";
+
+	h = vSrc.offsetHeight;
+	w = vSrc.offsetWidth;
+	l = vSrc.offsetLeft + leftMar+4;
+	t = vSrc.offsetTop + topMar + h + space-2;
+	vParent = vSrc.offsetParent;
+	while (vParent.tagName.toUpperCase() != "BODY")
+	{
+		l += vParent.offsetLeft;
+		t += vParent.offsetTop;
+		vParent = vParent.offsetParent;
+	}
+
+	menuDiv.innerHTML = vMnuCode;
+	menuDiv.style.top = t;
+	menuDiv.style.left = l;
+	menuDiv.style.visibility = "visible";
+	isvisible = true;
+    makeRectangularDropShadow(submenu, MENU_SHADOW_COLOR, 4)
+}
+
+function makeRectangularDropShadow(el, color, size)
+{
+	var i;
+	for (i=size; i>0; i--)
+	{
+		var rect = document.createElement('div');
+		var rs = rect.style
+		rs.position = 'absolute';
+		rs.left = (el.style.posLeft + i) + 'px';
+		rs.top = (el.style.posTop + i) + 'px';
+		rs.width = el.offsetWidth + 'px';
+		rs.height = el.offsetHeight + 'px';
+		rs.zIndex = el.style.zIndex - i;
+		rs.backgroundColor = color;
+		var opacity = 1 - i / (i + 1);
+		rs.filter = 'alpha(opacity=' + (100 * opacity) + ')';
+		el.insertAdjacentElement('afterEnd', rect);
+		global.fo_shadows[global.fo_shadows.length] = rect;
+	}
+}
+//用户控制面板
+var manage= '<a style=font-size:9pt;line-height:14pt; href=\"JavaScript:openScript(\'messanger.asp?action=new\',500,400)\">发短信</a><br><a style=font-size:9pt;line-height:14pt; href=\"dispuser.asp?id=37428&boardid=23&action=permission\">我能做什么</a><br><a style=font-size:9pt;line-height:14pt; href=\"topicwithme.asp?s=2\">我发表的主题</a><br><a style=font-size:9pt;line-height:14pt; href=\"topicwithme.asp?s=1\">我参与的主题</a><br><a style=font-size:9pt;line-height:14pt; href=\"mymodify.asp\">基本资料修改</a><br><a style=font-size:9pt;line-height:14pt; href=\"modifypsw.asp\">用户密码修改</a><br><a style=font-size:9pt;line-height:14pt; href=\"modifyadd.asp\">联系资料修改</a><br><a style=font-size:9pt;line-height:14pt; href=\"usersms.asp\">用户短信服务</a><br><a style=font-size:9pt;line-height:14pt; href=\"friendlist.asp\">编辑好友列表</a><br><a style=font-size:9pt;line-height:14pt; href=\"favlist.asp\">用户收藏管理</a><br><a style=font-size:9pt;line-height:14pt; href=\"myfile.asp\">个人文件管理</a>'
+//模板列表
+var stylelist = '<a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=0&boardid=23\">恢复默认设置</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=25&boardid=23\">ｅ点小镇</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=28&boardid=23\">碧海晴天</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=29&boardid=23\">雪花飘飘</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=30&boardid=23\">蓝色水晶</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=31&boardid=23\">淡咖啡</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=32&boardid=23\">棕红预览</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=33&boardid=23\">浓浓绿意</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=34&boardid=23\">青青河草</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=35&boardid=23\">粉色回忆</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=36&boardid=23\">红红夜思</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=37&boardid=23\">橘子红了</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=38&boardid=23\">淡紫色</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=39&boardid=23\">紫色淡雅</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=40&boardid=23\">蓝雅绿</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=41&boardid=23\">绿色淡雅</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=42&boardid=23\">蓝色庄重</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=43&boardid=23\">秋意盎然</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=44&boardid=23\">心情灰色</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=45&boardid=23\">水晶紫色</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=46&boardid=23\">DVBBS默认模板</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=47&boardid=23\">自考魅力</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=48&boardid=23\">我型我酷</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=49&boardid=23\">紫色水晶</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=50&boardid=23\">自考天空</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=51&boardid=23\">自考岁月</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=52&boardid=23\">自考精灵</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=53&boardid=23\">自考年华</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=54&boardid=23\">自考时空</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=55&boardid=23\">自考春色</a><br><a style=font-size:9pt;line-height:12pt; href=\"cookies.asp?action=stylemod&skinid=56&boardid=23\">春</a><br>'
+//论坛状态
+var boardstat= '<a style=font-size:9pt;line-height:14pt; href=\"boardstat.asp?boardid=23\">今日贴数图例</a><br><a style=font-size:9pt;line-height:14pt; href=\"boardstat.asp?action=lasttopicnum&boardid=23\">主题数图例</a><br><a style=font-size:9pt;line-height:14pt; href=\"boardstat.asp?action=lastbbsnum&boardid=23\">总帖数图例</a><br><a style=font-size:9pt;line-height:14pt; href=\"boardstat.asp?reaction=online&boardid=23\">在线图例</a><br><a style=font-size:9pt;line-height:14pt; href=\"boardstat.asp?reaction=onlineinfo&boardid=23\">在线情况</a><br><a style=font-size:9pt;line-height:14pt; href=\"boardstat.asp?reaction=onlineUserinfo&boardid=23\">用户组在线图例</a>'
+//论坛收藏
+var downlist= '<a style=font-size:9pt;line-height:14pt; href=\"show.asp?filetype=0&boardid=23\">文件集浏览</a><br><a style=font-size:9pt;line-height:14pt; href=\"show.asp?filetype=1&boardid=23\">图片集浏览</a><br><a style=font-size:9pt;line-height:14pt; href=\"show.asp?filetype=2&boardid=23\">Flash浏览</a><br><a style=font-size:9pt;line-height:14pt; href=\"show.asp?filetype=3&boardid=23\">音乐集浏览</a><br><a style=font-size:9pt;line-height:14pt; href=\"show.asp?filetype=4&boardid=23\">电影集浏览</a><br><a style=font-size:9pt;line-height:14pt; href=\"show.asp\">贺卡发送</a>'
+</script>
+</head>
+<body  topmargin=0 leftmargin=0 onmousemove="HideMenu()">
+<div id=menuDiv style='Z-INDEX: 2; VISIBILITY: hidden; WIDTH: 1px; POSITION: absolute; HEIGHT: 1px; BACKGROUND-COLOR: #9cc5f8'></div>
+<table cellspacing=0 cellpadding=0 align=center style="border:1px #a9d46d solid; border-top-width: 0px; border-right-width: 1px; border-bottom-width: 0px; border-left-width: 1px;width:97%;">
+<tr><td width=100%>
+<table width=100% align=center border=0 cellspacing=0 cellpadding=0>
+<tr><td class=TopDarkNav height=9></td></tr>
+<tr><td height=70 class=TopLighNav2>
+<TABLE border=0 width="100%" align=center>
+<TR>
+<TD align=left width="25%"><a href="http://www.bjzikao.com"><img border=0 src='pic/logobjzikao.gif'></a></TD>
+<TD Align=center width="65%">
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="468" height="60">
+                            <param name="movie" value="http://www.bjzikao.com/IMGES/ad_banner.swf">
+                            <param name="quality" value="high">
+                            <embed src="IMGES/ad_banner.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="468" height="60"></embed>
+                          </object>
+</td>
+<td align=right style="line-height: 15pt" width="10%">
+<a href=#><span style="CURSOR: hand" onClick="window.external.AddFavorite('http://www.zkbbs.com', '北京自考论坛（WWW.ZKBBS.COM）')">加入收藏</span></a>
+<br><a href="mailto:webmaster@zkbbs.net">联系我们</a>
+<br><a href="boardhelp.asp?boardid=23">论坛帮助</a>
+</td>
+</td></tr>
+</table>
+</td></tr>
+<tr><td class=TopLighNav height=9></td></tr>
+        <tr> 
+          <td class=TopLighNav1 height=22  valign="middle">&nbsp;&nbsp;
+<a href="cookies.asp?action=hidden&userid=37428">隐身</a> <img src=pic/navspacer.gif align=absmiddle> <a href="login.asp">重登陆</a> <img src=pic/navspacer.gif align=absmiddle> <a href="usermanager.asp" onMouseOver='ShowMenu(manage,100)'>用户控制面板</a>
+
+ <img src=pic/navspacer.gif align=absmiddle> <a href="query.asp?boardid=23">搜索</a> <img src=pic/navspacer.gif align=absmiddle> <a href="#" onMouseOver='ShowMenu(stylelist,100)'>自选风格</a> <img src=pic/navspacer.gif align=absmiddle> <a href="boardstat.asp?boardid=23" onMouseOver='ShowMenu(boardstat,100)'>论坛状态</a> <img src=pic/navspacer.gif align=absmiddle> <a href="show.asp?boardid=23" onMouseOver='ShowMenu(downlist,100)'>论坛展区</a>  <img src=pic/navspacer.gif align=absmiddle> <a href="logout.asp">退出</a>
+			</td>
+        </tr>
+</table>
+</td></tr>
+</table>
+
+<table cellspacing=1 cellpadding=3 align=center border=0 width="97%">
+<tr>
+
+<td width=65% >
+</td><td width=35% align=right>
+
+<img src=pic/msg_no_new_bar.gif> <a href="usersms.asp?action=inbox">我的收件箱</a> (<font color=gray>0 新</font>)
+
+</td></tr>
+</table>
+<table cellspacing=1 cellpadding=3 align=center class=tableBorder2>
+<tr><td height=25 valign=middle>
+<img src="pic/Forum_nav.gif" align=absmiddle> <a href=index.asp>北京自考论坛（WWW.ZKBBS.COM）</a> → 
+<a href=list.asp?boardid=49>专业分类区</a> →  <a href=list.asp?boardid=23>→『 计算机及应用专业 』 </a> →  北大《数据库原理》2003－11－07&nbsp;考题&nbsp;系列之三
+<a name=top></a>
+</td></td>
+</table>
+<br>
+
+<table cellpadding=0 cellspacing=0 border=0 width=97% align=center>
+	<tr>
+	<td align=left width="30%" valign=middle>&nbsp; 
+
+	<a href="announce.asp?BoardID=23"><img src="pic/more/h4.gif" alt="发表一个新主题" border=0></a>&nbsp;
+	<a href="vote.asp?BoardID=23"><img src="pic/more/h5.gif" alt=发表一个新投票 border=0></a>&nbsp;
+	<a href="reannounce.asp?BoardID=23&id=56965&star=1"><img src="pic/more/h7.gif" alt=回复主题 border=0></a>
+
+	</td>
+	<td align=right width="70%" valign=middle>您是本帖的第 <B>215</B> 个阅读者<a href="go.asp?BoardID=23&sid=56965"><img src="pic/prethread.gif" border=0 alt=浏览上一篇主题 width=52 height=12></a>&nbsp;
+	<a href="javascript:this.location.reload()"><img src="pic/refresh.gif" border=0 alt=刷新本主题 width=40 height=12></a> &nbsp;
+	<a href="?BoardID=23&replyID=56965&id=56965&star=1&skin=1"><img src="pic/treeview.gif" width=40 height=12 border=0 alt=树形显示贴子></a>　<a href="go.asp?BoardID=23&sid=56965&action=next"><img src="pic/nextthread.gif" border=0 alt=浏览下一篇主题 width=52 height=12></a>
+	</td>
+	</tr>
+</table>
+
+<TABLE cellPadding=0 cellSpacing=1 align=center class=tableborder1>
+	<tr align=middle> 
+	<td align=left valign=middle width="100%" height=25>
+		<table width=100% cellPadding=0 cellSpacing=0 border=0>
+		<tr>
+		<th align=left valign=middle width="73%" height=25>
+		&nbsp;* 贴子主题</B>： 北大《数据库原理》2003－11－07&nbsp;考题&nbsp;系列之三</th>
+		<th width=37% align=right>
+		<a href=# onclick="javascript:WebBrowser.ExecWB(4,1)"><img src="pic/saveas.gif" border=0 width=16 height=16 alt=保存该页为文件 align=absmiddle></a>&nbsp;<object id="WebBrowser" width=0 height=0 classid="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"></object>
+		<a href="report.asp?BoardID=23&id=56965"><img src=pic/report.gif alt=报告本帖给版主 border=0></a>&nbsp;
+		<a href="printpage.asp?BoardID=23&id=56965"><img src="pic/printpage.gif" alt=显示可打印的版本 border=0></a>&nbsp;
+		<a href="pag.asp?BoardID=23&id=56965"><img src="pic/pag.gif" border=0 alt=把本贴打包邮递></a>&nbsp;
+		<a href="favadd.asp?BoardID=23&id=56965"><IMG SRC="pic/fav_add.gif" BORDER=0 alt=把本贴加入论坛收藏夹></a>&nbsp;
+		<a href="sendpage.asp?BoardID=23&id=56965"><img src="pic/emailtofriend.gif" border=0 alt=发送本页面给朋友></a>&nbsp;
+		<a href=#><span style="CURSOR: hand" onClick="window.external.AddFavorite('http://www.zkbbs.com/dispbbs.asp?BoardID=23&id=56965', ' 北京自考论坛（WWW.ZKBBS.COM） - 北大《数据库原理》2003－11－07&nbsp;考题&nbsp;系列之三')"><IMG SRC="pic/fav_add1.gif" BORDER=0 width=15 height=15 alt=把本贴加入IE收藏夹></a>&nbsp;
+		</th>
+		</tr>
+		</table>
+	</td>
+	</tr>
+</table>
+
+<TABLE cellPadding=5 cellSpacing=1 align=center class=tableborder1 style=" table-layout:fixed;word-break:break-all"><tr><td class=tablebody1 valign=top width=175><table width=100% cellpadding=4 cellspacing=0><tr><td width=* valign=middle style="filter:glow(color=#9898BA,strength=2)">&nbsp;<a name=71064><font color=#000066><B>zuizui</B></font></a>	</td><td width=25 valign=middle><img src=pic/ofMale.gif alt=帅哥哟，离线，有人找我吗？></td><td width=16 valign=middle><img src=star/z3.gif alt=双子座1982-5-29></td></tr></table>&nbsp;&nbsp;<img src=userface/image2.gif width=32 height=32><br>&nbsp;&nbsp;<img src=pic/level0.gif><br>&nbsp;&nbsp;等级：新手上路,请多关照<BR>&nbsp;&nbsp;文章：37<br>&nbsp;&nbsp;积分：123<br>&nbsp;&nbsp;门派：计算机专业<br>&nbsp;&nbsp;注册：2003-11-18<BR></td><td class=tablebody1 valign=top width=*><table width=100% ><tr><td width=*><a href="javascript:openScript('messanger.asp?action=new&touser=zuizui',500,400)"><img src="pic/message.gif" border=0 alt="给zuizui发送一个短消息"></a>&nbsp;<a href="friendlist.asp?action=addF&myFriend=zuizui" target=_blank><img src="pic/friend.gif" border=0 alt="把zuizui加入好友"></a>&nbsp;<a href="dispuser.asp?id=37417" target=_blank><img src="pic/profile.gif" border=0 alt="查看zuizui的个人资料"></a>&nbsp;<a href="queryResult.asp?stype=1&nSearch=3&keyword=zuizui&BoardID=23&SearchDate=ALL" target=_blank><img src="pic/find.gif" border=0 alt="搜索zuizui在→『 计算机及应用专业 』 的所有贴子"></a>&nbsp;<A href="mailto:zzuizui@hotmail.com"><IMG alt="点击这里发送电邮给zuizui" border=0 src=pic/email.gif></A>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=71064&id=56965&star=1&reply=true"><img src="pic/reply.gif" border=0 alt=引用回复这个贴子></a>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=71064&id=56965&star=1"><img src="pic/reply_a.gif" border=0 alt=回复这个贴子></a></td><td width=50><b>楼主</b></td></tr><tr><td bgcolor=#a9d46d height=1 colspan=2></td></tr></table><blockquote><table class=tablebody2 border=0 width=90% style=" table-layout:fixed;word-break:break-all"><tr><td width="100%" style="font-size:9pt;line-height:12pt"><img src=face/face1.gif border=0 alt=发贴心情>&nbsp;<b>北大《数据库原理》2003－11－07&nbsp;考题&nbsp;系列之三</b><br>本题目是最先由zhangkuan同学贴出来的（最最原始的作者可不要怪我呀！），&nbsp;<BR> 解答请查看&nbsp;”sql&nbsp;试题，求帮助？“&nbsp;一帖。<BR> <img align=absmiddle src=pic/url.gif border=0><a target=_blank href=http://www.zkbbs.com/dispbbs.asp?boardID=23&ID=55732>http://www.zkbbs.com/dispbbs.asp?boardID=23&ID=55732</a></P><P> 我只不过是把题目重新排版以利视观，&nbsp;然后付上了自己的解答，&nbsp;以供参考。<BR> ---------------------------------------------------------------------------------------------------------</P><P> 2003年11月7日数据库上机考试题目：</P><P> 有某个学生运动会比赛信息的数据库，保存了如下的表：<BR> 运动员（运动员编号，运动员姓名，运动员性别，所属系号）<BR> 项目（项目编号，项目名称，项目比赛地点）<BR> 成绩（运动员编号，项目编号，积分）<BR> 请用SQL语句完成如下功能：</P><P> <b>1.&nbsp;建表，注意满足如下要求：</b><BR> a)&nbsp;表名必须加自己的帐号作前缀，比如“d10000001运动员”，<BR> b)&nbsp;定义各个表的主码外码约束<BR> c)&nbsp;运动员的姓名和所属系别不能为空值。<BR> d)&nbsp;积分要么为空值，要么为6,4,2,0,&nbsp;分别代表第一，二，三名和其他名次的积分，注意名次可以有并列名次，后面的排名不往前提升，例如，&nbsp;如果有两个并列第一，则没有第二名。</P><P> <b>2.&nbsp;往表中插入数据：</b><BR> 运动员（&nbsp;1001,&nbsp;李明，男，计算机系<BR> &nbsp;&nbsp;&nbsp;1002，张三，男，数学系<BR> &nbsp;&nbsp;&nbsp;1003,&nbsp;李四，男，计算机系<BR> &nbsp;&nbsp;&nbsp;1004,&nbsp;王二，男，物理系<BR> &nbsp;&nbsp;&nbsp;1005,&nbsp;李娜，女，心理系<BR> &nbsp;&nbsp;&nbsp;1006,&nbsp;孙丽，女，数学系）<BR> 项目（&nbsp;x001,&nbsp;男子五千米，一操场<BR> &nbsp;&nbsp;&nbsp;x002，男子标枪，一操场<BR> &nbsp;&nbsp;&nbsp;x003,&nbsp;男子跳远，二操场<BR> &nbsp;&nbsp;&nbsp;x004,&nbsp;女子跳高，二操场<BR> &nbsp;&nbsp;&nbsp;x005,&nbsp;女子三千米，三操场）<BR> 积分（&nbsp;&nbsp;1001,&nbsp;&nbsp;x001,&nbsp;6<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1002,&nbsp;&nbsp;&nbsp;x001,&nbsp;4<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1003,&nbsp;&nbsp;x001,&nbsp;2<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1004,&nbsp;&nbsp;x001,&nbsp;0<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1001,&nbsp;&nbsp;x003,&nbsp;4<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1002,&nbsp;&nbsp;x003,&nbsp;6<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1004,&nbsp;&nbsp;x003,&nbsp;2<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1005,&nbsp;&nbsp;x004,&nbsp;6<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1006,&nbsp;&nbsp;x004,&nbsp;4)</P><P> <b>3.&nbsp;完成如下查询：</b>a)&nbsp;求出目前总积分最高的系名，及其积分。<BR> b)&nbsp;找出在一操场进行比赛的各项目名称及其冠军的姓名<BR> c)&nbsp;找出参加了张三所参加的所有项目的其他同学的姓名</P><P> <b>4.&nbsp;经查张三因为使用了违禁药品，其成绩都记0分，请在数据库中作出相应修改。</b></P><P> <b>5.&nbsp;经组委会协商，需要删除女子跳高比赛项目。</b></blockquote></td></tr></table></td></tr><tr><td class=tablebody1 valign=middle align=center width=175><a href=look_ip.asp?boardid=23&userid=37417&ip=*.*.*.*&action=lookip target=_blank><img align=absmiddle border=0 width=13 height=15 src="pic/ip.gif" alt="点击查看用户来源及管理<br>发贴IP：*.*.*.*"></a> 2003-11-20 23:21:53</td><td class=tablebody1 valign=middle width=*><table width=100% cellpadding=0 cellspacing=0><tr><td align=left valign=middle> <a href=editannounce.asp?BoardID=23&replyID=71064&id=56965&star=1><img src=pic/edit.gif border=0 alt=编辑这个贴子 align=absmiddle></a>&nbsp;&nbsp;<a href="postagree.asp?boardid=23&id=56965&isagree=1" title="同意该帖观点，给他一朵鲜花，将消耗您5点金钱"><img src=pic/xianhua.gif border=0>鲜花</a>(<font color=#FF0000>0</font>)&nbsp;&nbsp;<a href="postagree.asp?boardid=23&id=56965&isagree=2" title="不同意该帖观点，给他一个鸡蛋，将消耗您5点金钱"><img src=pic/jidan.gif border=0>鸡蛋</a>(<font color=#FF0000>0</font>)</td><td align=right nowarp valign=bottom width=200><a href="admin_postings.asp?action=复制&BoardID=23&ID=56965&replyID=71064" title="复制单个贴子到别的版面"><img src="pic/copy.gif" border=0></a>&nbsp;<a href="admin_postings.asp?action=解除精华&BoardID=23&ID=56965&replyID=71064" title="解除精华"><img src="pic/jing.gif" border=0></a></td><td align=right valign=bottom width=4> </td></tr></table></td></tr></table><TABLE cellPadding=5 cellSpacing=1 align=center class=tableborder1 style=" table-layout:fixed;word-break:break-all"><tr><td class=tablebody2 valign=top width=175><table width=100% cellpadding=4 cellspacing=0><tr><td width=* valign=middle style="filter:glow(color=#9898BA,strength=2)">&nbsp;<a name=71065><font color=#000066><B>zuizui</B></font></a>	</td><td width=25 valign=middle><img src=pic/ofMale.gif alt=帅哥哟，离线，有人找我吗？></td><td width=16 valign=middle><img src=star/z3.gif alt=双子座1982-5-29></td></tr></table>&nbsp;&nbsp;<img src=userface/image2.gif width=32 height=32><br>&nbsp;&nbsp;<img src=pic/level0.gif><br>&nbsp;&nbsp;等级：新手上路,请多关照<BR>&nbsp;&nbsp;文章：37<br>&nbsp;&nbsp;积分：123<br>&nbsp;&nbsp;门派：计算机专业<br>&nbsp;&nbsp;注册：2003-11-18<BR></td><td class=tablebody2 valign=top width=*><table width=100% ><tr><td width=*><a href="javascript:openScript('messanger.asp?action=new&touser=zuizui',500,400)"><img src="pic/message.gif" border=0 alt="给zuizui发送一个短消息"></a>&nbsp;<a href="friendlist.asp?action=addF&myFriend=zuizui" target=_blank><img src="pic/friend.gif" border=0 alt="把zuizui加入好友"></a>&nbsp;<a href="dispuser.asp?id=37417" target=_blank><img src="pic/profile.gif" border=0 alt="查看zuizui的个人资料"></a>&nbsp;<a href="queryResult.asp?stype=1&nSearch=3&keyword=zuizui&BoardID=23&SearchDate=ALL" target=_blank><img src="pic/find.gif" border=0 alt="搜索zuizui在→『 计算机及应用专业 』 的所有贴子"></a>&nbsp;<A href="mailto:zzuizui@hotmail.com"><IMG alt="点击这里发送电邮给zuizui" border=0 src=pic/email.gif></A>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=71065&id=56965&star=1&reply=true"><img src="pic/reply.gif" border=0 alt=引用回复这个贴子></a>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=71065&id=56965&star=1"><img src="pic/reply_a.gif" border=0 alt=回复这个贴子></a></td><td width=50><b>第<font color=#FF0000>2</font>楼</b></td></tr><tr><td bgcolor=#a9d46d height=1 colspan=2></td></tr></table><blockquote><table class=tablebody2 border=0 width=90% style=" table-layout:fixed;word-break:break-all"><tr><td width="100%" style="font-size:9pt;line-height:12pt"><img src=face/face1.gif border=0 alt=发贴心情>&nbsp;<b></b><br>解答：<BR> /*******************************************<BR> &nbsp;3CreateDB.sql&nbsp;创建第三个题目的数据库。<BR> &nbsp;*******************************************/</P><P> CREATE&nbsp;DATABASE&nbsp;pku3</blockquote></td></tr></table></td></tr><tr><td class=tablebody2 valign=middle align=center width=175><a href=look_ip.asp?boardid=23&userid=37417&ip=*.*.*.*&action=lookip target=_blank><img align=absmiddle border=0 width=13 height=15 src="pic/ip.gif" alt="点击查看用户来源及管理<br>发贴IP：*.*.*.*"></a> 2003-11-20 23:22:44</td><td class=tablebody2 valign=middle width=*><table width=100% cellpadding=0 cellspacing=0><tr><td align=left valign=middle> <a href=editannounce.asp?BoardID=23&replyID=71065&id=56965&star=1><img src=pic/edit.gif border=0 alt=编辑这个贴子 align=absmiddle></a></td><td align=right nowarp valign=bottom width=200><a href="admin_postings.asp?action=删除跟帖&BoardID=23&ID=56965&replyID=71065&userid=37417" title=注意：本操作将删除单个贴子><img src=pic/delete.gif border=0></a>&nbsp;<a href="admin_postings.asp?action=复制&BoardID=23&ID=56965&replyID=71065" title="复制单个贴子到别的版面"><img src="pic/copy.gif" border=0></a>&nbsp;<a href="admin_postings.asp?action=精华&BoardID=23&ID=56965&replyID=71065" title="精华"><img src="pic/jing.gif" border=0></a></td><td align=right valign=bottom width=4> </td></tr></table></td></tr></table><TABLE cellPadding=5 cellSpacing=1 align=center class=tableborder1 style=" table-layout:fixed;word-break:break-all"><tr><td class=tablebody1 valign=top width=175><table width=100% cellpadding=4 cellspacing=0><tr><td width=* valign=middle style="filter:glow(color=#9898BA,strength=2)">&nbsp;<a name=71066><font color=#000066><B>zuizui</B></font></a>	</td><td width=25 valign=middle><img src=pic/ofMale.gif alt=帅哥哟，离线，有人找我吗？></td><td width=16 valign=middle><img src=star/z3.gif alt=双子座1982-5-29></td></tr></table>&nbsp;&nbsp;<img src=userface/image2.gif width=32 height=32><br>&nbsp;&nbsp;<img src=pic/level0.gif><br>&nbsp;&nbsp;等级：新手上路,请多关照<BR>&nbsp;&nbsp;文章：37<br>&nbsp;&nbsp;积分：123<br>&nbsp;&nbsp;门派：计算机专业<br>&nbsp;&nbsp;注册：2003-11-18<BR></td><td class=tablebody1 valign=top width=*><table width=100% ><tr><td width=*><a href="javascript:openScript('messanger.asp?action=new&touser=zuizui',500,400)"><img src="pic/message.gif" border=0 alt="给zuizui发送一个短消息"></a>&nbsp;<a href="friendlist.asp?action=addF&myFriend=zuizui" target=_blank><img src="pic/friend.gif" border=0 alt="把zuizui加入好友"></a>&nbsp;<a href="dispuser.asp?id=37417" target=_blank><img src="pic/profile.gif" border=0 alt="查看zuizui的个人资料"></a>&nbsp;<a href="queryResult.asp?stype=1&nSearch=3&keyword=zuizui&BoardID=23&SearchDate=ALL" target=_blank><img src="pic/find.gif" border=0 alt="搜索zuizui在→『 计算机及应用专业 』 的所有贴子"></a>&nbsp;<A href="mailto:zzuizui@hotmail.com"><IMG alt="点击这里发送电邮给zuizui" border=0 src=pic/email.gif></A>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=71066&id=56965&star=1&reply=true"><img src="pic/reply.gif" border=0 alt=引用回复这个贴子></a>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=71066&id=56965&star=1"><img src="pic/reply_a.gif" border=0 alt=回复这个贴子></a></td><td width=50><b>第<font color=#FF0000>3</font>楼</b></td></tr><tr><td bgcolor=#a9d46d height=1 colspan=2></td></tr></table><blockquote><table class=tablebody2 border=0 width=90% style=" table-layout:fixed;word-break:break-all"><tr><td width="100%" style="font-size:9pt;line-height:12pt"><img src=face/face1.gif border=0 alt=发贴心情>&nbsp;<b></b><br>/************************************************<BR> &nbsp;3CreateTB.sql&nbsp;分别创建下列三个表：</P><P> 运动员（运动员编号，运动员姓名，运动员性别，所属系别）<BR> 项目（项目编号，项目名称，项目比赛地点）<BR> 成绩（运动员编号，项目编号，积分）</P><P> &nbsp;并用SQL语言完成以下功能：<BR> &nbsp;1&nbsp;建表，在定义中要求声明：<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;各表的主外键；<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;运动员姓名，系别不为空；<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;积分为空或6,4,2,0分别代表第一名，第二名，第三名，<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其他名次的积分。<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意名次可以有并列名次，后面的排名不往前提升。<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例如，&nbsp;如果有两个并列第一，则没有第二名。&nbsp;<BR> &nbsp;************************************************/<BR> use&nbsp;pku3</P><P> create&nbsp;table&nbsp;a<BR> (a#&nbsp;char(4)&nbsp;not&nbsp;null,<BR> &nbsp;aname&nbsp;varchar(10),<BR> &nbsp;sex&nbsp;char(2),<BR> &nbsp;dname&nbsp;varchar(8)&nbsp;not&nbsp;null,<BR> &nbsp;primary&nbsp;key(a#))</P><P> create&nbsp;table&nbsp;p<BR> (p#&nbsp;char(4),<BR> &nbsp;pname&nbsp;varchar(10),<BR> &nbsp;addr&nbsp;varchar(8)<BR> &nbsp;primary&nbsp;key(p#))</P><P> create&nbsp;table&nbsp;g<BR> (a#&nbsp;char(4)&nbsp;not&nbsp;null,<BR> &nbsp;p#&nbsp;char(4),<BR> &nbsp;grade&nbsp;tinyint,<BR> &nbsp;primary&nbsp;key(a#,&nbsp;p#),<BR> &nbsp;foreign&nbsp;key&nbsp;(a#)&nbsp;references&nbsp;a(a#)&nbsp;on&nbsp;delete&nbsp;cascade,<BR> &nbsp;foreign&nbsp;key&nbsp;(p#)&nbsp;references&nbsp;p(p#)&nbsp;on&nbsp;delete&nbsp;cascade,<BR> &nbsp;check(grade&nbsp;=&nbsp;NULL&nbsp;or&nbsp;grade&nbsp;=&nbsp;6&nbsp;or&nbsp;grade&nbsp;=&nbsp;4&nbsp;or&nbsp;<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade&nbsp;=&nbsp;2&nbsp;or&nbsp;grade&nbsp;=&nbsp;0))</blockquote></td></tr></table></td></tr><tr><td class=tablebody1 valign=middle align=center width=175><a href=look_ip.asp?boardid=23&userid=37417&ip=*.*.*.*&action=lookip target=_blank><img align=absmiddle border=0 width=13 height=15 src="pic/ip.gif" alt="点击查看用户来源及管理<br>发贴IP：*.*.*.*"></a> 2003-11-20 23:23:24</td><td class=tablebody1 valign=middle width=*><table width=100% cellpadding=0 cellspacing=0><tr><td align=left valign=middle> <a href=editannounce.asp?BoardID=23&replyID=71066&id=56965&star=1><img src=pic/edit.gif border=0 alt=编辑这个贴子 align=absmiddle></a></td><td align=right nowarp valign=bottom width=200><a href="admin_postings.asp?action=删除跟帖&BoardID=23&ID=56965&replyID=71066&userid=37417" title=注意：本操作将删除单个贴子><img src=pic/delete.gif border=0></a>&nbsp;<a href="admin_postings.asp?action=复制&BoardID=23&ID=56965&replyID=71066" title="复制单个贴子到别的版面"><img src="pic/copy.gif" border=0></a>&nbsp;<a href="admin_postings.asp?action=精华&BoardID=23&ID=56965&replyID=71066" title="精华"><img src="pic/jing.gif" border=0></a></td><td align=right valign=bottom width=4> </td></tr></table></td></tr></table><TABLE cellPadding=5 cellSpacing=1 align=center class=tableborder1 style=" table-layout:fixed;word-break:break-all"><tr><td class=tablebody2 valign=top width=175><table width=100% cellpadding=4 cellspacing=0><tr><td width=* valign=middle style="filter:glow(color=#9898BA,strength=2)">&nbsp;<a name=71067><font color=#000066><B>zuizui</B></font></a>	</td><td width=25 valign=middle><img src=pic/ofMale.gif alt=帅哥哟，离线，有人找我吗？></td><td width=16 valign=middle><img src=star/z3.gif alt=双子座1982-5-29></td></tr></table>&nbsp;&nbsp;<img src=userface/image2.gif width=32 height=32><br>&nbsp;&nbsp;<img src=pic/level0.gif><br>&nbsp;&nbsp;等级：新手上路,请多关照<BR>&nbsp;&nbsp;文章：37<br>&nbsp;&nbsp;积分：123<br>&nbsp;&nbsp;门派：计算机专业<br>&nbsp;&nbsp;注册：2003-11-18<BR></td><td class=tablebody2 valign=top width=*><table width=100% ><tr><td width=*><a href="javascript:openScript('messanger.asp?action=new&touser=zuizui',500,400)"><img src="pic/message.gif" border=0 alt="给zuizui发送一个短消息"></a>&nbsp;<a href="friendlist.asp?action=addF&myFriend=zuizui" target=_blank><img src="pic/friend.gif" border=0 alt="把zuizui加入好友"></a>&nbsp;<a href="dispuser.asp?id=37417" target=_blank><img src="pic/profile.gif" border=0 alt="查看zuizui的个人资料"></a>&nbsp;<a href="queryResult.asp?stype=1&nSearch=3&keyword=zuizui&BoardID=23&SearchDate=ALL" target=_blank><img src="pic/find.gif" border=0 alt="搜索zuizui在→『 计算机及应用专业 』 的所有贴子"></a>&nbsp;<A href="mailto:zzuizui@hotmail.com"><IMG alt="点击这里发送电邮给zuizui" border=0 src=pic/email.gif></A>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=71067&id=56965&star=1&reply=true"><img src="pic/reply.gif" border=0 alt=引用回复这个贴子></a>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=71067&id=56965&star=1"><img src="pic/reply_a.gif" border=0 alt=回复这个贴子></a></td><td width=50><b>第<font color=#FF0000>4</font>楼</b></td></tr><tr><td bgcolor=#a9d46d height=1 colspan=2></td></tr></table><blockquote><table class=tablebody2 border=0 width=90% style=" table-layout:fixed;word-break:break-all"><tr><td width="100%" style="font-size:9pt;line-height:12pt"><img src=face/face1.gif border=0 alt=发贴心情>&nbsp;<b></b><br>/************************************<BR> &nbsp;3insert.sql&nbsp;分别为表a，p，g插入数据<BR> &nbsp;************************************/</P><P> use&nbsp;pku3</P><P> INSERT&nbsp;INTO&nbsp;a&nbsp;<I>&#118alue</I>s(&#39;1001&#39;,&#39;李明&#39;,&#39;男&#39;,&#39;计算机系&#39;)<BR> INSERT&nbsp;INTO&nbsp;a&nbsp;<I>&#118alue</I>s(&#39;1002&#39;,&#39;张三&#39;,&#39;男&#39;,&#39;数学系&#39;)<BR> INSERT&nbsp;INTO&nbsp;a&nbsp;<I>&#118alue</I>s(&#39;1003&#39;,&#39;李四&#39;,&#39;男&#39;,&#39;计算机系&#39;)<BR> INSERT&nbsp;INTO&nbsp;a&nbsp;<I>&#118alue</I>s(&#39;1004&#39;,&#39;王二&#39;,&#39;男&#39;,&#39;物理系&#39;)<BR> INSERT&nbsp;INTO&nbsp;a&nbsp;<I>&#118alue</I>s(&#39;1005&#39;,&#39;赵五&#39;,&#39;男&#39;,&#39;心理系&#39;)<BR> INSERT&nbsp;INTO&nbsp;a&nbsp;<I>&#118alue</I>s(&#39;1006&#39;,&#39;周六&#39;,&#39;女&#39;,&#39;数学系&#39;)</P><P> INSERT&nbsp;INTO&nbsp;p&nbsp;<I>&#118alue</I>s(&#39;x001&#39;,&#39;男子五千米&#39;,&#39;一操场&#39;)<BR> INSERT&nbsp;INTO&nbsp;p&nbsp;<I>&#118alue</I>s(&#39;x002&#39;,&#39;男子跳高&#39;,&#39;一操场&#39;)<BR> INSERT&nbsp;INTO&nbsp;p&nbsp;<I>&#118alue</I>s(&#39;x003&#39;,&#39;男子跳远&#39;,&#39;二操场&#39;)<BR> INSERT&nbsp;INTO&nbsp;p&nbsp;<I>&#118alue</I>s(&#39;x004&#39;,&#39;女子跳远&#39;,&#39;三操场&#39;)<BR> INSERT&nbsp;INTO&nbsp;p&nbsp;<I>&#118alue</I>s(&#39;x005&#39;,&#39;女子跳高&#39;,&#39;四操场&#39;)</P><P> INSERT&nbsp;INTO&nbsp;g&nbsp;<I>&#118alue</I>s(&#39;1001&#39;,&#39;x001&#39;,6)<BR> INSERT&nbsp;INTO&nbsp;g&nbsp;<I>&#118alue</I>s(&#39;1003&#39;,&#39;x001&#39;,4)<BR> INSERT&nbsp;INTO&nbsp;g&nbsp;<I>&#118alue</I>s(&#39;1004&#39;,&#39;x001&#39;,2)<BR> INSERT&nbsp;INTO&nbsp;g&nbsp;<I>&#118alue</I>s(&#39;1002&#39;,&#39;x001&#39;,4)<BR> INSERT&nbsp;INTO&nbsp;g&nbsp;<I>&#118alue</I>s(&#39;1001&#39;,&#39;x003&#39;,2)<BR> INSERT&nbsp;INTO&nbsp;g&nbsp;<I>&#118alue</I>s(&#39;1004&#39;,&#39;x003&#39;,0)<BR> INSERT&nbsp;INTO&nbsp;g&nbsp;<I>&#118alue</I>s(&#39;1002&#39;,&#39;x002&#39;,6)<BR> INSERT&nbsp;INTO&nbsp;g&nbsp;<I>&#118alue</I>s(&#39;1005&#39;,&#39;x004&#39;,6)<BR> INSERT&nbsp;INTO&nbsp;g&nbsp;<I>&#118alue</I>s(&#39;1006&#39;,&#39;x005&#39;,4)</blockquote></td></tr></table></td></tr><tr><td class=tablebody2 valign=middle align=center width=175><a href=look_ip.asp?boardid=23&userid=37417&ip=*.*.*.*&action=lookip target=_blank><img align=absmiddle border=0 width=13 height=15 src="pic/ip.gif" alt="点击查看用户来源及管理<br>发贴IP：*.*.*.*"></a> 2003-11-20 23:23:55</td><td class=tablebody2 valign=middle width=*><table width=100% cellpadding=0 cellspacing=0><tr><td align=left valign=middle> <a href=editannounce.asp?BoardID=23&replyID=71067&id=56965&star=1><img src=pic/edit.gif border=0 alt=编辑这个贴子 align=absmiddle></a></td><td align=right nowarp valign=bottom width=200><a href="admin_postings.asp?action=删除跟帖&BoardID=23&ID=56965&replyID=71067&userid=37417" title=注意：本操作将删除单个贴子><img src=pic/delete.gif border=0></a>&nbsp;<a href="admin_postings.asp?action=复制&BoardID=23&ID=56965&replyID=71067" title="复制单个贴子到别的版面"><img src="pic/copy.gif" border=0></a>&nbsp;<a href="admin_postings.asp?action=精华&BoardID=23&ID=56965&replyID=71067" title="精华"><img src="pic/jing.gif" border=0></a></td><td align=right valign=bottom width=4> </td></tr></table></td></tr></table><TABLE cellPadding=5 cellSpacing=1 align=center class=tableborder1 style=" table-layout:fixed;word-break:break-all"><tr><td class=tablebody1 valign=top width=175><table width=100% cellpadding=4 cellspacing=0><tr><td width=* valign=middle style="filter:glow(color=#9898BA,strength=2)">&nbsp;<a name=71068><font color=#000066><B>zuizui</B></font></a>	</td><td width=25 valign=middle><img src=pic/ofMale.gif alt=帅哥哟，离线，有人找我吗？></td><td width=16 valign=middle><img src=star/z3.gif alt=双子座1982-5-29></td></tr></table>&nbsp;&nbsp;<img src=userface/image2.gif width=32 height=32><br>&nbsp;&nbsp;<img src=pic/level0.gif><br>&nbsp;&nbsp;等级：新手上路,请多关照<BR>&nbsp;&nbsp;文章：37<br>&nbsp;&nbsp;积分：123<br>&nbsp;&nbsp;门派：计算机专业<br>&nbsp;&nbsp;注册：2003-11-18<BR></td><td class=tablebody1 valign=top width=*><table width=100% ><tr><td width=*><a href="javascript:openScript('messanger.asp?action=new&touser=zuizui',500,400)"><img src="pic/message.gif" border=0 alt="给zuizui发送一个短消息"></a>&nbsp;<a href="friendlist.asp?action=addF&myFriend=zuizui" target=_blank><img src="pic/friend.gif" border=0 alt="把zuizui加入好友"></a>&nbsp;<a href="dispuser.asp?id=37417" target=_blank><img src="pic/profile.gif" border=0 alt="查看zuizui的个人资料"></a>&nbsp;<a href="queryResult.asp?stype=1&nSearch=3&keyword=zuizui&BoardID=23&SearchDate=ALL" target=_blank><img src="pic/find.gif" border=0 alt="搜索zuizui在→『 计算机及应用专业 』 的所有贴子"></a>&nbsp;<A href="mailto:zzuizui@hotmail.com"><IMG alt="点击这里发送电邮给zuizui" border=0 src=pic/email.gif></A>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=71068&id=56965&star=1&reply=true"><img src="pic/reply.gif" border=0 alt=引用回复这个贴子></a>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=71068&id=56965&star=1"><img src="pic/reply_a.gif" border=0 alt=回复这个贴子></a></td><td width=50><b>第<font color=#FF0000>5</font>楼</b></td></tr><tr><td bgcolor=#a9d46d height=1 colspan=2></td></tr></table><blockquote><table class=tablebody2 border=0 width=90% style=" table-layout:fixed;word-break:break-all"><tr><td width="100%" style="font-size:9pt;line-height:12pt"><img src=face/face1.gif border=0 alt=发贴心情>&nbsp;<b></b><br>/*******************************************<BR> &nbsp;3Query.sql&nbsp;完成以下查询功能：<BR> &nbsp;<BR> &nbsp;1)列出目前获总积分最高的系及其积分。<BR> &nbsp;2)列出在一操场进行比赛的各项目及其冠军。<BR> &nbsp;3)参加了张三所选的所有项目的同学名字。</P><P> &nbsp;*******************************************/<BR> use&nbsp;pku3</P><P> <b>--&nbsp;1)列出目前获总积分最高的系及其积分。</b></P><P> select&nbsp;dname,&nbsp;sum(grade)as&nbsp;TotalGrade<BR> from&nbsp;a,&nbsp;g<BR> where&nbsp;a.a#&nbsp;=&nbsp;g.a#<BR> group&nbsp;by&nbsp;dname<BR> having&nbsp;sum(grade)&gt;=all(select&nbsp;sum(grade)<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;a,&nbsp;g<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;a.a#&nbsp;=&nbsp;g.a#<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;group&nbsp;by&nbsp;dname)</P><P> <BR> <b>--&nbsp;2)列出在一操场进行比赛的各项目及其冠军。</b></P><P> select&nbsp;aname,&nbsp;pname<BR> from&nbsp;a,&nbsp;p,&nbsp;g<BR> where&nbsp;p.p#&nbsp;=&nbsp;g.p#&nbsp;and&nbsp;a.a#&nbsp;=&nbsp;g.a#<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;addr&nbsp;=&nbsp;&#39;一操场&#39;&nbsp;and&nbsp;grade&nbsp;=&nbsp;6</P><P> <b>--&nbsp;3)参加了张三所选的所有项目的同学名字。</b></P><P> drop&nbsp;table&nbsp;aaa</P><P> select&nbsp;p#&nbsp;<BR> into&nbsp;aaa<BR> from&nbsp;g,&nbsp;a<BR> where&nbsp;a.a#&nbsp;=&nbsp;g.a#&nbsp;and&nbsp;aname&nbsp;=&nbsp;&#39;张三&#39;</P><P> --&nbsp;insert&nbsp;into&nbsp;g&nbsp;<I>&#118alue</I>s(&#39;1003&#39;,&nbsp;&#39;x002&#39;,&nbsp;&#39;4&#39;)&nbsp;<BR> --&nbsp;此句做测试用，&nbsp;加入“李四参加X002运动”<BR> --&nbsp;这样李四是张三之外另一个参加了张三所选<BR> --&nbsp;的所有项目的同学<BR> delete&nbsp;from&nbsp;g&nbsp;where&nbsp;a#=&#39;1003&#39;&nbsp;and&nbsp;p#=&#39;x002&#39;</P><P> select&nbsp;distinct&nbsp;aname<BR> from&nbsp;a<BR> where&nbsp;not&nbsp;exists<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(select&nbsp;p#<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;aaa<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;not&nbsp;exists<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(select&nbsp;*<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;g<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;g.a#&nbsp;=&nbsp;a.a#&nbsp;and&nbsp;g.p#&nbsp;=&nbsp;aaa.p#))<BR> <div align=right><font color=#000066>[此贴子已经被作者于2003-11-20&nbsp;23:31:50编辑过]</font></div></blockquote></td></tr></table></td></tr><tr><td class=tablebody1 valign=middle align=center width=175><a href=look_ip.asp?boardid=23&userid=37417&ip=*.*.*.*&action=lookip target=_blank><img align=absmiddle border=0 width=13 height=15 src="pic/ip.gif" alt="点击查看用户来源及管理<br>发贴IP：*.*.*.*"></a> 2003-11-20 23:24:38</td><td class=tablebody1 valign=middle width=*><table width=100% cellpadding=0 cellspacing=0><tr><td align=left valign=middle> <a href=editannounce.asp?BoardID=23&replyID=71068&id=56965&star=1><img src=pic/edit.gif border=0 alt=编辑这个贴子 align=absmiddle></a></td><td align=right nowarp valign=bottom width=200><a href="admin_postings.asp?action=删除跟帖&BoardID=23&ID=56965&replyID=71068&userid=37417" title=注意：本操作将删除单个贴子><img src=pic/delete.gif border=0></a>&nbsp;<a href="admin_postings.asp?action=复制&BoardID=23&ID=56965&replyID=71068" title="复制单个贴子到别的版面"><img src="pic/copy.gif" border=0></a>&nbsp;<a href="admin_postings.asp?action=精华&BoardID=23&ID=56965&replyID=71068" title="精华"><img src="pic/jing.gif" border=0></a></td><td align=right valign=bottom width=4> </td></tr></table></td></tr></table><TABLE cellPadding=5 cellSpacing=1 align=center class=tableborder1 style=" table-layout:fixed;word-break:break-all"><tr><td class=tablebody2 valign=top width=175><table width=100% cellpadding=4 cellspacing=0><tr><td width=* valign=middle style="filter:glow(color=#9898BA,strength=2)">&nbsp;<a name=71070><font color=#000066><B>zuizui</B></font></a>	</td><td width=25 valign=middle><img src=pic/ofMale.gif alt=帅哥哟，离线，有人找我吗？></td><td width=16 valign=middle><img src=star/z3.gif alt=双子座1982-5-29></td></tr></table>&nbsp;&nbsp;<img src=userface/image2.gif width=32 height=32><br>&nbsp;&nbsp;<img src=pic/level0.gif><br>&nbsp;&nbsp;等级：新手上路,请多关照<BR>&nbsp;&nbsp;文章：37<br>&nbsp;&nbsp;积分：123<br>&nbsp;&nbsp;门派：计算机专业<br>&nbsp;&nbsp;注册：2003-11-18<BR></td><td class=tablebody2 valign=top width=*><table width=100% ><tr><td width=*><a href="javascript:openScript('messanger.asp?action=new&touser=zuizui',500,400)"><img src="pic/message.gif" border=0 alt="给zuizui发送一个短消息"></a>&nbsp;<a href="friendlist.asp?action=addF&myFriend=zuizui" target=_blank><img src="pic/friend.gif" border=0 alt="把zuizui加入好友"></a>&nbsp;<a href="dispuser.asp?id=37417" target=_blank><img src="pic/profile.gif" border=0 alt="查看zuizui的个人资料"></a>&nbsp;<a href="queryResult.asp?stype=1&nSearch=3&keyword=zuizui&BoardID=23&SearchDate=ALL" target=_blank><img src="pic/find.gif" border=0 alt="搜索zuizui在→『 计算机及应用专业 』 的所有贴子"></a>&nbsp;<A href="mailto:zzuizui@hotmail.com"><IMG alt="点击这里发送电邮给zuizui" border=0 src=pic/email.gif></A>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=71070&id=56965&star=1&reply=true"><img src="pic/reply.gif" border=0 alt=引用回复这个贴子></a>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=71070&id=56965&star=1"><img src="pic/reply_a.gif" border=0 alt=回复这个贴子></a></td><td width=50><b>第<font color=#FF0000>6</font>楼</b></td></tr><tr><td bgcolor=#a9d46d height=1 colspan=2></td></tr></table><blockquote><table class=tablebody2 border=0 width=90% style=" table-layout:fixed;word-break:break-all"><tr><td width="100%" style="font-size:9pt;line-height:12pt"><img src=face/face1.gif border=0 alt=发贴心情>&nbsp;<b></b><br>/****************************************<BR> &nbsp;3Update.sql&nbsp;此文件完成本题的最后两问：</P><P> 4.&nbsp;经查张三因为使用了违禁药品，其成绩都记0分，<BR> &nbsp;&nbsp;&nbsp;请在数据库中作出相应修改。<BR> 5.&nbsp;经组委会协商，需要删除女子跳高比赛项目。&nbsp;</P><P> &nbsp;****************************************/<BR> use&nbsp;pku3</P><P> --&nbsp;4.&nbsp;经查张三因为使用了违禁药品，其成绩都记0分，<BR> --&nbsp;请在数据库中作出相应修改。</P><P> /*update&nbsp;g<BR> set&nbsp;grade&nbsp;=&nbsp;4<BR> where&nbsp;a#&nbsp;in<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(select&nbsp;a#<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;a<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;aname&nbsp;=&nbsp;&#39;张三&#39;&nbsp;and<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p#&nbsp;=&nbsp;&#39;x001&#39;)</P><P> update&nbsp;g<BR> set&nbsp;grade&nbsp;=&nbsp;6<BR> where&nbsp;a#&nbsp;in<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(select&nbsp;a#<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;a<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;aname&nbsp;=&nbsp;&#39;张三&#39;&nbsp;and<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p#&nbsp;=&nbsp;&#39;x002&#39;)*/<BR> --&nbsp;上面的语句恢复更新后的表为原表,&nbsp;测试时用。</P><P> update&nbsp;g<BR> set&nbsp;grade&nbsp;=&nbsp;0<BR> where&nbsp;a#&nbsp;in<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(select&nbsp;a#<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;a<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;aname&nbsp;=&nbsp;&#39;张三&#39;)</P><P> --&nbsp;5.&nbsp;经组委会协商，需要删除女子跳高比赛项目。<BR> /*insert&nbsp;into&nbsp;p&nbsp;<I>&#118alue</I>s(&#39;x005&#39;,&#39;女子跳高&#39;,&#39;四操场&#39;)*/</P><P> delete&nbsp;from&nbsp;p<BR> where&nbsp;pname&nbsp;=&nbsp;&#39;女子跳高&#39;<BR> </blockquote></td></tr></table></td></tr><tr><td class=tablebody2 valign=middle align=center width=175><a href=look_ip.asp?boardid=23&userid=37417&ip=*.*.*.*&action=lookip target=_blank><img align=absmiddle border=0 width=13 height=15 src="pic/ip.gif" alt="点击查看用户来源及管理<br>发贴IP：*.*.*.*"></a> 2003-11-20 23:28:57</td><td class=tablebody2 valign=middle width=*><table width=100% cellpadding=0 cellspacing=0><tr><td align=left valign=middle> <a href=editannounce.asp?BoardID=23&replyID=71070&id=56965&star=1><img src=pic/edit.gif border=0 alt=编辑这个贴子 align=absmiddle></a></td><td align=right nowarp valign=bottom width=200><a href="admin_postings.asp?action=删除跟帖&BoardID=23&ID=56965&replyID=71070&userid=37417" title=注意：本操作将删除单个贴子><img src=pic/delete.gif border=0></a>&nbsp;<a href="admin_postings.asp?action=复制&BoardID=23&ID=56965&replyID=71070" title="复制单个贴子到别的版面"><img src="pic/copy.gif" border=0></a>&nbsp;<a href="admin_postings.asp?action=精华&BoardID=23&ID=56965&replyID=71070" title="精华"><img src="pic/jing.gif" border=0></a></td><td align=right valign=bottom width=4> </td></tr></table></td></tr></table><TABLE cellPadding=5 cellSpacing=1 align=center class=tableborder1 style=" table-layout:fixed;word-break:break-all"><tr><td class=tablebody1 valign=top width=175><table width=100% cellpadding=4 cellspacing=0><tr><td width=* valign=middle style="filter:glow(color=#9898BA,strength=2)">&nbsp;<a name=71108><font color=#990000><B>怪狗</B></font></a>	</td><td width=25 valign=middle><img src=pic/ofMale.gif alt=帅哥哟，离线，有人找我吗？></td><td width=16 valign=middle><img src=star/z10.gif alt=魔羯座2000-12-31></td></tr></table>&nbsp;&nbsp;<img src=userface/image1.gif width=32 height=32><br>&nbsp;&nbsp;<img src=pic/level10.gif><br>&nbsp;&nbsp;头衔：自考论坛站长<br>&nbsp;&nbsp;等级：管理员<BR>&nbsp;&nbsp;威望：99<br>&nbsp;&nbsp;文章：1789<br>&nbsp;&nbsp;积分：25041<br>&nbsp;&nbsp;门派：计算机专业<br>&nbsp;&nbsp;注册：2002-6-12<BR></td><td class=tablebody1 valign=top width=*><table width=100% ><tr><td width=*><a href="javascript:openScript('messanger.asp?action=new&touser=怪狗',500,400)"><img src="pic/message.gif" border=0 alt="给怪狗发送一个短消息"></a>&nbsp;<a href="friendlist.asp?action=addF&myFriend=怪狗" target=_blank><img src="pic/friend.gif" border=0 alt="把怪狗加入好友"></a>&nbsp;<a href="dispuser.asp?id=3624" target=_blank><img src="pic/profile.gif" border=0 alt="查看怪狗的个人资料"></a>&nbsp;<a href="queryResult.asp?stype=1&nSearch=3&keyword=怪狗&BoardID=23&SearchDate=ALL" target=_blank><img src="pic/find.gif" border=0 alt="搜索怪狗在→『 计算机及应用专业 』 的所有贴子"></a>&nbsp;<A href="mailto:deddd980@sohu.com"><IMG alt="点击这里发送电邮给怪狗" border=0 src=pic/email.gif></A>&nbsp;<a href="http://search.tencent.com/cgi-bin/friend/user_show_info?ln=59280880" target=_blank title="怪狗[59280880]的QQ情况"><img src=pic/oicq.gif  border=0></a>&nbsp;<A href="http://www.77169.com" target=_blank><IMG alt="访问怪狗的主页" border=0 src=pic/homepage.gif></A>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=71108&id=56965&star=1&reply=true"><img src="pic/reply.gif" border=0 alt=引用回复这个贴子></a>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=71108&id=56965&star=1"><img src="pic/reply_a.gif" border=0 alt=回复这个贴子></a></td><td width=50><b>第<font color=#FF0000>7</font>楼</b></td></tr><tr><td bgcolor=#a9d46d height=1 colspan=2></td></tr></table><blockquote><table class=tablebody2 border=0 width=90% style=" table-layout:fixed;word-break:break-all"><tr><td width="100%" style="font-size:9pt;line-height:12pt"><img src=face/face1.gif border=0 alt=发贴心情>&nbsp;<b></b><br>不错,很好</blockquote></td></tr></table></td></tr><tr><td class=tablebody1 valign=middle align=center width=175><a href=look_ip.asp?boardid=23&userid=3624&ip=*.*.*.*&action=lookip target=_blank><img align=absmiddle border=0 width=13 height=15 src="pic/ip.gif" alt="点击查看用户来源及管理<br>发贴IP：*.*.*.*"></a> 2003-11-21 2:55:40</td><td class=tablebody1 valign=middle width=*><table width=100% cellpadding=0 cellspacing=0><tr><td align=left valign=middle> <a href=editannounce.asp?BoardID=23&replyID=71108&id=56965&star=1><img src=pic/edit.gif border=0 alt=编辑这个贴子 align=absmiddle></a></td><td align=right nowarp valign=bottom width=200><a href="admin_postings.asp?action=删除跟帖&BoardID=23&ID=56965&replyID=71108&userid=3624" title=注意：本操作将删除单个贴子><img src=pic/delete.gif border=0></a>&nbsp;<a href="admin_postings.asp?action=复制&BoardID=23&ID=56965&replyID=71108" title="复制单个贴子到别的版面"><img src="pic/copy.gif" border=0></a>&nbsp;<a href="admin_postings.asp?action=精华&BoardID=23&ID=56965&replyID=71108" title="精华"><img src="pic/jing.gif" border=0></a></td><td align=right valign=bottom width=4> </td></tr></table></td></tr></table><TABLE cellPadding=5 cellSpacing=1 align=center class=tableborder1 style=" table-layout:fixed;word-break:break-all"><tr><td class=tablebody2 valign=top width=175><table width=100% cellpadding=4 cellspacing=0><tr><td width=* valign=middle style="filter:glow(color=#9898BA,strength=2)">&nbsp;<a name=71797><font color=#000066><B>爱宝人</B></font></a>	</td><td width=25 valign=middle><img src=pic/ofFeMale.gif alt=美女呀，离线，快来找我吧！></td><td width=16 valign=middle><img src=star/z4.gif alt=巨蟹座1975-7-7></td></tr></table>&nbsp;&nbsp;<img src=userface/image46.gif width=32 height=32><br>&nbsp;&nbsp;<img src=pic/level0.gif><br>&nbsp;&nbsp;等级：新手上路,请多关照<BR>&nbsp;&nbsp;文章：63<br>&nbsp;&nbsp;积分：171<br>&nbsp;&nbsp;门派：计算机专业<br>&nbsp;&nbsp;注册：2003-3-16<BR></td><td class=tablebody2 valign=top width=*><table width=100% ><tr><td width=*><a href="javascript:openScript('messanger.asp?action=new&touser=爱宝人',500,400)"><img src="pic/message.gif" border=0 alt="给爱宝人发送一个短消息"></a>&nbsp;<a href="friendlist.asp?action=addF&myFriend=爱宝人" target=_blank><img src="pic/friend.gif" border=0 alt="把爱宝人加入好友"></a>&nbsp;<a href="dispuser.asp?id=16586" target=_blank><img src="pic/profile.gif" border=0 alt="查看爱宝人的个人资料"></a>&nbsp;<a href="queryResult.asp?stype=1&nSearch=3&keyword=爱宝人&BoardID=23&SearchDate=ALL" target=_blank><img src="pic/find.gif" border=0 alt="搜索爱宝人在→『 计算机及应用专业 』 的所有贴子"></a>&nbsp;<A href="mailto:lirh_wy@sina.com"><IMG alt="点击这里发送电邮给爱宝人" border=0 src=pic/email.gif></A>&nbsp;<a href="http://search.tencent.com/cgi-bin/friend/user_show_info?ln=190998061" target=_blank title="爱宝人[190998061]的QQ情况"><img src=pic/oicq.gif  border=0></a>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=71797&id=56965&star=1&reply=true"><img src="pic/reply.gif" border=0 alt=引用回复这个贴子></a>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=71797&id=56965&star=1"><img src="pic/reply_a.gif" border=0 alt=回复这个贴子></a></td><td width=50><b>第<font color=#FF0000>8</font>楼</b></td></tr><tr><td bgcolor=#a9d46d height=1 colspan=2></td></tr></table><blockquote><table class=tablebody2 border=0 width=90% style=" table-layout:fixed;word-break:break-all"><tr><td width="100%" style="font-size:9pt;line-height:12pt"><img src=face/face1.gif border=0 alt=发贴心情>&nbsp;<b></b><br>顶，解决我的大问题了，谢谢。</blockquote></td></tr></table><p>----------------------------------------------<br></p></td></tr><tr><td class=tablebody2 valign=middle align=center width=175><a href=look_ip.asp?boardid=23&userid=16586&ip=*.*.*.*&action=lookip target=_blank><img align=absmiddle border=0 width=13 height=15 src="pic/ip.gif" alt="点击查看用户来源及管理<br>发贴IP：*.*.*.*"></a> 2003-11-21 20:30:09</td><td class=tablebody2 valign=middle width=*><table width=100% cellpadding=0 cellspacing=0><tr><td align=left valign=middle> <a href=editannounce.asp?BoardID=23&replyID=71797&id=56965&star=1><img src=pic/edit.gif border=0 alt=编辑这个贴子 align=absmiddle></a></td><td align=right nowarp valign=bottom width=200><a href="admin_postings.asp?action=删除跟帖&BoardID=23&ID=56965&replyID=71797&userid=16586" title=注意：本操作将删除单个贴子><img src=pic/delete.gif border=0></a>&nbsp;<a href="admin_postings.asp?action=复制&BoardID=23&ID=56965&replyID=71797" title="复制单个贴子到别的版面"><img src="pic/copy.gif" border=0></a>&nbsp;<a href="admin_postings.asp?action=精华&BoardID=23&ID=56965&replyID=71797" title="精华"><img src="pic/jing.gif" border=0></a></td><td align=right valign=bottom width=4> </td></tr></table></td></tr></table><TABLE cellPadding=5 cellSpacing=1 align=center class=tableborder1 style=" table-layout:fixed;word-break:break-all"><tr><td class=tablebody1 valign=top width=175><table width=100% cellpadding=4 cellspacing=0><tr><td width=* valign=middle style="filter:glow(color=#9898BA,strength=2)">&nbsp;<a name=72248><font color=#000066><B>mosjin</B></font></a>	</td><td width=25 valign=middle><img src=pic/ofMale.gif alt=帅哥哟，离线，有人找我吗？></td><td width=16 valign=middle></td></tr></table>&nbsp;&nbsp;<img src=userface/image1.gif width=32 height=32><br>&nbsp;&nbsp;<img src=pic/level0.gif><br>&nbsp;&nbsp;等级：新手上路,请多关照<BR>&nbsp;&nbsp;文章：3<br>&nbsp;&nbsp;积分：54<br>&nbsp;&nbsp;门派：计算机专业<br>&nbsp;&nbsp;注册：2003-11-22<BR></td><td class=tablebody1 valign=top width=*><table width=100% ><tr><td width=*><a href="javascript:openScript('messanger.asp?action=new&touser=mosjin',500,400)"><img src="pic/message.gif" border=0 alt="给mosjin发送一个短消息"></a>&nbsp;<a href="friendlist.asp?action=addF&myFriend=mosjin" target=_blank><img src="pic/friend.gif" border=0 alt="把mosjin加入好友"></a>&nbsp;<a href="dispuser.asp?id=37805" target=_blank><img src="pic/profile.gif" border=0 alt="查看mosjin的个人资料"></a>&nbsp;<a href="queryResult.asp?stype=1&nSearch=3&keyword=mosjin&BoardID=23&SearchDate=ALL" target=_blank><img src="pic/find.gif" border=0 alt="搜索mosjin在→『 计算机及应用专业 』 的所有贴子"></a>&nbsp;<A href="mailto:jordan623@sohu.com"><IMG alt="点击这里发送电邮给mosjin" border=0 src=pic/email.gif></A>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=72248&id=56965&star=1&reply=true"><img src="pic/reply.gif" border=0 alt=引用回复这个贴子></a>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=72248&id=56965&star=1"><img src="pic/reply_a.gif" border=0 alt=回复这个贴子></a></td><td width=50><b>第<font color=#FF0000>9</font>楼</b></td></tr><tr><td bgcolor=#a9d46d height=1 colspan=2></td></tr></table><blockquote><table class=tablebody2 border=0 width=90% style=" table-layout:fixed;word-break:break-all"><tr><td width="100%" style="font-size:9pt;line-height:12pt"><img src=face/face1.gif border=0 alt=发贴心情>&nbsp;<b></b><br>精彩，学习！</blockquote></td></tr></table></td></tr><tr><td class=tablebody1 valign=middle align=center width=175><a href=look_ip.asp?boardid=23&userid=37805&ip=*.*.*.*&action=lookip target=_blank><img align=absmiddle border=0 width=13 height=15 src="pic/ip.gif" alt="点击查看用户来源及管理<br>发贴IP：*.*.*.*"></a> 2003-11-22 17:00:50</td><td class=tablebody1 valign=middle width=*><table width=100% cellpadding=0 cellspacing=0><tr><td align=left valign=middle> <a href=editannounce.asp?BoardID=23&replyID=72248&id=56965&star=1><img src=pic/edit.gif border=0 alt=编辑这个贴子 align=absmiddle></a></td><td align=right nowarp valign=bottom width=200><a href="admin_postings.asp?action=删除跟帖&BoardID=23&ID=56965&replyID=72248&userid=37805" title=注意：本操作将删除单个贴子><img src=pic/delete.gif border=0></a>&nbsp;<a href="admin_postings.asp?action=复制&BoardID=23&ID=56965&replyID=72248" title="复制单个贴子到别的版面"><img src="pic/copy.gif" border=0></a>&nbsp;<a href="admin_postings.asp?action=精华&BoardID=23&ID=56965&replyID=72248" title="精华"><img src="pic/jing.gif" border=0></a></td><td align=right valign=bottom width=4> </td></tr></table></td></tr></table><TABLE cellPadding=5 cellSpacing=1 align=center class=tableborder1 style=" table-layout:fixed;word-break:break-all"><tr><td class=tablebody2 valign=top width=175><table width=100% cellpadding=4 cellspacing=0><tr><td width=* valign=middle style="filter:glow(color=#9898BA,strength=2)">&nbsp;<a name=72993><font color=#000066><B>海澜涛</B></font></a>	</td><td width=25 valign=middle><img src=pic/ofMale.gif alt=帅哥哟，离线，有人找我吗？></td><td width=16 valign=middle></td></tr></table>&nbsp;&nbsp;<img src=pic/Image1.gif width=32 height=32><br>&nbsp;&nbsp;<img src=pic/level0.gif><br>&nbsp;&nbsp;等级：新手上路,请多关照<BR>&nbsp;&nbsp;文章：25<br>&nbsp;&nbsp;积分：131<br>&nbsp;&nbsp;门派：橘子派<br>&nbsp;&nbsp;注册：2002-11-18<BR></td><td class=tablebody2 valign=top width=*><table width=100% ><tr><td width=*><a href="javascript:openScript('messanger.asp?action=new&touser=海澜涛',500,400)"><img src="pic/message.gif" border=0 alt="给海澜涛发送一个短消息"></a>&nbsp;<a href="friendlist.asp?action=addF&myFriend=海澜涛" target=_blank><img src="pic/friend.gif" border=0 alt="把海澜涛加入好友"></a>&nbsp;<a href="dispuser.asp?id=9732" target=_blank><img src="pic/profile.gif" border=0 alt="查看海澜涛的个人资料"></a>&nbsp;<a href="queryResult.asp?stype=1&nSearch=3&keyword=海澜涛&BoardID=23&SearchDate=ALL" target=_blank><img src="pic/find.gif" border=0 alt="搜索海澜涛在→『 计算机及应用专业 』 的所有贴子"></a>&nbsp;<A href="mailto:hjhnba@yeah.net"><IMG alt="点击这里发送电邮给海澜涛" border=0 src=pic/email.gif></A>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=72993&id=56965&star=1&reply=true"><img src="pic/reply.gif" border=0 alt=引用回复这个贴子></a>&nbsp;<a href="reannounce.asp?BoardID=23&replyID=72993&id=56965&star=1"><img src="pic/reply_a.gif" border=0 alt=回复这个贴子></a></td><td width=50><b>第<font color=#FF0000>10</font>楼</b></td></tr><tr><td bgcolor=#a9d46d height=1 colspan=2></td></tr></table><blockquote><table class=tablebody2 border=0 width=90% style=" table-layout:fixed;word-break:break-all"><tr><td width="100%" style="font-size:9pt;line-height:12pt"><img src=face/face1.gif border=0 alt=发贴心情>&nbsp;<b></b><br>列出在一操场进行比赛的各项目及其冠军。</P><P> select&nbsp;aname,&nbsp;pname<BR> from&nbsp;a,&nbsp;p,&nbsp;g<BR> where&nbsp;p.p#&nbsp;=&nbsp;g.p#&nbsp;and&nbsp;a.a#&nbsp;=&nbsp;g.a#<BR> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;addr&nbsp;=&nbsp;&#39;一操场&#39;&nbsp;and&nbsp;grade&nbsp;=&nbsp;6如果最高分是4&nbsp;分呢？</P><P> </blockquote></td></tr></table></td></tr><tr><td class=tablebody2 valign=middle align=center width=175><a href=look_ip.asp?boardid=23&userid=9732&ip=*.*.*.*&action=lookip target=_blank><img align=absmiddle border=0 width=13 height=15 src="pic/ip.gif" alt="点击查看用户来源及管理<br>发贴IP：*.*.*.*"></a> 2003-11-23 22:31:20</td><td class=tablebody2 valign=middle width=*><table width=100% cellpadding=0 cellspacing=0><tr><td align=left valign=middle> <a href=editannounce.asp?BoardID=23&replyID=72993&id=56965&star=1><img src=pic/edit.gif border=0 alt=编辑这个贴子 align=absmiddle></a></td><td align=right nowarp valign=bottom width=200><a href="admin_postings.asp?action=删除跟帖&BoardID=23&ID=56965&replyID=72993&userid=9732" title=注意：本操作将删除单个贴子><img src=pic/delete.gif border=0></a>&nbsp;<a href="admin_postings.asp?action=复制&BoardID=23&ID=56965&replyID=72993" title="复制单个贴子到别的版面"><img src="pic/copy.gif" border=0></a>&nbsp;<a href="admin_postings.asp?action=精华&BoardID=23&ID=56965&replyID=72993" title="精华"><img src="pic/jing.gif" border=0></a></td><td align=right valign=bottom width=4> </td></tr></table></td></tr></table><BR><table cellpadding=0 cellspacing=3 border=0 width=97% align=center><tr><td valign=middle nowrap>本主题贴数<b>13</b>，分页： <font color=#FF0000>[1]</font> <a href="?BoardID=23&id=56965&replyID=71064&star=2&skin=">[2]</a></td><td valign=middle nowrap align=right><select onchange="if(this.options[this.selectedIndex].value!=''){location=this.options[this.selectedIndex].value;}"><option selected>跳转论坛至...</option><option value="list.asp?boardid=47" >╋站务公告区</option><option value="list.asp?boardid=1" >&nbsp;&nbsp;├站务公告</option><option value="list.asp?boardid=46" >&nbsp;&nbsp;│&nbsp;&nbsp;├版主交流区</option><option value="list.asp?boardid=2" >&nbsp;&nbsp;├二手书市</option><option value="list.asp?boardid=52" >&nbsp;&nbsp;├自考资料下载中心</option><option value="list.asp?boardid=55" >&nbsp;&nbsp;├综合信息</option><option value="list.asp?boardid=48" >╋考生交流区</option><option value="list.asp?boardid=4" >&nbsp;&nbsp;├自考茶馆</option><option value="list.asp?boardid=53" >&nbsp;&nbsp;│&nbsp;&nbsp;├自考人物</option><option value="list.asp?boardid=54" >&nbsp;&nbsp;│&nbsp;&nbsp;├自考单身俱乐部</option><option value="list.asp?boardid=44" >&nbsp;&nbsp;├自考公共课</option><option value="list.asp?boardid=15" >&nbsp;&nbsp;├高手支招</option><option value="list.asp?boardid=7" >&nbsp;&nbsp;├成人高考、文凭考试、民办高校分论坛</option><option value="list.asp?boardid=58" >&nbsp;&nbsp;│&nbsp;&nbsp;├文凭考试论坛</option><option value="list.asp?boardid=57" >&nbsp;&nbsp;│&nbsp;&nbsp;├成人高考论坛</option><option value="list.asp?boardid=5" >&nbsp;&nbsp;├考研、出国留学分论坛</option><option value="list.asp?boardid=56" >&nbsp;&nbsp;├快乐英语吧</option><option value="list.asp?boardid=49" >╋专业分类区</option><option value="list.asp?boardid=20" >&nbsp;&nbsp;├汉语言文学专业（专、本科）</option><option value="list.asp?boardid=23" >&nbsp;&nbsp;├→『 计算机及应用专业 』 </option><option value="list.asp?boardid=30" >&nbsp;&nbsp;├心理学、护理学　专业（专、本科）</option><option value="list.asp?boardid=22" >&nbsp;&nbsp;├会计、财税专业（专、本科）</option><option value="list.asp?boardid=13" >&nbsp;&nbsp;├法律专业（专、本科）</option><option value="list.asp?boardid=33" >&nbsp;&nbsp;├英语专业（专、本科）</option><option value="list.asp?boardid=17" >&nbsp;&nbsp;├工商企业管理专业（专、本科）</option><option value="list.asp?boardid=19" >&nbsp;&nbsp;├国际贸易专业（专、本科）</option><option value="list.asp?boardid=18" >&nbsp;&nbsp;├广告学专业（专、本科）</option><option value="list.asp?boardid=31" >&nbsp;&nbsp;├新闻学专业（专、本科） </option><option value="list.asp?boardid=9" >&nbsp;&nbsp;├保险专业（专、本科）</option><option value="list.asp?boardid=27" >&nbsp;&nbsp;├金融专业（专、本科）</option><option value="list.asp?boardid=12" >&nbsp;&nbsp;├电子商务专业（专科）</option><option value="list.asp?boardid=25" >&nbsp;&nbsp;├计算机网络、通信工程专业（专、本科）</option><option value="list.asp?boardid=26" >&nbsp;&nbsp;├计算机信息管理专业(专、本科)</option><option value="list.asp?boardid=11" >&nbsp;&nbsp;├档案管理专业（专、本科）</option><option value="list.asp?boardid=29" >&nbsp;&nbsp;├室内设计专业（专科）</option><option value="list.asp?boardid=28" >&nbsp;&nbsp;├视觉传达、服装艺术设计专业（专科）</option><option value="list.asp?boardid=32" >&nbsp;&nbsp;├行政管理专业（专、本科）</option><option value="list.asp?boardid=14" >&nbsp;&nbsp;├饭店管理专业（专科）</option><option value="list.asp?boardid=37" >&nbsp;&nbsp;├中医药学专业（基础科、本科）</option><option value="list.asp?boardid=38" >&nbsp;&nbsp;├&nbsp;中英合作商务管理与金融管理专业&nbsp;</option><option value="list.asp?boardid=45" >&nbsp;&nbsp;├认证论坛</option><option value="list.asp?boardid=50" >╋临时版面</option><option value="list.asp?boardid=51" >&nbsp;&nbsp;├交换串讲资料</option></select></td></tr></table>
+<table cellpadding=1 cellspacing=1 class=tableborder1 align=center>
+<tr>
+<th align=left colspan=2 width=100% valign=middle height=25> &nbsp;*快速回复：北大《数据库原理》2003－11－07&nbsp;考题&nbsp;系列之三</th></tr>
+<form action="SaveReAnnounce.asp?method=fastreply&BoardID=23" method=POST  name=frmAnnounce onSubmit=submitonce(this)>
+<input type=hidden name="followup" value="71064">
+<input type=hidden name="RootID" value="56965">
+<input type=hidden name="star" value="1">
+<input type=hidden name="TotalUseTable" value="bbs3">
+<TR><TD noWrap width=175 class=tablebody1><b>你的用户名:</b></TD>
+<TD height=30 class=tablebody1><INPUT maxLength=25 size=23 value="henry80" name=UserName>
+&nbsp;&nbsp; <A href="reg.asp">还没注册?</A>  &nbsp;&nbsp;  <b>密码:</b>
+<INPUT type=password maxLength=20 size=23 value="f880792bdd69cce0" name=passwd>
+&nbsp;&nbsp; <A href="lostpass.asp">忘记密码?</A></TD></TR>
+
+<TR><td noWrap width=175 class=tablebody2><li><A href=reg.asp>[ 还没注册 ]</A><br><li><A href=lostpass.asp>[ 忘记密码 ]</A><li>[<a href=javascript:openScript('smiles.asp',500,600)><font color=red>加入心情图标</font></a>]<br><li>将放在帖子的前面<br></td>
+<td class=tablebody2>
+
+<input type="radio" value="face1.gif" name="Expression" checked><img src="face/face1.gif" >&nbsp;&nbsp;
+
+<input type="radio" value="face2.gif" name="Expression" ><img src="face/face2.gif" >&nbsp;&nbsp;
+
+<input type="radio" value="face3.gif" name="Expression" ><img src="face/face3.gif" >&nbsp;&nbsp;
+
+<input type="radio" value="face4.gif" name="Expression" ><img src="face/face4.gif" >&nbsp;&nbsp;
+
+<input type="radio" value="face5.gif" name="Expression" ><img src="face/face5.gif" >&nbsp;&nbsp;
+
+<input type="radio" value="face6.gif" name="Expression" ><img src="face/face6.gif" >&nbsp;&nbsp;
+
+<input type="radio" value="face7.gif" name="Expression" ><img src="face/face7.gif" >&nbsp;&nbsp;
+
+<input type="radio" value="face8.gif" name="Expression" ><img src="face/face8.gif" >&nbsp;&nbsp;
+
+<input type="radio" value="face9.gif" name="Expression" ><img src="face/face9.gif" >&nbsp;&nbsp;
+<br>
+<input type="radio" value="face10.gif" name="Expression" ><img src="face/face10.gif" >&nbsp;&nbsp;
+
+<input type="radio" value="face11.gif" name="Expression" ><img src="face/face11.gif" >&nbsp;&nbsp;
+
+<input type="radio" value="face12.gif" name="Expression" ><img src="face/face12.gif" >&nbsp;&nbsp;
+
+<input type="radio" value="face13.gif" name="Expression" ><img src="face/face13.gif" >&nbsp;&nbsp;
+
+<input type="radio" value="face14.gif" name="Expression" ><img src="face/face14.gif" >&nbsp;&nbsp;
+
+<input type="radio" value="face15.gif" name="Expression" ><img src="face/face15.gif" >&nbsp;&nbsp;
+
+<input type="radio" value="face16.gif" name="Expression" ><img src="face/face16.gif" >&nbsp;&nbsp;
+
+<input type="radio" value="face17.gif" name="Expression" ><img src="face/face17.gif" >&nbsp;&nbsp;
+
+<input type="radio" value="face18.gif" name="Expression" ><img src="face/face18.gif" >&nbsp;&nbsp;
+<br>
+</td></tr>
+<TR> <TD vAlign=top noWrap class=tablebody1><b>内容</b><br>
+<li>HTML标签： 不可用
+<li>UBB标签： 可用
+<li>贴图标签： 可用
+<li>多媒体标签：可用
+<li>表情字符转换：可用
+<li>上传图片：可用
+<li>最多35KB
+</TD>
+<TD class=tablebody1> 
+<TEXTAREA name=Content cols=100 rows=7 wrap=VIRTUAL title=可以使用Ctrl+Enter直接提交贴子  onkeydown=ctlent()></TEXTAREA>
+</TD></TR>
+<TR bgColor=background-color: #f4faed;>
+<TD noWrap class=tablebody2 height=30>
+<INPUT type=checkbox value=yes name=Forum_Setting(2)>
+邮件回复 <INPUT type=checkbox CHECKED value=yes name=signflag>
+显示签名 
+</TD>
+<TD width="100%" class=tablebody2> 
+<input type=Submit value="OK!发表我的回应帖子" name=Submit>
+&nbsp;<input type=button value="预 览" name=Button onclick=gopreview()>&nbsp;<input type=reset name=Clear value=清空内容！>[Ctrl+Enter直接提交贴子] 
+</TD>
+</TR></FORM>
+</TABLE>
+<BR>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" border=0 align=center>
+<tr valign=center> <td width =100% align=right> <b>管理选项</b>：
+<a href="admin_postings.asp?action=锁定&BoardID=23&ID=56965" title=锁定本主题>锁定</a> 
+  | <a href="admin_postings.asp?action=解锁&BoardID=23&ID=56965" title=将本主题解开锁定>解锁</a>
+  | <a href="admin_postings.asp?action=提升&BoardID=23&ID=56965" title=将本主题提升到帖子列表最前面>提升</a>
+  | <a href="admin_postings.asp?action=删除主题&BoardID=23&ID=56965" title=注意：本操作将删除本主题所有贴子，不能恢复>删除</a>
+  | <a href="admin_postings.asp?action=移动&BoardID=23&ID=56965&replyID=71064" title=移动主题>移动</a>  |  <a href="admin_postings.asp?action=固顶&BoardID=23&ID=56965" title=将本主题固顶>固顶</a>  |  <a href="admin_postings.asp?action=总固顶&BoardID=23&ID=56965" title=将本主题总固顶>总固顶</a>
+  | <a href="admin_postings.asp?action=奖励&BoardID=23&ID=56965" title=对发起主题用户奖励>奖励</a>
+  | <a href="admin_postings.asp?action=惩罚&BoardID=23&ID=56965" title=对发起主题用户惩罚>惩罚</a>
+  | <a href="announcements.asp?BoardID=23&action=AddAnn">发布公告</a>
+</td></tr></table>
+
+<form name=preview action=preview.asp?boardid=23 method=post target=preview_page>
+<input type=hidden name=title value=""><input type=hidden name=body value="">
+</form>
+<script>
+function gopreview()
+{
+
+document.forms[1].body.value=document.forms[0].Content.value;
+var popupWin = window.open('preview.asp?boardid=23', 'preview_page', 'scrollbars=yes,width=750,height=450');
+document.forms[1].submit()
+
+}
+</script>
+<script language=javascript>
+ie = (document.all)? true:false
+if (ie){
+function ctlent(eventobject){if(event.ctrlKey && window.event.keyCode==13){this.document.frmAnnounce.submit();}}
+}
+
+function submitonce(theform){
+//if IE 4+ or NS 6+
+if (document.all||document.getElementById){
+//screen thru every element in the form, and hunt down "submit" and "reset"
+for (i=0;i<theform.length;i++){
+var tempobj=theform.elements[i]
+if(tempobj.type.toLowerCase()=="submit"||tempobj.type.toLowerCase()=="reset")
+//disable em
+tempobj.disabled=true
+}
+}
+}
+</script>
+
+<p>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" border=0 align=center>
+<tr><td align=center>
+
+</td></tr>
+<tr><td align=center>
+    Powered by：<a href=http://www.77169.com target=_blank>最终完善商务版 </a>   <script>var tc_user=77169;var tc_class=2;</script><script src=http://stat.t2t2.com/stat.js></script><br>
+      Copyright &copy;2000 - 2003  <a href=http://www.bjzikao.com><font face=Verdana, Arial, Helvetica, sans-serif size=1><b>BJZIKAO<font color=#CC0000>.COM</font></b></font></a>
+      ,
+      <script language="">
+function GetCookie (name) { 
+var arg = name + "="; 
+var alen = arg.length; 
+var clen = document.cookie.length; 
+var i = 0; 
+while (i < clen) { 
+var j = i + alen; 
+if (document.cookie.substring(i, j) == arg) 
+return getCookieVal (j); 
+i = document.cookie.indexOf(" ", i) + 1; 
+if (i == 0) break; 
+} 
+return null;
+}
+
+function SetCookie (name, value) { 
+var argv = SetCookie.arguments; 
+var argc = SetCookie.arguments.length; 
+var expires = (argc > 2) ? argv[2] : null; 
+var path = (argc > 3) ? argv[3] : null; 
+var domain = (argc > 4) ? argv[4] : null; 
+var secure = (argc > 5) ? argv[5] : false; 
+document.cookie = name + "=" + escape (value) + 
+((expires == null) ? "" : ("; expires=" + expires.toGMTString())) + 
+((path == null) ? "" : ("; path=" + path)) + 
+((domain == null) ? "" : ("; domain=" + domain)) + 
+((secure == true) ? "; secure" : "");
+}
+
+function DeleteCookie (name) { 
+var exp = new Date(); 
+exp.setTime (exp.getTime() - 1); 
+// This cookie is history 
+var cval = 0; 
+document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString();
+}
+
+//设置cookies时间,自己根据情况设置。
+var expDays = 1;
+var exp = new Date(); 
+exp.setTime(exp.getTime() + (expDays*24*60*60*1000));
+
+function amt(){
+var count = GetCookie('count'); //同一ip只显示一次
+//var count;//同一ip只显示N次
+//alert(count);
+//count = null;
+if(count == null) {
+SetCookie('count','1')
+return 1
+}
+else{
+var newcount = parseInt(count) + 1;
+if(newcount<2) count=1;
+SetCookie('count',newcount,exp);
+//DeleteCookie('count')
+return newcount
+}
+}
+
+function getCookieVal(offset) {
+var endstr = document.cookie.indexOf (";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+function sethome(){
+document.links[0].style.behavior='url(#default#homepage)';
+document.links[0].setHomePage('http://www.zkbbs.com'); 
+}
+if(amt()==1)
+{
+sethome()
+}
+//-->
+</script>
+      页面执行时间：390.625毫秒
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

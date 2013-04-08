@@ -1,0 +1,197 @@
+数据库原理练习2
+
+/*
+设有一个公司，分为若干部门，现需要保存商品、公司各部门、销售记录、供应商、供应记录的信息。其中销售记录表记录了部门与其卖出的商品的联系。供应记录表记录了供应商、购买该供应商商品的部门、供应商所提供的商品的联系。表结构的具体描述如下：
+商品（商品号，商品名，颜色）
+部门（部门号，部门名，楼层）
+销售记录（部门号，商品号，商品数量）
+供应商（供应商号，供应商名，级别）
+供应记录（供应商号，部门号，商品号，商品数量）
+
+请用SQL语句完成下面的功能：
+1. 建表，要求满足如下约束：
+a) 商品名、部门名、供应商名不能为空
+b) 销售记录的数量要求大于1000，小于50000
+c) 定义必要的主外码
+2. 往表中插入如下数据：
+商品（
+ c00001, shoe, red;
+ c00002, shoe, blue;
+ c00003, shoe, yellow;
+ c00004, clothing, black;
+ c00005, clothing, pink;
+ c00006, clothing, red;
+）
+部门（
+ d00001, commodity, 1;
+ d00002, marketing, 2;
+ d00003, service, 2;
+ d00004, consulting, 3;
+）
+销售记录（
+ d00001, c00001, 5000;
+ d00001, c00002, 8000;
+ d00001, c00006, 10000;
+ d00002, c00005, 40000;
+ d00003, c00004, 9000;
+）
+供应商（
+ s00001, dangdang, 0;
+ s00002, sina, 0;
+ s00003, 8848, 0;
+）
+供应记录（
+ s00001, d00001, c00001, 5000;
+ s00001, d00002, c00005, 40000;
+ s00002, d00001, c00002, 8000;
+ s00002, d00001, c00006, 10000;
+ s00003, d00003, c00004, 9000;
+）
+3. 完成如下查询
+a) 列出销售了所有颜色为red的商品的部门名。
+b) 列出每个供应商供应给每个部门的商品总量，并按总量由大到小来排序。
+c) 列出销售商品的总量排在第一位的部门的名称。
+4. 
+当某个供应商供应的商品数量之和每超过10000时，则该供应商的级别加一（例如供应总量为25000，则级别为二，如果又供应了6000，总量变为31000，则级别为三）；使用游标，根据现有的供应记录，来设置供应商的正确级别。
+5. 找出供应商品总数量排名最后的两个供应商的编号和名称。
+*/
+drop table e075_供应记录 
+drop table e075_供应商
+drop table e075_销售记录
+drop table e075_部门
+drop table e075_商品
+create table e075_商品(
+商品号 char(6) primary key,
+商品名 varchar(20) not null,
+颜色 varchar(20))
+create table e075_部门(
+部门号 char(6) primary key,
+部门名 varchar(20) not null,
+楼层 smallint)
+create table e075_销售记录(
+部门号 char(6),
+商品号 char(6),
+商品数量 int,
+primary key (部门号, 商品号),
+foreign key (部门号) references e075_部门(部门号),
+foreign key (商品号) references e075_商品(商品号),
+check (商品数量 between 1000 and 50000))
+create table e075_供应商(
+供应商号 char(6) primary key,
+供应商名 varchar(20) not null,
+级别 tinyint)
+create table e075_供应记录(
+供应商号 char(6),
+部门号 char(6),
+商品号 char(6),
+商品数量 int,
+primary key (供应商号, 部门号, 商品号),
+foreign key (供应商号) references e075_供应商(供应商号),
+foreign key (部门号) references e075_部门(部门号),
+foreign key (商品号) references e075_商品(商品号))
+go
+
+insert e075_商品 values('c00001', 'shoe', 'red')
+insert e075_商品 values('c00002', 'shoe', 'blue')
+insert e075_商品 values('c00003', 'shoe', 'yellow')
+insert e075_商品 values('c00004', 'clothing', 'black')
+insert e075_商品 values('c00005', 'clothing', 'pink')
+insert e075_商品 values('c00006', 'clothing', 'red')
+
+insert e075_部门 values('d00001', 'commodity', 1)
+insert e075_部门 values('d00002', 'marketing', 2)
+insert e075_部门 values('d00003', 'service', 2)
+insert e075_部门 values('d00004','consulting', 3)
+
+insert e075_销售记录 values('d00001', 'c00001', 5000)
+insert e075_销售记录 values('d00001', 'c00002', 8000)
+insert e075_销售记录 values('d00001', 'c00006', 10000)
+insert e075_销售记录 values('d00002', 'c00005', 40000)
+insert e075_销售记录 values('d00003', 'c00004', 9000)
+
+insert e075_供应商 values('s00001', 'dangdang', 0)
+insert e075_供应商 values('s00002', 'sina', 0)
+insert e075_供应商 values('s00003', '8848', 0)
+
+insert e075_供应记录 values('s00001', 'd00001', 'c00001', 5000)
+insert e075_供应记录 values('s00001', 'd00002', 'c00005', 40000)
+insert e075_供应记录 values('s00002', 'd00001', 'c00002', 8000)
+insert e075_供应记录 values('s00002', 'd00001', 'c00006', 10000)
+insert e075_供应记录 values('s00003', 'd00003', 'c00004', 9000)
+go
+
+
+--3. 完成如下查询
+--a) 列出销售了所有颜色为red的商品的部门名。
+print '销售了所有颜色为red的商品的部门名：'
+select distinct 部门名
+from e075_部门 as x, e075_商品 as y, e075_销售记录 as z
+where z.部门号 = x.部门号
+  and z.商品号 = y.商品号
+  and 颜色 = 'red'
+go
+--b) 列出每个供应商供应给每个部门的商品总量，并按总量由大到小来排序。
+print '每个供应商供应给每个部门的商品总量：'
+select 供应商名, 部门名, sum(商品数量)
+from e075_供应商 as x, e075_部门 as y, e075_供应记录 as z
+where z.供应商号 = x.供应商号
+  and z.部门号 = y.部门号
+group by 供应商名, 部门名
+order by sum(商品数量) desc
+
+--c) 列出销售商品的总量排在第一位的部门的名称。
+print '销售商品的总量排在第一位的部门的名称：'
+select 部门名
+from e075_部门 as x, e075_销售记录 as y
+where x.部门号 = y.部门号
+group by 部门名
+having sum(商品数量)>=all(
+ select sum(商品数量)
+ from e075_部门 as x, e075_销售记录 as y
+ where x.部门号 = y.部门号
+ group by 部门名)
+
+--4. 
+当某个供应商供应的商品数量之和每超过10000时，则该供应商的级别加一（例如供应总量为25000，则级别为二，如果又供应了6000，总量变为31000，则级别为三）；使用游标，根据现有的供应记录，来设置供应商的正确级别。
+declare cur_update cursor
+for
+select 供应商号
+from e075_供应商
+declare @SID char(6), @class tinyint, @amount int
+open cur_update
+fetch from cur_update into @SID 
+while (@@fetch_status = 0)
+begin
+  set @amount = (
+ select sum(商品数量)
+ from e075_供应记录
+        where 供应商号 = @SID)
+  set @class = @amount/10000
+  print '级别：'+cast(@class as char(2))+' 商品总量:'+cast(@amount as 
+char(6))
+  update e075_供应商
+  set 级别 = @class
+  where 供应商号 = @SID
+  fetch from cur_update into @SID
+end
+close cur_update
+deallocate cur_update
+
+--select * from e075_供应商
+--5. 找出供应商品总数量排名最后的两个供应商的编号和名称。
+declare cur_select cursor
+for
+select x.供应商号, 供应商名
+from e075_供应商 as x, e075_供应记录 as y
+where x.供应商号 = y.供应商号
+group by x.供应商号, 供应商名
+order by sum(商品数量)
+print '供应商品总数量排名最后的两个供应商的编号和名称：'
+declare @SID char(6), @SName varchar(20)
+open cur_select
+fetch from cur_select into @SID, @SName
+print @SID+' '+@SName
+fetch from cur_select into @SID, @SName
+print @SID+' '+@SName
+close cur_select
+deallocate cur_select

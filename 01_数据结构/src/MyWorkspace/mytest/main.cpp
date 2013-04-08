@@ -2,9 +2,19 @@
 #include <stdio.h>
 
 typedef char string[255];
+#define TRUE 1;
+#define FALSE 0;
+
 
 int main(){
-	//string *stack, str;
+	string *stack, str;
+	char* code = "0123456789ABCDEF";
+	gets(str);
+	printf("OUTPUT:%s,%c,%c\n", str, code[11], code[5]);
+
+	bool i = FALSE;
+	printf("\n%d\n", i);
+
 	//int top = 0;
 	//stack = (string*)malloc(100*sizeof(string));
 
@@ -27,14 +37,14 @@ int main(){
 	//	printf("\n");
 	//}                     
 
-	int data[5];
-	for(int i=0; i<5; i++){
-		scanf("%d", data + i);
-	}
+	//int data[5];
+	//for(int i=0; i<5; i++){
+	//	scanf("%d", data + i);
+	//}
 
-	for(int i=0; i<5; i++){
-		printf("%d\n", data[i]);
-	}
+	//for(int i=0; i<5; i++){
+	//	printf("%d\n", data[i]);
+	//}
 
 
 	printf("Êä³öÍê±Ï\n");

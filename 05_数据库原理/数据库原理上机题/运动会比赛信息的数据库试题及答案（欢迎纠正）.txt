@@ -1,0 +1,182 @@
+运动会比赛信息的数据库试题及答案（欢迎纠正）
+
+有某个学生运动会比赛信息的数据库，保存了如下的表：
+运动员（运动员编号，运动员姓名，运动员性别，所属系号）
+项目（项目编号，项目名称，项目比赛地点）
+成绩（运动员编号，项目编号，积分）
+请用SQL语句完成如下功能：
+1. 建表，注意满足如下要求：
+a) 表名必须加自己的帐号作前缀，比如“d10000001运动员”，
+b) 定义各个表的主码外码约束
+c) 运动员的姓名和所属系别不能为空值。
+d) 积分要么为空值，要么为6,4,2,0, 分别代表第一，二，三名和其他名次的积分，注意名次可以有并列名次，后面的排名不往前提升，例如，如果有两个并列第一，则没有第二名。
+2. 往表中插入数据：
+运动员（ 1001, 李明，男，计算机系
+   1002，张三，男，数学系
+   1003, 李四，男，计算机系
+   1004, 王二，男，物理系
+   1005, 李娜，女，心理系
+   1006, 孙丽，女，数学系）
+项目（ x001, 男子五千米，一操场
+   x002，男子标枪，一操场
+   x003, 男子跳远，二操场
+         x004, 女子跳高，二操场
+x005, 女子三千米，三操场）
+积分（  1001,  x001, 6
+        1002,   x001, 4
+        1003,  x001, 2
+        1004,  x001, 0
+        1001,  x003, 4
+        1002,  x003, 6
+        1004,  x003, 2
+        1005,  x004, 6
+        1006,  x004, 4）
+3. 完成如下查询
+a） 求出目前总积分最高的系名，及其积分。
+b） 找出在一操场进行比赛的各项目名称及其冠军的姓名
+c） 找出参加了张三所参加的所有项目的其他同学的姓名
+4. 经查张三因为使用了违禁药品，其成绩都记0分，请在数据库中作出相应修改。
+5. 经组委会协商，需要删除女子跳高比赛项目
+
+
+begin transaction
+use sportting_meeting
+go
+--创建运动员表
+create table e191_sporter
+(
+sno char(5) primary key,
+sname varchar(20) not null,
+***  char(2),
+dname varchar(20) not null
+)
+go
+--创建项目表
+create table e191_project
+(
+pno char(5) primary key,
+pname varchar(20),
+address varchar(20)
+)
+go
+--创建成绩表
+create table e191_grade
+(
+sno char(5),
+pno char(5),
+credit tinyint NULL,
+  check( credit in( 6,4,2,0) ),
+primary key(sno,pno),
+foreign key(sno) references e191_sporter(sno),
+foreign key(pno) references e191_project(pno)
+)
+commit
+
+begin transaction
+use sportting_meeting
+go
+--往表中插入数据
+insert into e191_sporter
+values('1001', '李明','男','计算机系')
+insert into e191_sporter
+values(  '1002','张三','男','数学系')
+insert into e191_sporter
+values(  '1003', '李四','男','计算机系')
+insert into e191_sporter
+values(  '1004', '王二','男','物理系')
+insert into e191_sporter
+values(  '1005', '李娜','女','心理系')
+insert into e191_sporter
+values(  '1006', '孙丽','女','数学系')
+go
+--往项目表中插入数据
+insert into e191_project
+values('x001', '男子五千米','一操场')
+insert into e191_project
+values( 'x002','男子标枪','一操场')
+insert into e191_project
+values( 'x003', '男子跳远','二操场')
+insert into e191_project
+values( 'x004', '女子跳高','二操场')
+insert into e191_project
+values('x005', '女子三千米','三操场')
+go
+--往成绩表中插入数据
+insert into e191_grade
+values( '1001',  'x001', 6)
+insert into e191_grade
+values( '1002',   'x001', 4)
+insert into e191_grade
+values( '1003',  'x001', 2)
+insert into e191_grade
+values( '1004',  'x001', 0)
+insert into e191_grade
+values( '1001',  'x003', 4)
+insert into e191_grade
+values( '1002',  'x003', 6)
+insert into e191_grade
+values( '1004',  'x003', 2)
+insert into e191_grade
+values( '1005',  'x004', 6)
+insert into e191_grade
+values( '1006',  'x004', 4)
+commit
+
+--经查张三因为使用了违禁药品，其成绩都记0分，请在数据库中作出相应修改
+update e191_grade
+set  credit=0 
+where sno in
+  (  select sno
+   from e191_sporter
+   where sname='张三' )
+
+--经组委会协商，需要删除女子跳高比赛项目
+delete from e191_grade
+where pno in
+  ( select pno
+   from e191_project
+   where pname='女子跳高'
+  )
+delete from e191_project
+where pname='女子跳高'
+
+--求出目前总积分最高的系名,及其积分
+use sportting_meeting
+go
+select dname 系名,sum(credit) 总积分
+from e191_sporter,e191_grade
+where e191_sporter.sno=e191_grade.sno
+group by dname
+  having sum(credit)>=all
+     (  select sum( credit)
+      from e191_sporter,e191_grade
+      where e191_sporter.sno=e191_grade.sno
+      group by dname )  
+go
+     
+--找出参加了张三所参加的所有项目的其他同学的姓名
+select sname  姓名
+from e191_sporter x
+where not exists
+( select *
+  from e191_sporter w,e191_grade y
+  where sname='张三' and  w.sno=y.sno 
+   and not exists 
+    (  select *
+     from e191_grade z
+     where z.sno=x.sno and z.pno=y.pno and x.       sno<>w.sno )
+)
+
+--找出在一操场进行比赛的各项目名称及其冠军姓名
+select pname as 项目名称,sname as 冠军姓名
+from e191_sporter,e191_project x,e191_grade
+where  address='一操场' and e191_sporter.sno=e191_grade.sno
+  and e191_grade.pno=x.pno 
+  and credit>=(  select max( credit) 
+       from   e191_project y,e191_grade
+      where address='一操场' and 
+         e191_grade.pno=y.pno
+       and x.pno=y.pno )
+
+
+

@@ -4,6 +4,7 @@
 	Version="9.00"
 	Name="e01"
 	ProjectGUID="{5712988C-FD80-45A4-B9A3-524A49D910D3}"
+	RootNamespace="e01"
 	TargetFrameworkVersion="0"
 	>
 	<Platforms>
@@ -166,12 +167,14 @@
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
 				TargetMachine="1"
+				CLRUnmanagedCodeCheck="true"
 			/>
 			<Tool
 				Name="VCALinkTool"
 			/>
 			<Tool
 				Name="VCManifestTool"
+				VerboseOutput="true"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
